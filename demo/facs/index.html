@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facial Action Coding System (FACS) - CogniCue</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo/favicon-60x66.png">
+
+    <!-- Stylesheets -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/darkly/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-ae362vOLHy2F1EfJtpMbNW0i9pNM1TP2l5O4VGYYiLJKsaejqVWibbP6BSf0UU5i"
+          crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link href="/assets/demo/facs/css/index-dark.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/demo/facs/css/common.css" rel="stylesheet" type="text/css" />
+
+    <!-- fontawesome glyphs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>    
+    <!-- D3 - Data Driven Documents -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="/assets/demo/facs/js/metric-config.js"></script>
+    <script src="/assets/demo/facs/js/media-config.js"></script>
+    <script src="/assets/demo/facs/js/application.js"></script>
+
+    <script defer src="/assets/demo/facs/js/cogni.js"></script>
+  	<script defer src="/assets/demo/facs/js/graph.js"></script>
+  	<script defer src="/assets/demo/facs/js/player.js"></script>
+  	<script defer src="/assets/demo/facs/js/summarizer.js"></script>
+  	<script defer src="/assets/demo/facs/js/modal-alert.js"></script>
+  	<script defer src="/assets/demo/facs/js/summary.js"></script>
+  	<script defer src="/assets/demo/facs/js/demo.js"></script>
+ 
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PBR462L');</script>
+<!-- End Google Tag Manager -->
+
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBR462L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <nav class="navbar navbar-light bg-highlight">
+  <div class="container">
+    <div>
+      <a class="brand-logo-adj navbar-brand align-middle" href="/">
+        <img class="brand-logo" src="/assets/img/logo/logo-200x200.png" alt="CogniCue" />
+    </a>
+    <span class="navbar-text boldtext align-middle">Facial Action Coding System (FACS)</span>
+    </div>
+  </div>
+</nav>
+    
+
+<div id="text-width"></div>
+<div id="facevideo-node"></div>
+
+<div class="container">
+  <!-- Modal -->
+<div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-box"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div id="consent-container" style="display:flex;">
+    <div class="container d-flex full-height align-items-center">
+  <div class="row d-flex justify-content-center">
+    <div class="col col-md-6">
+      <div class="card">
+        <h5 class="card-header">Privacy Notice</h5>
+        <div class="card-body">
+          <p class="card-text">This demo makes use of the CogniCue JavaScript SDK. To use it, you must enable your webcam.</p>
+          <p class="card=text">Your webcam data and frame-by-frame emotion metrics will <strong>not</strong> be sent to CogniCue.          
+          This means <strong>no data</strong> will be sent back to CogniCue. Eventually, after loading all resources you can use the application offline.
+          You may review CogniCue's privacy policy <a href="/privacy-policy/" target="_new_tab">here</a>.</p>
+          <p> Click "I Accept" to proceed to the demo.</p>
+          <br>
+          <a href="/" class="btnC btn btn-info">Cancel</a>
+          <a class="btnC btn btn-info float-right" id="demo-consent">I Accept</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="row align-items-center text-center full-height" id="loading-container" style="display:none;">
+    <div class="col loading-state" id="loading-info">
+      <div class="loader"></div>
+      <br>
+      <span id="loading-text">This demo requires your webcam, please make sure it is enabled.</span>
+    </div>
+  </div>
+
+  <div class="row" id="demo-container" style="display: none;">
+
+
+    <div class="col-3 mt-4 text-center">
+      <!-- Buttons Emotions Menu 
+      <ul class="nav nav-pills nav-justified mt-4" id="emotion-buttons" style="margin-left: 40px; margin-right: 40px;">
+      </ul>-->      
+
+      <div class="card rounded bg-transparent" style="border: 1px solid white;">
+        <div class="card-header small">Engagement Metric</div>
+        <div class="card-body bg-transparent pt-1 pb-2">
+          <p class="small">You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>
+          <select id="emotion-buttons" name="states[]" multiple="multiple"></select>
+        </div>
+      </div>
+        
+    </div>    
+
+    <div class="col-6">
+      <br>
+      <!-- Video -->
+      <div class="row my-0">
+        <div class="col text-center" >
+          <div id="video-wrapper" >
+            <video poster="" id="media-stimulus" class="my-1 img-fluid" data="" oncontextmenu="return false;"></video>
+			      <video poster="" id="media-object" class="my-1 img-fluid" style="display: none;" data="" oncontextmenu="return false;" controls></video>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="svg-container">
+        <!-- Graph -->
+        <div id="svg-wrapper" class="col my-0 text-center" style>
+          <svg id="svg-curve"></svg>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 mt-4">
+      <div class="card rounded bg-transparent" style="border: 1px solid white;">
+        <div class="card-header small">Legend</div>
+        <div class="card-body bg-transparent pt-1 pb-2">
+          <div style="height: 10px; width: 10px; background-color: #6ef784; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"></div> 
+          <div><small>Color curves represent moment-by-moment emotion probabilities</small></div>
+          <div style="clear: both; margin-bottom: 5px;"></div>
+          <div style="height: 10px; width: 10px; background-color: #404040; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"></div>
+          <div><small>Gray bar in graph indicates no face found</small></div>
+        </div>
+      </div>
+      
+      <div id="stopAnalysis" class="card rounded bg-transparent mt-2" style="display:none; border: 1px solid white;">
+        <div class="card-body bg-transparent pt-1 pb-2">
+          <p class="small">You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>
+            <div class="text-center mt-2">
+              <a id="stopRecord" class="btn btn-info btn-sm" href="#">Stop</a>
+            </div>          
+        </div>
+      </div>
+
+        <!-- Transition Menu -->
+        <div id="toSummary" class="card bg-transparent mt-2" style="display:none; border: 1px solid white;">
+          <div class="card-body pt-2">
+            <p class="small">You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>
+            <div><hr class="bg-white"/></div>
+            <div class="small mb-2">Click the button below to see how your reactions compare to the average.</div>
+            <div class="text-center"><button id="summaryButton" class="btn btn-success btn-sm">View Summary</button></div>
+            <div><hr class="bg-white"/></div>
+            <p class="small">Click <strong>New Video</strong> to start over with another video.</p>
+            <div class="text-center mt-2">
+              <a id="choose_another" class="btn btn-info btn-sm" href="#">New Video</a></div>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+
+  <div style="display:none;" id="summary-container">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-8 offset-lg-2">
+          <br>
+          <div class="card">
+
+            <div class="card-body">
+              <div class="tab-content" id="summaryTabContent">
+                <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Metric</th>
+                      <th class="text-right" scope="col">Your Average</th>
+                      <!--<th class="text-right" scope="col">Ad Average</th>-->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">Anger</td>
+                      <td class="text-right" id="userMeananger">-</td>
+                      <!--<td class="text-right">5.3</td>-->
+                    </tr>
+                    <tr>
+                      <td scope="row">Contempt</td>
+                      <td class="text-right" id="userMeancontempt">-</td>
+                      <!--<td class="text-right">23.9</td>-->
+                    </tr>
+                    <tr>
+                      <td scope="row">Disgust</td>
+                      <td class="text-right" id="userMeandisgust">-</td>
+                      <!--<td class="text-right">94.6</td>-->
+                    </tr>
+                    <tr>
+                      <td scope="row">Fear</td>
+                      <td class="text-right" id="userMeanfear">-</td>
+                      <!--<td class="text-right">7.6</td>-->
+                    </tr>
+                    <tr>
+                      <td scope="row">Happiness</td>
+                      <td class="text-right" id="userMeanjoy">-</td>
+                      <!--<td class="text-right">4.2</td>-->
+                    </tr>
+                    <tr>
+                      <td scope="row">Surprise</td>
+                      <td class="text-right" id="userMeansurprise">-</td>
+                      <!--<td class="text-right">2.9</td>-->
+                    </tr>
+                    <tr>
+                      <td scope="row">Sadness</td>
+                      <td class="text-right" id="userMeansadness">-</td>
+                      <!--<td class="text-right">4.3</td>-->
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                <div class="tab-pane fade" id="visual" role="tabpanel" aria-labelledby="visual-tab">
+                  <!-- TODO: Fill with visuzlization of results -->
+                  <!-- <svg id="summaryGraph" width="960" height="500"></svg> -->
+                </div>
+                <div class="tab-pane fade" id="explain" role="tabpanel" aria-labelledby="explain-tab">
+                  <!-- TODO: Fill with explanation of results -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-2">
+          <br>
+          <div class="row">
+            <!-- Transition Menu -->
+            <div id="toDemo" class="col text-center" >
+              <a href="#" id="demoButton" class="btn btn-success">Back to Graph</a>
+              <br><br>
+              <a href="/" class="btn btn-info">New Video</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
