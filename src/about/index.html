@@ -1,0 +1,31 @@
+{% extends "layout/_base.html" %}
+{% block main %}
+
+
+<div class="about-details-area section-padding2">
+<div class="container">
+<div class="row">
+
+{% for each in section %}
+<div class="col-lg-4">
+<div class="about-tittle">
+<h2>{{each.name}}</h2>
+</div>
+</div>
+<div class="col-lg-7">
+<div class="about-details mb-50">
+<p class="pear1">{{each.head}}</p>
+{% for para in each.para %}
+	<p class="pear2">{{para}}</p>
+{% endfor %}
+</div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+</div>
+
+
+{% include "layout/_contact_us.html" %}
+{% endblock %}

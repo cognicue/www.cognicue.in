@@ -1,0 +1,46 @@
+<div class="header-area header_area header-transparent">
+<div class="main-header">
+<div class="header-bottom  header-sticky">
+<div class="container-fluid">
+<div class="row align-items-center">
+
+<div class="col-xl-2 col-lg-1 col-md-1">
+<div class="logo-adj-nav logo">
+<a href="/"><img src="{{site_logo}}" alt="{{site_title}}"></a>
+</div>
+</div>
+<div class="col-xl-8 col-lg-8 col-md-8">
+<div class="main-menu f-right d-none d-lg-block">
+
+<nav>
+<ul id="navigation">
+{% for each in site_headers %}
+	<li>
+		<a href="{{each.link}}">{{each.text}}</a>
+	{% if each.sub_header %}
+		<ul class="submenu">
+			{% for submenu in each.sub_header %}
+				<li><a href="{{submenu.link}}">{{submenu.text}}</a></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	</li>
+{% endfor %}
+</nav>
+
+</div>
+</div>
+<div class="col-xl-2 col-lg-3 col-md-3">
+<div class="header-right-btn f-right d-none d-lg-block">
+<a href="#" class="btn header-btn">Contact Now</a>
+</div>
+</div>
+
+<div class="col-12">
+<div class="mobile_menu d-block d-lg-none"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

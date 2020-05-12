@@ -1,0 +1,35 @@
+page_title: Facial Action Coding System (FACS)
+
+privacy_note:
+  para1: This demo makes use of the CogniCue JavaScript SDK. To use it, you must enable your webcam.
+  para2: Your webcam data and frame-by-frame emotion metrics will <strong>not</strong> be sent to CogniCue. This means <strong>no data</strong> will be sent back to CogniCue. Eventually, after loading all resources you can use the application offline. You may review CogniCue's privacy policy <a href="/privacy-policy/" target="_new_tab">here</a>.
+  para3: Click "I Accept" to proceed to the demo.
+
+loading_text: This demo requires your webcam, please make sure it is enabled.
+
+left_card1:
+  header: Engagement Metric
+  body: You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.
+
+right_card1:
+  header: Legend
+  para1: Color curves represent moment-by-moment emotion probabilities
+  para2: Gray bar in graph indicates no face found
+
+right_card2:
+  para1: You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.
+
+right_card3:
+  para1: You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.
+  para2: Click the button below to see how your reactions compare to the average.
+
+
+messages:
+    incompatableBrowser: "It appears that you are using an unsupported browser. Please try this demo on an updated version of Chrome, Firefox, Opera or Edge."
+    loadingPlayer: "Loading Player..."
+    webcamFailure: "Unable to connect to webcam, please make sure your webcam is connected, and this page has permission to access it."
+    detectorLoaded: "Loading the emotion detector..."
+    noFace: "<h4>No face detected</h4> <p>Please make sure your face is in view of the webcam.</p>"
+    videoStart: '\n  <h4>Welcome!</h4>\n  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>\n  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking a label on the left.</p>\n  <button type="button" class="btnC btn btn-primary float-left" id="startRecord" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>\n  '
+    videoEnd: '\n  <p>Analysis Complete!</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  '
+    videoLocal: '\n  <p>Analyse New Video</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  '

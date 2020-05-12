@@ -1,0 +1,14 @@
+slider_area:
+  
+  background: /assets/img/hero/h1_hero.jpg
+
+  slides:
+    - image: /assets/img/hero/hero_img.jpg
+      title: Converting Emotions into Analytics 
+      description: The new technology will find use in a variety of real-world applications, including facial expressions and emotions with non verbal communication facilitation for various fields.
+      link: "#"
+
+    - image: /assets/img/hero/hero_img2.jpg
+      title: Measuring Non Verbals and Decoding Authenticity
+      description: Bringing emotions back to the experience and deciphering its meaning digitally. Even when people don’t express their thoughts verbally, most people constantly throw off clues to what they’re thinking and feeling, which is what we would be measuring. The technology is backed by numerous scientific research and would continuously be updated with time.
+      link: "#"

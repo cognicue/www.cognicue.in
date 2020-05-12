@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Facial Action Coding System (FACS) - CogniCue</title>
+    <title>{{page_title}} | {{site_title}}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo/favicon-60x66.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{site_favicon}}">
 
     <!-- Stylesheets -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/darkly/bootstrap.min.css"
@@ -52,6 +52,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PBR462L');</script>
 <!-- End Google Tag Manager -->
 
+<script type="text/javascript">
+  const messages = {
+    incompatableBrowser: '{{messages.incompatableBrowser}}',
+    loadingPlayer: '{{messages.loadingPlayer}}',
+    webcamFailure: '{{messages.webcamFailure}}',
+    detectorLoaded: '{{messages.detectorLoaded}}',
+    noFace: '{{messages.noFace}}',
+    videoStart: '{{messages.videoStart}}',
+    videoEnd: '{{messages.videoEnd}}',
+    videoLocal: '{{messages.videoLocal}}'
+  }
+</script>
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -63,9 +76,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div>
       <a class="brand-logo-adj navbar-brand align-middle" href="/">
-        <img class="brand-logo" src="/assets/img/logo/logo-200x200.png" alt="CogniCue" />
+        <img class="brand-logo" src="{{site_logo}}" alt="{{site_title}}" />
     </a>
-    <span class="navbar-text boldtext align-middle">Facial Action Coding System (FACS)</span>
+    <span class="navbar-text boldtext align-middle">{{page_title}}</span>
     </div>
   </div>
 </nav>
@@ -94,11 +107,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="card">
         <h5 class="card-header">Privacy Notice</h5>
         <div class="card-body">
-          <p class="card-text">This demo makes use of the CogniCue JavaScript SDK. To use it, you must enable your webcam.</p>
-          <p class="card=text">Your webcam data and frame-by-frame emotion metrics will <strong>not</strong> be sent to CogniCue.          
-          This means <strong>no data</strong> will be sent back to CogniCue. Eventually, after loading all resources you can use the application offline.
-          You may review CogniCue's privacy policy <a href="/privacy-policy/" target="_new_tab">here</a>.</p>
-          <p> Click "I Accept" to proceed to the demo.</p>
+          <p class="card-text">{{privacy_note.para1}}</p>
+          <p class="card=text">{{privacy_note.para2}}</p>
+          <p>{{privacy_note.para3}}</p>
           <br>
           <a href="/" class="btnC btn btn-info">Cancel</a>
           <a class="btnC btn btn-info float-right" id="demo-consent">I Accept</a>
@@ -113,7 +124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="col loading-state" id="loading-info">
       <div class="loader"></div>
       <br>
-      <span id="loading-text">This demo requires your webcam, please make sure it is enabled.</span>
+      <span id="loading-text">{{loading_text}}</span>
     </div>
   </div>
 
@@ -126,9 +137,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>-->      
 
       <div class="card rounded bg-transparent" style="border: 1px solid white;">
-        <div class="card-header small">Engagement Metric</div>
+        <div class="card-header small">{{left_card1.header}}</div>
         <div class="card-body bg-transparent pt-1 pb-2">
-          <p class="small">You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>
+          <p class="small">{{left_card1.body}}</p>
           <select id="emotion-buttons" name="states[]" multiple="multiple"></select>
         </div>
       </div>
@@ -155,19 +166,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="col-3 mt-4">
       <div class="card rounded bg-transparent" style="border: 1px solid white;">
-        <div class="card-header small">Legend</div>
+        <div class="card-header small">{{right_card1.header}}</div>
         <div class="card-body bg-transparent pt-1 pb-2">
           <div style="height: 10px; width: 10px; background-color: #6ef784; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"></div> 
-          <div><small>Color curves represent moment-by-moment emotion probabilities</small></div>
+          <div><small>{{right_card1.para1}}</small></div>
           <div style="clear: both; margin-bottom: 5px;"></div>
           <div style="height: 10px; width: 10px; background-color: #404040; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"></div>
-          <div><small>Gray bar in graph indicates no face found</small></div>
+          <div><small>{{right_card1.para2}}</small></div>
         </div>
       </div>
       
       <div id="stopAnalysis" class="card rounded bg-transparent mt-2" style="display:none; border: 1px solid white;">
         <div class="card-body bg-transparent pt-1 pb-2">
-          <p class="small">You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>
+          <p class="small">{{right_card2.para1}}</p>
             <div class="text-center mt-2">
               <a id="stopRecord" class="btn btn-info btn-sm" href="#">Stop</a>
             </div>          
@@ -177,9 +188,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Transition Menu -->
         <div id="toSummary" class="card bg-transparent mt-2" style="display:none; border: 1px solid white;">
           <div class="card-body pt-2">
-            <p class="small">You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>
+            <p class="small">{{right_card3.para1}}</p>
             <div><hr class="bg-white"/></div>
-            <div class="small mb-2">Click the button below to see how your reactions compare to the average.</div>
+            <div class="small mb-2">{{right_card3.para2}}</div>
             <div class="text-center"><button id="summaryButton" class="btn btn-success btn-sm">View Summary</button></div>
             <div><hr class="bg-white"/></div>
             <p class="small">Click <strong>New Video</strong> to start over with another video.</p>

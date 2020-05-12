@@ -1,0 +1,45 @@
+site_title: CogniCue
+
+site_description: 
+
+site_logo: /assets/img/logo/logo-200x200.png
+
+site_favicon: /assets/img/logo/favicon-60x66.png
+
+site_headers:
+
+  - text: Home
+    link: "/"
+
+  - text: About
+    link: "/about/"
+
+  - text: Products
+    link: "#"
+    sub_header:
+      - text: Media Analytics
+        link: "/products/media-analytics/"
+
+  - text: Demo
+    link: "#"
+    sub_header:
+      - text: FACS
+        link: "/demo/facs/"
+
+  - text: Contact
+    link: "/contact/"           
+
+site_social:
+  facebook: https://www.facebook.com/bodyspeaksbetter
+  instagram: https://www.instagram.com/bodyspeaksbetter  
+  twitter: https://twitter.com/kanantandi
+  website: https://www.bodyspeaksbetter.com
+
+site_contact:
+  email: info@bodyspeaksbetter.com
+  mobile: 777 593 8257
+  address: Goa, India 403601
+  city: Margaon, Goa
+  country_pin: India, 403601
+
+site_copyright: CogniCue, A Body Speaks Better Company
