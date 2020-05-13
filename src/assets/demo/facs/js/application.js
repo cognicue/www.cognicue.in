@@ -1498,9 +1498,9 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
     $(document).ready(function(e){
         let qs = new URLSearchParams(window.location.search)
           , exclude_id=parseInt(qs.get("e"))
-          , media_language = Object.keys(MEDIA)
+          , media_language = Object.keys(media)
           , random_language = media_language[Math.floor(Math.random() * media_language.length)]
-          , media_list = MEDIA[random_language]
+          , media_list = media[random_language]
           , excluded_list = media_list.filter((v)=>(v.id  != exclude_id))
           , random_media = excluded_list[Math.floor(Math.random() * excluded_list.length)]
           , demo_id = random_media.id;

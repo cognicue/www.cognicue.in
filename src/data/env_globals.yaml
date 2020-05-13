@@ -6,28 +6,47 @@ site_logo: /assets/img/logo/logo-200x200.png
 
 site_favicon: /assets/img/logo/favicon-60x66.png
 
-site_headers:
+site_pages:  
+  about:
+    text: About Us
+    link: /about/
+  products:
+    text: Products
+    link: /products/
+    sub:
+      - text: Media Analytics
+        link: /products/media-analytics/
+  contact:
+    text: Contact Us
+    link: /contact/
+  privacy:
+    text: Privacy Policy
+    link: /privacy-policy/
+  terms:
+    text: Terms of Service
+    link: /terms-of-service/
 
+site_headers:
   - text: Home
     link: "/"
 
   - text: About
-    link: "/about/"
+    link: /about/
 
   - text: Products
     link: "#"
     sub_header:
       - text: Media Analytics
-        link: "/products/media-analytics/"
+        link: /products/media-analytics/
 
   - text: Demo
     link: "#"
     sub_header:
       - text: FACS
-        link: "/demo/facs/"
+        link: /demo/facs/
 
   - text: Contact
-    link: "/contact/"           
+    link: /contact/
 
 site_social:
   facebook: https://www.facebook.com/bodyspeaksbetter
@@ -43,3 +62,7 @@ site_contact:
   country_pin: India, 403601
 
 site_copyright: CogniCue, A Body Speaks Better Company
+
+page404:
+  heading: 404 - Page Not Found
+  text: You entered into the wrong wormhole

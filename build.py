@@ -1,27 +1,55 @@
-import os, yaml
+import argparse, os, re, shutil, yaml
+from datetime import datetime
 from staticjinja import Site
+from urllib import request
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+SOURCE_PATH = os.path.join(BASE_DIR, "src")
+BUILD_PATH = os.path.join(BASE_DIR, "build")
+NEW_PAGE = os.path.join(SOURCE_PATH, "layout", "_page.html")
+
+REGEX_PATH = r'^(?:\.{2})?(?:\/\.{2})*(\/[-/a-zA-Z0-9]+)+$'
 
 class Template:
 
-    def __init__(self, datapath):
+    def __init__(self, new_pages, datapath):
         self.datapath = datapath
+        for page in new_pages:
+            if re.match(REGEX_PATH, page):
+                new_path = os.path.join(SOURCE_PATH, request.url2pathname(page[1:]))
+                new_page = os.path.join(new_path, "index.html")
+                if not os.path.exists(new_path):
+                    os.makedirs(new_path)
+                if not os.path.exists(new_page):
+                    shutil.copyfile(NEW_PAGE, new_page)
 
     def context(self):
         datapath = self.datapath
         def _context(template):
-            dirname = os.path.dirname(template.name).replace(os.sep, ":")
-            filepath = "{}{}.yaml".format(datapath, (dirname or "root"))
+            dirname = os.path.dirname(template.name).replace(os.sep, "-")
+            filepath = os.path.join(datapath, "{}.yaml".format(dirname or "home"))
             if os.path.exists(filepath):
-                return self.yaml_reader(filepath)
-            return {}
+                context = self.yaml_reader(filepath)
+            else:
+                context = {
+                    "page_generated": datetime.now(),
+                    "page_title": "",
+                    "section": {
+                        "heading": "Section Heading",
+                        "text": "Section Paragraph<br/>Modify data file: {}".format(filepath)
+                    }
+                }
+                with open(filepath, "w") as file:
+                    file.write(yaml.dump(context))
+            return context
         return _context
 
     def filters(self):
         return {}
 
     def env_globals(self):
-        return self.yaml_reader(self.datapath+"env_globals.yaml")
+        return self.yaml_reader(os.path.join(self.datapath, "env_globals.yaml"))
 
     def yaml_reader(self, filename):
         with open(filename) as file:
@@ -29,15 +57,23 @@ class Template:
         return data
 
 if __name__ == "__main__":
-    tmp = Template(datapath="./src/data/")
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument("-n", nargs='*', default=[])
+    args = arg_parser.parse_args()
+
+    tmp = Template(
+        new_pages = args.n,
+        datapath=os.path.join(SOURCE_PATH, "data")
+    )
+
     site = Site.make_site(
-        searchpath="./src/",
+        searchpath=SOURCE_PATH,
+        outpath=BUILD_PATH,
         staticpaths=["assets", "CNAME", "data"],
-        outpath="./build/",
         contexts=[(".*.html", tmp.context())],
         env_globals=tmp.env_globals(),
         filters=tmp.filters(),
         mergecontexts=True,
     )
     # enable automatic reloading
-    site.render(use_reloader=True)
+    site.render(use_reloader=False)

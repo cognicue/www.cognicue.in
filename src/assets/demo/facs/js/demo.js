@@ -253,8 +253,8 @@ function Demo(pageAlert, metric) {
 
 }
 
-/*
-const messages = {
+
+const _messages = {
     incompatableBrowser: "It appears that you are using an unsupported browser. Please try this demo on an updated version of Chrome, Firefox, Opera or Edge.",
     loadingPlayer: "Loading Player...",
     webcamFailure: "Unable to connect to webcam, please make sure your webcam is connected, and this page has permission to access it.",
@@ -264,7 +264,7 @@ const messages = {
     videoEnd: '\n  <p>Analysis Complete!</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  ',
     videoLocal: '\n  <p>Analyse New Video</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  ',
 }
-  , */browserCheck = ()=>!0;
+  , browserCheck = ()=>!0;
 
 
 
