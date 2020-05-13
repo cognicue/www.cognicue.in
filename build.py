@@ -11,7 +11,7 @@ class Template:
         datapath = self.datapath
         def _context(template):
             dirname = os.path.dirname(template.name).replace(os.sep, ":")
-            filepath = "{}{}.yaml".format(datapath, (dirname or "index"))
+            filepath = "{}{}.yaml".format(datapath, (dirname or "root"))
             if os.path.exists(filepath):
                 return self.yaml_reader(filepath)
             return {}
