@@ -1496,10 +1496,16 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
 
 (function(){
     $(document).ready(function(e){
-        let media_language = Object.keys(MEDIA)
-          , media_list = MEDIA[media_language[Math.floor(Math.random() * media_language.length)]]
-          , random_media = media_list[Math.floor(Math.random() * media_list.length)];
-        $("#media-stimulus").attr("poster", random_media.poster).attr("data", random_media.data);
-        $("#media-object").attr("poster", random_media.poster).attr("data", random_media.data);
+        let qs = new URLSearchParams(window.location.search)
+          , exclude_id=parseInt(qs.get("e"))
+          , media_language = Object.keys(MEDIA)
+          , random_language = media_language[Math.floor(Math.random() * media_language.length)]
+          , media_list = MEDIA[random_language]
+          , excluded_list = media_list.filter((v)=>(v.id  != exclude_id))
+          , random_media = excluded_list[Math.floor(Math.random() * excluded_list.length)]
+          , demo_id = random_media.id;
+
+        $("#choose_another").attr("href",window.location.pathname+"?e="+demo_id);
+        $("#media-stimulus,#media-object").attr("poster", random_media.poster).attr("data", random_media.data);
     });
 })($);
