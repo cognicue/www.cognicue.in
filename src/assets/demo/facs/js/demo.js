@@ -173,11 +173,6 @@ function Demo(pageAlert, metric) {
             })
     }
 
-      , NEW = ()=>{
-            $("#choose_another").on("click", ()=>{
-                w.warn(messages.videoLocal)
-            })
-    }
 
       , E = (p=()=>{})=>{
         current_state = t.States.PLAYBACK,
@@ -195,8 +190,7 @@ function Demo(pageAlert, metric) {
             $("#toSummary").fadeIn(200),
             $("#stopAnalysis").fadeOut(100),
             D(),
-            I(),
-            NEW()
+            I()
         }
         )
     }
@@ -274,12 +268,12 @@ const messages = {
 
 
 
-let EQDemo = null;
+let FACSDemo = null;
 const pageAlert = Alert("alert");
 
 $(document).ready(()=>{
-    EQDemo = new Demo(pageAlert, METRIC),
-    browserCheck() ? EQDemo.start() : pageAlert.warn(messages.incompatableBrowser)
+    FACSDemo = new Demo(pageAlert, METRIC),
+    browserCheck() ? FACSDemo.start() : pageAlert.warn(messages.incompatableBrowser)
 });
 
 

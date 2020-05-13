@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     noFace: '{{messages.noFace}}',
     videoStart: '{{messages.videoStart}}',
     videoEnd: '{{messages.videoEnd}}',
-    videoLocal: '{{messages.videoLocal}}'
+    videoNew: '{{messages.videoNew}}'
   }
 </script>
 
@@ -221,40 +221,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td scope="row">Anger</td>
-                      <td class="text-right" id="userMeananger">-</td>
-                      <!--<td class="text-right">5.3</td>-->
-                    </tr>
-                    <tr>
-                      <td scope="row">Contempt</td>
-                      <td class="text-right" id="userMeancontempt">-</td>
-                      <!--<td class="text-right">23.9</td>-->
-                    </tr>
-                    <tr>
-                      <td scope="row">Disgust</td>
-                      <td class="text-right" id="userMeandisgust">-</td>
-                      <!--<td class="text-right">94.6</td>-->
-                    </tr>
-                    <tr>
-                      <td scope="row">Fear</td>
-                      <td class="text-right" id="userMeanfear">-</td>
-                      <!--<td class="text-right">7.6</td>-->
-                    </tr>
-                    <tr>
-                      <td scope="row">Happiness</td>
-                      <td class="text-right" id="userMeanjoy">-</td>
-                      <!--<td class="text-right">4.2</td>-->
-                    </tr>
-                    <tr>
-                      <td scope="row">Surprise</td>
-                      <td class="text-right" id="userMeansurprise">-</td>
-                      <!--<td class="text-right">2.9</td>-->
-                    </tr>
-                    <tr>
-                      <td scope="row">Sadness</td>
-                      <td class="text-right" id="userMeansadness">-</td>
-                      <!--<td class="text-right">4.3</td>-->
+                    {% for each in demo_report %}
+                      <tr>
+                        <td scope="row">{{each.metric_name}}</td>
+                        <td class="text-right" id="userMean{{each.metric_sdk}}">-</td>
+                        <!--<td class="text-right">5.3</td>-->
+                      </tr>                    
+                    {% endfor %}
                     </tr>
                   </tbody>
                 </table>
@@ -276,8 +249,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Transition Menu -->
             <div id="toDemo" class="col text-center" >
               <a href="#" id="demoButton" class="btn btn-success">Back to Graph</a>
-              <br><br>
-              <a href="/" class="btn btn-info">New Video</a>
             </div>
           </div>
         </div>
