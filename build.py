@@ -7,8 +7,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 SOURCE_PATH = os.path.join(BASE_DIR, "src")
 BUILD_PATH = os.path.join(BASE_DIR, "build")
-NEW_PAGE = os.path.join(SOURCE_PATH, "layout", "_page.html")
+DATA_PATH = os.path.join(BASE_DIR, "data")
 
+NEW_PAGE = os.path.join(SOURCE_PATH, "layout", "_page.html")
 REGEX_PATH = r'^(?:\.{2})?(?:\/\.{2})*(\/[-/a-zA-Z0-9]+)+$'
 
 class Template:
@@ -61,15 +62,12 @@ if __name__ == "__main__":
     arg_parser.add_argument("-n", nargs='*', default=[])
     args = arg_parser.parse_args()
 
-    tmp = Template(
-        new_pages = args.n,
-        datapath=os.path.join(SOURCE_PATH, "data")
-    )
+    tmp = Template(new_pages = args.n, datapath=DATA_PATH)
 
     site = Site.make_site(
         searchpath=SOURCE_PATH,
         outpath=BUILD_PATH,
-        staticpaths=["assets", "CNAME", "data"],
+        staticpaths=["assets", "CNAME"],
         contexts=[(".*.html", tmp.context())],
         env_globals=tmp.env_globals(),
         filters=tmp.filters(),
