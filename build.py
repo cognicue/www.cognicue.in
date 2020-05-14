@@ -28,7 +28,7 @@ class Template:
     def context(self):
         datapath = self.datapath
         def _context(template):
-            dirname = os.path.dirname(template.name).replace(os.sep, "-")
+            dirname = os.path.dirname(template.name).replace("/", "-")
             filepath = os.path.join(datapath, "{}.yaml".format(dirname or "home"))
             if os.path.exists(filepath):
                 context = self.yaml_reader(filepath)
@@ -74,4 +74,4 @@ if __name__ == "__main__":
         mergecontexts=True,
     )
     # enable automatic reloading
-    site.render(use_reloader=False)
+    site.render(use_reloader=True)
