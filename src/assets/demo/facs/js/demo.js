@@ -69,9 +69,8 @@ function Demo(pageAlert, metric) {
         $("#loading-text").text(messages.loadingPlayer);
         const video_src = video.attr("data");
         g("load", video_src, a=>{
-            "loaded" === a ? e() : t(a)
+            "loaded" === a ? e() : "request sent" === a ? !0 : t(a)
         })
-        //e()
     })
 
       , C = ()=>new Promise((e,t)=>{
@@ -100,8 +99,10 @@ function Demo(pageAlert, metric) {
 
       , P = e=>{
         if (current_state === t.States.RECORDING && s) {
-            m || (i = Date.now(),m = !0),
-            e.length > 0 ? data = Object.assign({}, e[0].emotions, e[0].expressions) : data = undefined,b.log(data);
+            m || (i = Date.now(),m = !0), e.length > 0 
+            ? data = Object.assign({}, e[0].emotions, e[0].expressions) 
+            : data = undefined,b.log(data);
+
             const t = S();
             l > u && d && (d = !1,w.warn(messages.noFace)),
             e.length > 0 ? (d || (d = !0, w.hide()),l = 0,y.updatePlot(data, t)) : (l++,y.noData(t))
@@ -110,25 +111,37 @@ function Demo(pageAlert, metric) {
       , S = ()=>Date.now() - i
 
       , startRecording = async () => {
-          stream = await navigator.mediaDevices.getDisplayMedia({
+          await navigator.mediaDevices.getDisplayMedia({
             video: { mediaSource: "screen" },
             audio: true
-          });
+          }).catch((e)=>{w.warn(messages.noPresent)}).then((_stream,_audio)=>{
+
+          video.attr("poster", screen_media.play);
+          video_playback.attr("poster", screen_media.share);
+
+          stream = _stream;
           recorder = new MediaRecorder(stream);
 
           const chunks = [];
+
+          recorder.onstart = e => {
+            s = !0
+          },
           recorder.ondataavailable = e => {
             chunks.push(e.data);
-            console.log(e.data);
-          }
+            //console.log(e.data);
+          },
           recorder.onstop = e => {
             const completeBlob = new Blob(chunks, { type: chunks[0].type });
-            let playback = document.getElementById('media-object');
-            playback.src = URL.createObjectURL(completeBlob);
+            video_playback.attr("src", URL.createObjectURL(completeBlob));
+            video_playback.attr("data", null);
+          },
+          recorder.onerror = e => {
           };
 
           recorder.start();
           video.srcObject = stream;
+          })
 
     }
 
@@ -147,28 +160,27 @@ function Demo(pageAlert, metric) {
                 $("#startVideo").one("click", ()=>{
                     $("#stopAnalysis").fadeIn(100),demo_type="play",
                     g("play", null, (e,o)=>{
-                        "video start" === e || ("buffer finished" === e ? m && (s = !0,
-                        r += o) : "buffer started" === e ? m && (s = !1) : "ended" === e ? (s = !1,
-                        current_state === t.States.PLAYBACK ? y.translateCursor(0) : E(),
-                        g("seek", 0),
-                        g("pause")) : "network fail" === e ? (s = !1,
-                        c.stop(),
-                        w.warn("No Internet")) : "error" === e && w.warn(o))
-                    }),                   
+                        "video start" === e || (
+                            "buffer finished" === e ? m && (s = !0, r += o) 
+                            : "buffer started" === e ? m && (s = !1) 
+                            : "ended" === e ? (s = !1, current_state === t.States.PLAYBACK 
+                                                ? y.translateCursor(0) : E(), g("seek", 0), g("pause")
+                                              )
+                            : "network fail" === e ? (s = !1, c.stop(), w.warn("No Internet")) 
+                            : "error" === e && w.warn(o)
+                        )
+                    }),
                     s = !0
                 }),
                 $("#startRecord").one("click", ()=>{
                     $("#stopAnalysis").fadeIn(100),demo_type="present",
-                    startRecording(),
-                    s = !0
-                    /*
-                    setInterval(()=>{
-                        E();
-                    }, 1000*60),*/
+                    startRecording();
                 })
                 $("#stopRecord").one("click", ()=>{
                     demo_type === "play" ? (E(),g("pause")) :
-                    E(a=>{"loaded" === a ? (stopRecording(),h("play")) : !1});
+                    E(a=>{
+                        "stop recording" === a ? stopRecording() : "loaded" === a ? (h("seek", 0), h("pause")) : !0
+                    });
                 })
             })
     }
@@ -179,11 +191,12 @@ function Demo(pageAlert, metric) {
         c.stop(),
         b.done(),
         w.hide(),
+        p("stop recording"),
         $("#alert").data("bs.modal")._config.keyboard = !0,
         $("#alert").data("bs.modal")._config.backdrop = !0,
         w.warn(messages.videoEnd),
         $("#alert").on("hidden.bs.modal", ()=>{
-            const e = $("#media-object").attr("data");
+            const e = video_playback.attr("data");
             h("load", e, p),
             video.css("display", "none"),
             video_playback.css("display", "block"),
@@ -262,7 +275,7 @@ const _messages = {
     noFace: "<h4>No face detected</h4> <p>Please make sure your face is in view of the webcam.</p>",
     videoStart: '\n  <h4>Welcome!</h4>\n  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>\n  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking a label on the left.</p>\n  <button type="button" class="btnC btn btn-primary float-left" id="startRecord" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>\n  ',
     videoEnd: '\n  <p>Analysis Complete!</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  ',
-    videoLocal: '\n  <p>Analyse New Video</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  ',
+    noPresent: '\n  <p>Analyse New Video</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  ',
 }
   , browserCheck = ()=>!0;
 
@@ -275,6 +288,3 @@ $(document).ready(()=>{
     FACSDemo = new Demo(pageAlert, METRIC),
     browserCheck() ? FACSDemo.start() : pageAlert.warn(messages.incompatableBrowser)
 });
-
-
-

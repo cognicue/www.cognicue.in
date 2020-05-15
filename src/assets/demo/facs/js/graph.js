@@ -6,7 +6,8 @@ function Graph(t, r) {
         a[t] = r.buttons[t]
     }),
     this.emotions = Object.keys(a).map(t=>r.buttons[t].sdk_name);
-    this.random_emotion = e.emotions[Math.floor(Math.random() * e.emotions.length)];
+    //this.emotions_selected = e.emotions[Math.floor(Math.random() * e.emotions.length)];
+    this.emotions_selected = ["joy", "surprise", "contempt", "disgust"];
 
     const o = Object.keys(a).map(t=>r.buttons[t].color)
       , emoRoot = $(r.emoRoot)
@@ -138,7 +139,7 @@ function Graph(t, r) {
                 $(container).css("background-color", o[e.emotions.indexOf(data.id)]);
                 return data.text;
             }
-        }).val([e.random_emotion]).trigger("change"),
+        }).val(e.emotions_selected).trigger("change"),
 
         emoRoot.on("select2:select", function (evt) {
             e.EmotionSelect2Handler(evt.params.data.id, 1);
@@ -147,7 +148,7 @@ function Graph(t, r) {
             e.EmotionSelect2Handler(evt.params.data.id, .1);
             $(this).select2('close');
         }),
-        e.EmotionSelect2Handler(e.random_emotion, 1)
+        e.EmotionSelect2Handler(e.emotions_selected, 1);
     }
     ),    
     this.initCursor = (()=>{
@@ -180,8 +181,8 @@ function Graph(t, r) {
     ),
 
     this.EmotionSelect2Handler = ((t,p)=>{
-        e.getCurves().transition().duration(400).attr("stroke-opacity", function() {
-            return this.id === t ? p : parseFloat($(this).attr("stroke-opacity"))
+        e.getCurves().transition().attr("stroke-opacity", function() {
+            return (Array.isArray(t) && t.indexOf(this.id) >= 0) || this.id === t ? p : parseFloat($(this).attr("stroke-opacity"))
         })
     }),
 

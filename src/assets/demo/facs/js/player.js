@@ -12,25 +12,31 @@ function AsyncPlayer(e) {
     ))=>{
         if ("load" === s) {
             n = document.getElementById(e);
-            var c = new XMLHttpRequest;
-            c.open("GET", d, !0),
-            c.responseType = "blob",
-            c.onload = function() {
-                if (200 === this.status) {
-                    var e = this.response
-                      , t = URL.createObjectURL(e);
-                    n.src = t,
-                    p("loaded", null)
-                } else
+            if (d) {
+                var c = new XMLHttpRequest;
+                c.open("GET", d, !0),
+                c.responseType = "blob",
+                c.onload = function() {
+                    if (200 === this.status) {
+                        var e = this.response
+                          , t = URL.createObjectURL(e);
+                        n.src = t,
+                        p("loaded", null)
+                    } else
+                        p("error", null)
+                }
+                ,
+                c.onerror = function() {
                     p("error", null)
+                }
+                ,
+                c.send()
             }
-            ,
-            c.onerror = function() {
-                p("error", null)
+            else{
+                p("loaded", null)
             }
-            ,
-            c.send()
-        } else
+        }  
+        else
             "play" === s ? (n.play().then(()=>{
                 l = n.duration,
                 p("video start", {
