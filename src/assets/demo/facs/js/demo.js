@@ -69,7 +69,7 @@ function Demo(pageAlert, metric) {
         $("#loading-text").text(messages.loadingPlayer);
         const video_src = video.attr("data");
         g("load", video_src, a=>{
-            "loaded" === a ? e() : "request sent" === a ? !0 : t(a)
+            "loaded" === a ? e() : t(a)
         })
     })
 
@@ -163,9 +163,7 @@ function Demo(pageAlert, metric) {
                         "video start" === e || (
                             "buffer finished" === e ? m && (s = !0, r += o) 
                             : "buffer started" === e ? m && (s = !1) 
-                            : "ended" === e ? (s = !1, current_state === t.States.PLAYBACK 
-                                                ? y.translateCursor(0) : E(), g("seek", 0), g("pause")
-                                              )
+                            : "ended" === e ? (s = !1, current_state === t.States.PLAYBACK ? y.translateCursor(0) : E(), g("seek", 0), g("pause"))
                             : "network fail" === e ? (s = !1, c.stop(), w.warn("No Internet")) 
                             : "error" === e && w.warn(o)
                         )
@@ -275,7 +273,7 @@ const _messages = {
     noFace: "<h4>No face detected</h4> <p>Please make sure your face is in view of the webcam.</p>",
     videoStart: '\n  <h4>Welcome!</h4>\n  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>\n  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking a label on the left.</p>\n  <button type="button" class="btnC btn btn-primary float-left" id="startRecord" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>\n  ',
     videoEnd: '\n  <p>Analysis Complete!</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  ',
-    noPresent: '\n  <p>Analyse New Video</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  ',
+    noPresent: '\n  <p>Analyse New Video</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <a href="." class="btnC btn btn-info float-right">Cancel</a>\n  ',
 }
   , browserCheck = ()=>!0;
 
