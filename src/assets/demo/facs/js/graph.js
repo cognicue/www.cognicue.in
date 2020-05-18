@@ -74,8 +74,7 @@ function Graph(t, r) {
             y.push(a),
             C.push([h(t)]),
             E = e.getCurveBox().append("rect"),
-            
-            ()
+            P()
         }
         x = !0
     }
