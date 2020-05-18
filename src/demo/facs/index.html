@@ -115,9 +115,7 @@
 
 
     <div class="col-3 mt-4 text-center">
-      <!-- Buttons Emotions Menu 
-      <ul class="nav nav-pills nav-justified mt-4" id="emotion-buttons" style="margin-left: 40px; margin-right: 40px;">
-      </ul>-->      
+      <!-- Stable Menu -->
 
       <div class="card rounded bg-transparent" style="border: 1px solid white;">
         <div class="card-header small">{{left_card1.header}}</div>
@@ -126,63 +124,79 @@
           <select id="emotion-buttons" name="states[]" multiple="multiple"></select>
         </div>
       </div>
+      
+      <div class="card rounded bg-transparent mt-2" style="border: 1px solid white;">
+        <div class="card-body bg-transparent pt-1 pb-2">
+          <div style="height: 10px; width: 10px; background-color: #6ef784; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"></div> 
+          <div><small>{{left_card2.para1}}</small></div>
+          <div style="clear: both; margin-bottom: 5px;"></div>
+          <div style="height: 10px; width: 10px; background-color: #404040; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"></div>
+          <div><small>{{left_card2.para2}}</small></div>
+        </div>
+      </div>
         
     </div>    
 
     <div class="col-6">
+
       <br>
       <!-- Video -->
       <div class="row my-0">
         <div class="col text-center" >
           <div id="video-wrapper" >
             <video poster="" id="media-stimulus" class="my-1 img-fluid" data="" oncontextmenu="return false;"></video>
-			      <video poster="" id="media-object" class="my-1 img-fluid" style="display: none;" data="" oncontextmenu="return false;" controls></video>
+			      <video poster="" id="media-object" class="my-1 img-fluid" style="display: none;" data="" oncontextmenu="return false;"></video>
           </div>
         </div>
       </div>
+
       <div class="row" id="svg-container">
         <!-- Graph -->
         <div id="svg-wrapper" class="col my-0 text-center" style>
           <svg id="svg-curve"></svg>
         </div>
       </div>
+
     </div>
-    <div class="col-3 mt-4">
-      <div class="card rounded bg-transparent" style="border: 1px solid white;">
+
+    <div class="col-3 mt-4 text-center">
+      <!-- Transition Menu -->
+
+      <div id="showSubject" class="card rounded bg-transparent" style="display: none;border: 1px solid white;">
         <div class="card-header small">{{right_card1.header}}</div>
         <div class="card-body bg-transparent pt-1 pb-2">
-          <div style="height: 10px; width: 10px; background-color: #6ef784; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"></div> 
-          <div><small>{{right_card1.para1}}</small></div>
-          <div style="clear: both; margin-bottom: 5px;"></div>
-          <div style="height: 10px; width: 10px; background-color: #404040; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"></div>
-          <div><small>{{right_card1.para2}}</small></div>
+          <video poster="" id="media-subject" class="my-1 img-fluid" style="display: none;" data="" oncontextmenu="return false;"></video>
         </div>
-      </div>
+      </div>      
       
-      <div id="stopAnalysis" class="card rounded bg-transparent mt-2" style="display:none; border: 1px solid white;">
+      <div id="stopAnalysis" class="card rounded bg-transparent mt-2" style="border: 1px solid white;">
+        <div class="card-header small">{{right_card2.header}}</div>
         <div class="card-body bg-transparent pt-1 pb-2">
           <p class="small">{{right_card2.para1}}</p>
             <div class="text-center mt-2">
-              <a id="stopRecord" class="btn btn-info btn-sm" href="#">Stop</a>
+              <button id="stopRecord" class="btn btn-info btn-sm">Stop</button>
             </div>          
         </div>
       </div>
 
-        <!-- Transition Menu -->
-        <div id="toSummary" class="card bg-transparent mt-2" style="display:none; border: 1px solid white;">
-          <div class="card-body pt-2">
-            <p class="small">{{right_card3.para1}}</p>
-            <div><hr class="bg-white"/></div>
-            <div class="small mb-2">{{right_card3.para2}}</div>
-            <div class="text-center"><button id="summaryButton" class="btn btn-success btn-sm">View Summary</button></div>
-            <div><hr class="bg-white"/></div>
-            <p class="small">Click <strong>New Video</strong> to start over with another video.</p>
-            <div class="text-center mt-2">
-              <a id="choose_another" class="btn btn-info btn-sm" href="#">New Video</a></div>
+      <div id="showSummary" class="card bg-transparent mt-2" style="display:none; border: 1px solid white;">
+        <div class="card-body pt-2">
+          <p class="small">{{right_card3.para1}}</p>
+          <div><hr class="bg-white"/></div>
+          <div class="small mb-2">{{right_card3.para2}}</div>
+          <div class="text-center">
+            <button id="summaryButton" class="btn btn-success btn-sm">View Summary</button>
+          </div>
+          <div><hr class="bg-white"/></div>
+          <p class="small">Click <strong>New Video</strong> to start over with another video.</p>
+          <div class="text-center mt-2">
+            <a id="choose_another" class="btn btn-info btn-sm" href="#">New Video</a>
           </div>
         </div>
+      </div>
         
     </div>
+
   </div>
 
   <div style="display:none;" id="summary-container">

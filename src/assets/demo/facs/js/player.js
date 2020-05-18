@@ -74,7 +74,7 @@ function AsyncPlayer(e) {
             p("paused", null)) : "resume" === s && (n.play(),
             r = !0,
             p("playing", null));
-        return "getVideoDurationSec" === s ? l : "getVideoDurationMs" === s ? a : "getStartTime" === s ? o : "getPlayingState" === s ? r : "getCurrentTime" === s ? n.currentTime : void ("setPlayingState" === s && (r = d,
-        d ? n.play() : n.pause()))
+            
+        return "getVideoDurationSec" === s ? l : "getVideoDurationMs" === s ? a : "getStartTime" === s ? o : "getPlayingState" === s ? r : "getCurrentTime" === s ? n.currentTime : void ("setPlayingState" === s && (r = d, d ? n.play() : n.pause()))
     }
 }

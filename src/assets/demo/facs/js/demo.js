@@ -19,18 +19,17 @@ function Demo(pageAlert, metric) {
       , d = !0
       , c = null
       , m = !1
+      , subject = $("#media-subject")
       , video = $("#media-stimulus")
       , video_playback = $("#media-object");
 
-    let recorder, stream;
+    let recorder, stream, capturer, beam, demo_type;
 
-    let demo_type = null;
-
-    const u = 20
-      , p = metric;
+    const u = 20, p = metric;
 
     let g = AsyncPlayer("media-stimulus")
       , h = AsyncPlayer("media-object")
+      , j = AsyncPlayer("media-subject")
       , y = new Graph("#svg-curve",{
                 emoRoot: "#emotion-buttons",
                 buttons: p
@@ -78,7 +77,7 @@ function Demo(pageAlert, metric) {
         let a = document.getElementById("facevideo-node");
 
         (c = new affdex.CameraDetector(a)).detectAllEmotions(),
-            c.detectAllExpressions(),
+            c.detectAllExpressions(),c.detectAllAppearance(),
             c && !c.isRunning && c.start(),
 
             c.addEventListener("onWebcamConnectSuccess", ()=>{
@@ -104,7 +103,7 @@ function Demo(pageAlert, metric) {
             : data = undefined,b.log(data);
 
             const t = S();
-            l > u && d && (d = !1,w.warn(messages.noFace)),
+            l > u && d && (d = !1, w.warn(messages.noFace)),
             e.length > 0 ? (d || (d = !0, w.hide()),l = 0,y.updatePlot(data, t)) : (l++,y.noData(t))
         }
     }
@@ -114,7 +113,7 @@ function Demo(pageAlert, metric) {
           await navigator.mediaDevices.getDisplayMedia({
             video: { mediaSource: "screen" },
             audio: true
-          }).catch((e)=>{w.warn(messages.noPresent)}).then((_stream,_audio)=>{
+          }).catch((e)=>{w.warn(messages.noPresent)}).then((_stream)=>{
 
           video.attr("poster", screen_media.play);
           video_playback.attr("poster", screen_media.share);
@@ -125,11 +124,10 @@ function Demo(pageAlert, metric) {
           const chunks = [];
 
           recorder.onstart = e => {
-            s = !0
+            s = !0,startCapturing()
           },
           recorder.ondataavailable = e => {
             chunks.push(e.data);
-            //console.log(e.data);
           },
           recorder.onstop = e => {
             const completeBlob = new Blob(chunks, { type: chunks[0].type });
@@ -141,14 +139,49 @@ function Demo(pageAlert, metric) {
 
           recorder.start();
           video.srcObject = stream;
-          })
+
+        })
 
     }
 
       , stopRecording = ()=>{
             recorder.state === "recording" ?
             (recorder.stop(),stream.getVideoTracks()[0].stop()) : !0
-    }      
+    }
+
+    , startCapturing = async () =>{
+        await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: true
+        }).catch((e)=>{w.warn(messages.noPresent)}).then((_stream)=>{
+
+              beam = _stream;
+              capturer = new MediaRecorder(beam);
+              const chunks = [];
+
+              capturer.onstart = e => {
+              },
+              capturer.ondataavailable = e => {
+                chunks.push(e.data);
+              },
+              capturer.onstop = e => {
+                const completeBlob = new Blob(chunks, { type: chunks[0].type });
+                subject.attr("src", URL.createObjectURL(completeBlob));
+                j('load');
+              },
+              capturer.onerror = e => {
+              };
+
+              capturer.start();
+
+            })
+    }
+
+      , stopCapturing = ()=>{
+            capturer.state === "recording" ?
+            (capturer.stop(),beam.getVideoTracks()[0].stop()) : !0
+    }    
+
 
       , A = ()=>{
             w.hide(),
@@ -156,28 +189,31 @@ function Demo(pageAlert, metric) {
                 current_state = t.States.RECORDING,
                 w.warn(messages.videoStart),
                 y.initPlot(document.getElementById("media-stimulus").duration, $("#video-wrapper").width()),
-                y.initButtons(),                 
+                y.initButtons(),
+
                 $("#startVideo").one("click", ()=>{
-                    $("#stopAnalysis").fadeIn(100),demo_type="play",
+                    demo_type = "play",
                     g("play", null, (e,o)=>{
                         "video start" === e || (
                             "buffer finished" === e ? m && (s = !0, r += o) 
                             : "buffer started" === e ? m && (s = !1) 
-                            : "ended" === e ? (s = !1, current_state === t.States.PLAYBACK ? y.translateCursor(0) : E(), g("seek", 0), g("pause"))
+                            : "ended" === e ? (s = !1, current_state === t.States.PLAYBACK ? y.translateCursor(0) : E(), g("seek", 0), g("pause"), stopCapturing())
                             : "network fail" === e ? (s = !1, c.stop(), w.warn("No Internet")) 
                             : "error" === e && w.warn(o)
                         )
                     }),
-                    s = !0
+                    s = !0,
+                    startCapturing();
                 }),
                 $("#startRecord").one("click", ()=>{
-                    $("#stopAnalysis").fadeIn(100),demo_type="present",
+                    demo_type = "present",
                     startRecording();
                 })
                 $("#stopRecord").one("click", ()=>{
-                    demo_type === "play" ? (E(),g("pause")) :
+                    demo_type === "play" ? (E(a=>{
+                        "stop recording" === a ? stopCapturing() : !0}),g("pause")) :
                     E(a=>{
-                        "stop recording" === a ? stopRecording() : "loaded" === a ? (h("seek", 0), h("pause")) : !0
+                        "stop recording" === a ? (stopRecording(),stopCapturing()) : "loaded" === a ? (h("seek", 0), h("pause")) : !0
                     });
                 })
             })
@@ -196,55 +232,52 @@ function Demo(pageAlert, metric) {
         $("#alert").on("hidden.bs.modal", ()=>{
             const e = video_playback.attr("data");
             h("load", e, p),
+
             video.css("display", "none"),
+            subject.css("display", "block"),            
             video_playback.css("display", "block"),
-            $("#toSummary").fadeIn(200),
+
+            (demo_type === "play" && subject.prop('muted', true)),
+
+            $("#showSubject").fadeIn(200),
+            $("#showSummary").fadeIn(200),
             $("#stopAnalysis").fadeOut(100),
-            D(),
-            I()
-        }
-        )
+
+            bindPlayerOnKeypress(),
+            bindPlayerOnD3()
+        })
     }
-      , I = ()=>{
+
+      , bindPlayerOnD3 = ()=>{
         let e = y.initializeCursor();
         B(),
         e.call(d3.drag().on("drag", N).on("start", L).on("end", R)),
         y.getCurveBox().on("click", O),
         $("#summaryButton").on("click", x)
     }
-      , D = ()=>{
+      , bindPlayerOnKeypress = ()=>{
         document.onkeypress = (e=>{
-            32 == (e || window.event).charCode && (h("getPlayingState") ? h("pause") : h("resume"))
+            32 == (e || window.event).charCode && ((h("getPlayingState") || j("getPlayingState")) ? (h("pause"),j("pause")) : (h("resume"),j("resume")))
         }
         )
     }
       , N = ()=>{
-        const e = y.clipX(d3.event.x)
-          , t = y.playbackFromX(e);
+        const e = y.clipX(d3.event.x), t = y.playbackFromX(e);
         y.translateCursor(e),
-        h("seek", t)
+        h("seek", t),
+        j("seek", t)
     }
       , L = ()=>{
-        h("getPlayingState") && (clearInterval(n),
-        o = !0,
-        h("pause")),
+        (h("getPlayingState") || j("getPlayingState")) && (clearInterval(n), o = !0, h("pause"), j("pause")),
         y.setMousePointerDragging()
     }
       , R = ()=>{
-        o && (h("resume"),
-        o = !1,
-        h("setPlayingState", !0),
-        B()),
+        o && (h("resume"), j("resume"), o = !1, h("setPlayingState", !0), j("setPlayingState", !0), B()),
         y.setMousePointerUndragging()
     }
       , O = function() {
-        const e = y.clipX(d3.mouse(this)[0])
-          , t = y.playbackFromX(e);
-        h("getPlayingState") ? (clearInterval(n),
-        y.translateCursor(e),
-        h("seek", t),
-        B()) : (y.translateCursor(e),
-        h("seek", t))
+        const e = y.clipX(d3.mouse(this)[0]) , t = y.playbackFromX(e);
+        (h("getPlayingState") || j("getPlayingState")) ? (clearInterval(n), y.translateCursor(e), h("seek", t), j("seek", t), B()) : (y.translateCursor(e), h("seek", t), j("seek", t));
     }
       , B = ()=>{
             n = setInterval(()=>{

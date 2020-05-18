@@ -11,12 +11,15 @@ left_card1:
   header: Engagement Metric
   body: You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.
 
-right_card1:
-  header: Legend
+left_card2:
   para1: Color curves represent moment-by-moment emotion probabilities
   para2: Gray bar in graph indicates no face found
 
+right_card1:
+  header: Engagement Subject
+
 right_card2:
+  header: Control
   para1: You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.
 
 right_card3:
