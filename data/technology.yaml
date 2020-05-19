@@ -1,0 +1,26 @@
+page_generated: 2020-05-19 08:06:28.628555
+page_title: 'Technology'
+section:
+  heading: Deep Learning
+  text: ''
+
+portfolio:
+  - poster: /assets/img/projects/rnn_cnn.png
+    link: /assets/img/projects/rnn_cnn.png
+    text: View
+    type: image
+
+  - poster: /assets/img/projects/deep.png
+    link: /assets/img/projects/deep.png
+    text: View
+    type: image
+
+  - poster: /assets/img/projects/cnn_rnn.jpg
+    link: https://www.matec-conferences.org/articles/matecconf/pdf/2019/26/matecconf_jcmme2018_02001.pdf
+    text: Read
+    type: iframe
+
+  - poster: /assets/img/projects/sigmoid.gif
+    link: https://www.youtube.com/watch?v=H-HVZJ7kGI0
+    text: Watch
+    type: iframe

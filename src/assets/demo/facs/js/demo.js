@@ -68,7 +68,7 @@ function Demo(pageAlert, metric) {
         $("#loading-text").text(messages.loadingPlayer);
         const video_src = video.attr("data");
         g("load", video_src, a=>{
-            "loaded" === a ? e() : t(a)
+            "loaded" === a ? e() : "error" === a ? w.warn(messages.videoLoadingFailure) : t(a)
         })
     })
 

@@ -33,6 +33,9 @@ site_headers:
   - text: About
     link: /about/
 
+  - text: Technology
+    link: /technology/    
+
   - text: Products
     link: "#"
     sub_header:
@@ -49,6 +52,8 @@ site_headers:
     link: /contact/
 
 site_social:
+  slack: https://bodyspeaksbetter.slack.com
+  github: https://github.com/bodyspeaksbetter
   facebook: https://www.facebook.com/bodyspeaksbetter
   instagram: https://www.instagram.com/bodyspeaksbetter  
   twitter: https://twitter.com/kanantandi

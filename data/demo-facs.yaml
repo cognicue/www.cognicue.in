@@ -9,7 +9,7 @@ loading_text: This demo requires your webcam, please make sure it is enabled.
 
 left_card1:
   header: Engagement Metric
-  body: You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.
+  body: Click below to select or remove different FACS metrics
 
 left_card2:
   para1: Color curves represent moment-by-moment emotion probabilities
@@ -19,22 +19,24 @@ right_card1:
   header: Engagement Subject
 
 right_card2:
-  header: Control
-  para1: You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.
+  header: Engagement Control
+  para1: Click the button below to stop the execution of FACS at any time or it will automatically stop if you are watching any video here.
 
 right_card3:
-  para1: You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.
-  para2: Click the button below to see how your reactions compare to the average.
+  para1: You can click in the graph to seek the video to that point in time and press the <span class="theme-color">spacebar</span> key to play or pause the video.
+  para2: Click the button below to see your average reactions.
+  para3: Click the button to start over with another video.
 
 
 alert_messages:
     incompatableBrowser:  It appears that you are using an unsupported browser. Please try this demo on an updated version of Chrome, Firefox, Opera or Edge.
     loadingPlayer:        Loading Player...
+    detectorLoaded:       Loading FACS...    
     webcamFailure:        Unable to connect to webcam, please make sure your webcam is connected, and this page has permission to access it.
-    detectorLoaded:       Loading the emotion detector...
     noFace:               <h4>No face detected</h4> <p>Please make sure your face is in view of the webcam.</p>
     videoStart:           <h4>Welcome!</h4>  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking a label on the left.</p>  <button type="button" class="btnC btn btn-primary float-left" id="startRecord" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>
-    videoEnd:             <p>Analysis Complete!</p>  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>  <br>  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>
+    videoEnd:             <p>Analysis Complete!</p>  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>  <p>You can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>  <br>  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>
+    videoLoadingFailure:  <h4>Network Problem</h4>  <p>Unable to fetch the video for you. Click the button below to try another.</p>  <br>  <a href="." id="try_another" class="btnC btn btn-info float-right">Try Another</a>
     noPresent:            <p>Analyse New Video</p>  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>  <br>  <a href="." class="btnC btn btn-info float-right">Cancel</a>
 
 

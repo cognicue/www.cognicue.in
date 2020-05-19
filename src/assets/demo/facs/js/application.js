@@ -1494,6 +1494,7 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
     
 });
 
+
 (function(){
     $(document).ready(function(e){
         let qs = new URLSearchParams(window.location.search)
@@ -1504,8 +1505,10 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
           , media_list = media[random_language]
           , excluded_list = media_list.filter((v)=>(v.id === video_id || (isNaN(video_id) && v.id  != exclude_id)))
           , random_media = excluded_list[Math.floor(Math.random() * excluded_list.length)]
-          , demo_id = random_media.id;
-        $("#choose_another").attr("href",window.location.pathname+"?e="+demo_id);
+          , demo_id = random_media.id
+          , new_link = window.location.origin+window.location.pathname+"?e="+demo_id;
+
         $("#media-stimulus,#media-object").attr("poster", random_media.poster).attr("data", random_media.data);
+        $("body").delegate("#try_another,#choose_another", "click", (e)=>{e.preventDefault(),window.location.href=new_link});      
     });
 })($);

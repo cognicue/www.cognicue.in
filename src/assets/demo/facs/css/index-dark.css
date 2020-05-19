@@ -22,7 +22,7 @@ body {
 	border: black solid 2px
 }
 
-a {
+a, .theme-color {
 	color: #04dbec
 }
 
