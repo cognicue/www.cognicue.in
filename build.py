@@ -67,7 +67,7 @@ if __name__ == "__main__":
     site = Site.make_site(
         searchpath=SOURCE_PATH,
         outpath=BUILD_PATH,
-        staticpaths=["assets", "CNAME"],
+        staticpaths=["assets", "CNAME", "favicon.ico"],
         contexts=[(".*.html", tmp.context())],
         env_globals=tmp.env_globals(),
         filters=tmp.filters(),
