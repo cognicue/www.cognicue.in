@@ -35,6 +35,7 @@
     <script src="/assets/demo/facs/js/application.js"></script>
 
     <script defer src="/assets/demo/facs/js/cogni.js"></script>
+
   	<script defer src="/assets/demo/facs/js/graph.js"></script>
   	<script defer src="/assets/demo/facs/js/player.js"></script>
   	<script defer src="/assets/demo/facs/js/summarizer.js"></script>
@@ -85,22 +86,22 @@
 
   <div id="consent-container" style="display:flex;">
     <div class="container d-flex full-height align-items-center">
-  <div class="row d-flex justify-content-center">
-    <div class="col col-md-6">
-      <div class="card">
-        <h5 class="card-header">Privacy Notice</h5>
-        <div class="card-body">
-          <p class="card-text">{{privacy_note.para1}}</p>
-          <p class="card=text">{{privacy_note.para2}}</p>
-          <p>{{privacy_note.para3}}</p>
-          <br>
-          <a href="/" class="btnC btn btn-info">Cancel</a>
-          <a class="btnC btn btn-info float-right" id="demo-consent">I Accept</a>
+      <div class="row d-flex justify-content-center">
+        <div class="col col-md-6">
+          <div class="card">
+            <h5 class="card-header">Privacy Notice</h5>
+            <div class="card-body">
+              <p class="card-text">{{privacy_note.para1}}</p>
+              <p class="card=text">{{privacy_note.para2}}</p>
+              <p>{{privacy_note.para3}}</p>
+              <br>
+              <a href="/" class="btnC btn btn-info">Cancel</a>
+              <a class="btnC btn btn-info float-right" id="demo-consent">I Accept</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
   </div>
 
   <div class="row align-items-center text-center full-height" id="loading-container" style="display:none;">
@@ -114,7 +115,7 @@
   <div class="row" id="demo-container" style="display: none;">
 
 
-    <div class="col-3 mt-4 text-center">
+    <div class="col-md-3 mt-4 text-center d-none d-sm-block">
       <!-- Stable Menu -->
 
       <div class="card rounded bg-transparent" style="border: 1px solid white;">
@@ -137,7 +138,7 @@
         
     </div>    
 
-    <div class="col-6">
+    <div class="col-md-6 col-xs-12">
 
       <br>
       <!-- Video -->
@@ -159,7 +160,7 @@
 
     </div>
 
-    <div class="col-3 mt-4 text-center">
+    <div class="col-md-3 mt-4 text-center d-none d-sm-block">
       <!-- Transition Menu -->
 
       <div id="showSubject" class="card rounded bg-transparent" style="display: none;border: 1px solid white;">
@@ -169,17 +170,17 @@
         </div>
       </div>      
       
-      <div id="stopAnalysis" class="card rounded bg-transparent mt-2" style="border: 1px solid white;">
+      <div id="stopAnalysis" class="card rounded bg-transparent mt-2" style="display:none;border: 1px solid white;">
         <div class="card-header small">{{right_card2.header}}</div>
         <div class="card-body bg-transparent pt-1 pb-2">
           <p class="small">{{right_card2.para1}}</p>
             <div class="text-center mt-2">
-              <button id="stopRecord" class="btnC btn btn-info btn-sm">Stop</button>
+              <button id="stopFACS" class="btnC btn btn-info btn-sm">Stop</button>
             </div>          
         </div>
       </div>
 
-      <div id="showSummary" class="card bg-transparent mt-2" style="display:none; border: 1px solid white;">
+      <div id="showSummary" class="card bg-transparent mt-2" style="display:none;border: 1px solid white;">
         <div class="card-body pt-2">
           <p class="small">{{right_card3.para1}}</p>
           <div><hr class="bg-white"/></div>
