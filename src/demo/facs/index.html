@@ -45,9 +45,9 @@
  
     <!-- Handshaking backend frontend -->
     <script type="text/javascript">
-      const messages = {{alert_messages|tojson|safe}}
+      const present_conf = {{demo_screen|tojson|safe}}
+          , messages = {{alert_messages|tojson|safe}}
           , media = {{demo_videos|tojson|safe}}
-          , screen_media = {{demo_screen|tojson|safe}}
           ;
     </script>
 
@@ -170,7 +170,7 @@
         </div>
       </div>      
       
-      <div id="stopAnalysis" class="card rounded bg-transparent mt-2" style="display:none;border: 1px solid white;">
+      <div id="showControl" class="card rounded bg-transparent mt-2" style="display:none;border: 1px solid white;">
         <div class="card-header small">{{right_card2.header}}</div>
         <div class="card-body bg-transparent pt-1 pb-2">
           <p class="small">{{right_card2.para1}}</p>

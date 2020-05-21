@@ -41,8 +41,9 @@ alert_messages:
 
 
 demo_screen:
-  share: /assets/demo/facs/media/icons8-play-button-100.png
-  play: /assets/demo/facs/media/icons8-air-play-100.png
+  share: /assets/demo/facs/media/share_icon.png
+  play: /assets/demo/facs/media/share_icon.png
+  timeout: 120
 
 
 demo_videos:

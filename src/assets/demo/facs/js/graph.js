@@ -82,7 +82,7 @@ function Graph(t, r) {
         x = !0
     }
     ),
-    this.initPlot = ((t,r)=>{
+    this.initPlot = ((t,r,sw,so)=>{
         u = r,
         $("#svg-curve").css("width", u + "px"),
         h = d3.scaleLinear().domain([0, 1e3 * t]).range([0, u]);
@@ -91,32 +91,15 @@ function Graph(t, r) {
             return e.emotions[r]
         }).attr("d", b).attr("stroke", function(t, r) {
             return o[r]
-        }).attr("fill", "transparent").attr("stroke-width", "3px").attr("stroke-opacity", "0"),
+        }).attr("fill", "transparent").attr("stroke-width", sw||"3px").attr("stroke-opacity", so||"0"),
         e.configureForPlayback(t),
         i = !0
     }
     ),
-    this.clearPlot = (t=>{
+    this.clearPlot = ((t,sw,so)=>{
         e.getCurves().remove(),
-        e.initPlot(t, u)
-    }
-    ),
-    this._initButtons = (()=>{
-        F(),
-        emo.html("").append('<li class="nav-item" style="margin-bottom: 10px;"><a class="nav-link btn btn-outline-secondary btn-sm" id="all">Highlight all</a></li>'),
-        Object.values(a).sort((t,r)=>r.order - t.order).map(t=>t.mr_name).forEach(t=>{
-            let r = a[t];
-            emo.append(`<li class="nav-item" style="margin-bottom: 10px;"><a class="nav-link btn btn-outline-secondary btn-sm" id="${r.sdk_name}">${r.mr_name}</a></li>`)
-        }
-        ),
-        $("#all").click(e.allButtonClickHandler),
-        $("#all").css("background-color", "#878d96"),
-        $("#all").css("border-color", "#878d96"),
-        $("#all").css("color", "#ffffff"),
-        e.emotions.forEach((t,r)=>{
-            $("#" + t).click(e.EmotionButtonClickHandler(t)).css("color", o[r]).css("border-color", o[r])
-        }
-        )
+        e.initPlot(t, u, sw, so),
+        e.EmotionSelect2Handler(e.emotions_selected, 1);
     }
     ),
     this.initButtons = (()=>{

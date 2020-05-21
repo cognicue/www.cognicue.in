@@ -115,8 +115,8 @@ function Demo(pageAlert, metric) {
             audio: true
           }).catch((e)=>{w.warn(messages.noPresent)}).then((_stream)=>{
 
-          video.attr("poster", screen_media.play);
-          video_playback.attr("poster", screen_media.share);
+          video.attr("poster", present_conf.play);
+          video_playback.attr("poster", present_conf.share);
 
           stream = _stream;
           recorder = new MediaRecorder(stream);
@@ -125,6 +125,7 @@ function Demo(pageAlert, metric) {
 
           recorder.onstart = e => {
             s = !0,startCapturing()
+            setTimeout(presentTimeout, present_conf.timeout*1000);
           },
           recorder.ondataavailable = e => {
             chunks.push(e.data);
@@ -192,7 +193,7 @@ function Demo(pageAlert, metric) {
                 y.initButtons(),
 
                 $("#startVideo").one("click", ()=>{
-                    $("#stopAnalysis").fadeIn(100),
+                    $("#showControl").fadeIn(100),
                     demo_type = "play",
                     g("play", null, (e,o)=>{
                         "video start" === e || (
@@ -207,7 +208,8 @@ function Demo(pageAlert, metric) {
                     startCapturing();
                 }),
                 $("#startShare").one("click", ()=>{
-                    $("#stopAnalysis").fadeIn(100),
+                    $("#showControl").fadeIn(100),
+                    y.clearPlot(present_conf.timeout),
                     demo_type = "present",
                     startPresenting();
                 }),
@@ -219,6 +221,10 @@ function Demo(pageAlert, metric) {
                     });
                 })
             })
+    }
+
+    , presentTimeout = ()=>{
+        s && $("#stopFACS").length && $("#stopFACS").click();
     }
 
 
@@ -243,7 +249,7 @@ function Demo(pageAlert, metric) {
 
             $("#showSubject").fadeIn(200),
             $("#showSummary").fadeIn(200),
-            $("#stopAnalysis").fadeOut(100),
+            $("#showControl").fadeOut(100),
 
             bindPlayerOnKeypress(),
             bindPlayerOnD3()
