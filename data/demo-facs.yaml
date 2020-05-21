@@ -58,98 +58,251 @@ demo_videos:
       id: 2
 
 
-demo_report:
+demo_metrics:
+  Anger:
+    color: '#fc4627'
+    mr_name: Anger
+    order: 1
+    sdk_name: anger
+    type: Emotions
+    visible: true
 
-  - metric_name: Anger
-    metric_sdk: anger
+  Attention:
+    color: '#27833C'
+    mr_name: Attention
+    order: 27
+    sdk_name: attention
+    type: Expressions
+    visible: true
 
-  - metric_name: Contempt
-    metric_sdk: contempt
+  Brow Furrow:
+    color: '#ac6ef7'
+    mr_name: Brow Furrow
+    order: 26
+    sdk_name: browFurrow
+    type: Expressions
+    visible: true
 
-  - metric_name: Disgust
-    metric_sdk: disgust
-    
-  - metric_name: Fear
-    metric_sdk: fear
-    
-  - metric_name: Happiness
-    metric_sdk: joy
-    
-  - metric_name: Sadness
-    metric_sdk: sadness
-    
-  - metric_name: Surprise
-    metric_sdk: surprise
-    
-  - metric_name: Valence
-    metric_sdk: valence
-    
-  - metric_name: Attention
-    metric_sdk: attention
-    
-  - metric_name: Brow Furrow
-    metric_sdk: browFurrow
-    
-  - metric_name: Brow Raise
-    metric_sdk: browRaise
-    
-  - metric_name: Cheek Raise
-    metric_sdk: cheekRaise
-    
-  - metric_name: Chin Raise
-    metric_sdk: chinRaise
-    
-  - metric_name: Dimpler
-    metric_sdk: dimpler
-    
-  - metric_name: Expressiveness
-    metric_sdk: engagement
-    
-  - metric_name: Eye Closure
-    metric_sdk: eyeClosure
-    
-  - metric_name: Eye Widen
-    metric_sdk: eyeWiden
-    
-  - metric_name: Inner Brow Raise
-    metric_sdk: innerBrowRaise
-    
-  - metric_name: Jaw Drop
-    metric_sdk: jawDrop
-    
-  - metric_name: Lid Tighten
-    metric_sdk: lidTighten
-    
-  - metric_name: Lip Corner Depressor
-    metric_sdk: lipCornerDepressor
-    
-  - metric_name: Lip Press
-    metric_sdk: lipPress
-    
-  - metric_name: Lip Pucker
-    metric_sdk: lipPucker
-    
-  - metric_name: Lip Stretch
-    metric_sdk: lipStretch
-    
-  - metric_name: Lip Suck
-    metric_sdk: lipSuck
-    
-  - metric_name: Mouth Open
-    metric_sdk: mouthOpen
-    
-  - metric_name: Nose Wrinkle
-    metric_sdk: noseWrinkle
-    
-  - metric_name: Sentimentality
-    metric_sdk: innerBrowRaise
-    
-  - metric_name: Smile
-    metric_sdk: smile
-    
-  - metric_name: Smirk
-    metric_sdk: smirk
-    
-  - metric_name: Upper Lip Raise
-    metric_sdk: upperLipRaise
+  Brow Raise:
+    color: '#C7600F'
+    mr_name: Brow Raise
+    order: 25
+    sdk_name: browRaise
+    type: Expressions
+    visible: true
 
+  Cheek Raise:
+    color: '#6ef2f7'
+    mr_name: Cheek Raise
+    order: 24
+    sdk_name: cheekRaise
+    type: Expressions
+    visible: true
+
+  Chin Raise:
+    color: '#f76eca'
+    mr_name: Chin Raise
+    order: 23
+    sdk_name: chinRaise
+    type: Expressions
+    visible: true
+
+  Contempt:
+    color: '#2bb3f7'
+    mr_name: Contempt
+    order: 22
+    sdk_name: contempt
+    type: Emotions
+    visible: true
+
+  Dimpler:
+    color: '#a2f76e'
+    mr_name: Dimpler
+    order: 21
+    sdk_name: dimpler
+    type: Expressions
+    visible: true
+
+  Disgust:
+    color: '#ffd000'
+    mr_name: Disgust
+    order: 20
+    sdk_name: disgust
+    type: Emotions
+    visible: true
+
+  Expressiveness:
+    color: '#f76e7f'
+    mr_name: Expressiveness
+    order: 29
+    sdk_name: engagement
+    type: Expressions
+    visible: true
+
+  Eye Closure:
+    color: '#6e79f7'
+    mr_name: Eye Closure
+    order: 19
+    sdk_name: eyeClosure
+    type: Expressions
+    visible: true
+
+  Eye Widen:
+    color: '#f78a6e'
+    mr_name: Eye Widen
+    order: 18
+    sdk_name: eyeWiden
+    type: Expressions
+    visible: true
+
+  Fear:
+    color: '#813790'
+    mr_name: Fear
+    order: 17
+    sdk_name: fear
+    type: Emotions
+    visible: true
+
+  Happiness:
+    color: '#2ee65d'
+    mr_name: Happiness
+    order: 14
+    sdk_name: joy
+    type: Emotions
+    visible: true
+
+  Inner Brow Raise:
+    color: '#46AFB3'
+    mr_name: Inner Brow Raise
+    order: 16
+    sdk_name: innerBrowRaise
+    type: Expressions
+    visible: true
+
+  Jaw Drop:
+    color: '#da6ef7'
+    mr_name: Jaw Drop
+    order: 15
+    sdk_name: jawDrop
+    type: Expressions
+    visible: true
+
+  Lid Tighten:
+    color: '#ecf76e'
+    mr_name: Lid Tighten
+    order: 13
+    sdk_name: lidTighten
+    type: Expressions
+    visible: true
+
+  Lip Corner Depress:
+    color: '#6ec4f7'
+    mr_name: Lip Corner Depress
+    order: 12
+    sdk_name: lipCornerDepressor
+    type: Expressions
+    visible: true
+
+  Lip Press:
+    color: '#f76e9c'
+    mr_name: Lip Press
+    order: 11
+    sdk_name: lipPress
+    type: Expressions
+    visible: true
+
+  Lip Pucker:
+    color: '#74f76e'
+    mr_name: Lip Pucker
+    order: 10
+    sdk_name: lipPucker
+    type: Expressions
+    visible: true
+
+  Lip Stretch:
+    color: '#906ef7'
+    mr_name: Lip Stretch
+    order: 9
+    sdk_name: lipStretch
+    type: Expressions
+    visible: true
+
+  Lip Suck:
+    color: '#f7b86e'
+    mr_name: Lip Suck
+    order: 8
+    sdk_name: lipSuck
+    type: Expressions
+    visible: true
+
+  Mouth Open:
+    color: '#6ef7e0'
+    mr_name: Mouth Open
+    order: 7
+    sdk_name: mouthOpen
+    type: Expressions
+    visible: true
+
+  Nose Wrinkle:
+    color: '#f76ee6'
+    mr_name: Nose Wrinkle
+    order: 6
+    sdk_name: noseWrinkle
+    type: Expressions
+    visible: true
+
+  Sadness:
+    color: '#f76e9c'
+    mr_name: Sadness
+    order: 32
+    sdk_name: sadness
+    type: Emotions
+    visible: true
+
+  Sentimentality:
+    color: '#46AFB3'
+    mr_name: Sentimentality
+    order: 31
+    sdk_name: innerBrowRaise
+    type: Expressions
+    visible: true
+
+  Smile:
+    color: '#962B07'
+    mr_name: Smile
+    order: 4
+    sdk_name: smile
+    type: Expressions
+    visible: true
+
+  Smirk:
+    color: '#6e96f7'
+    mr_name: Smirk
+    order: 3
+    sdk_name: smirk
+    type: Expressions
+    visible: true
+
+  Surprise:
+    color: '#FA8C36'
+    mr_name: Surprise
+    order: 33
+    sdk_name: surprise
+    type: Emotions
+    visible: true
+
+  Upper Lip Raise:
+    color: '#f76e6e'
+    mr_name: Upper Lip Raise
+    order: 1
+    sdk_name: upperLipRaise
+    type: Expressions
+    visible: true
+
+  Valence:
+    color: '#6ea7f7'
+    mr_name: Valence
+    order: 30
+    sdk_name: valence
+    type: Emotions
+    visible: true

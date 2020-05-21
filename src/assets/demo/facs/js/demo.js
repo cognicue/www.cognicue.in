@@ -324,6 +324,6 @@ let FACSDemo = null;
 const pageAlert = Alert("alert");
 
 $(document).ready(()=>{
-    FACSDemo = new Demo(pageAlert, METRIC),
+    FACSDemo = new Demo(pageAlert, metric),
     browserCheck() ? FACSDemo.start() : pageAlert.warn(messages.incompatableBrowser)
 });

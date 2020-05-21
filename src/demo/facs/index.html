@@ -20,6 +20,16 @@
     <!-- fontawesome glyphs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+    <!-- Handshaking backend frontend -->
+    <script type="text/javascript">
+      const present_conf = {{demo_screen|tojson|safe}}
+          , messages = {{alert_messages|tojson|safe}}
+          , metric = {{demo_metrics|tojson|safe}}
+          , media = {{demo_videos|tojson|safe}}
+          ;
+    </script>
+
     <!-- Scripts -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -31,7 +41,6 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>    
     <!-- D3 - Data Driven Documents -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="/assets/demo/facs/js/metric-config.js"></script>
     <script src="/assets/demo/facs/js/application.js"></script>
 
     <script defer src="/assets/demo/facs/js/cogni.js"></script>
@@ -42,14 +51,7 @@
   	<script defer src="/assets/demo/facs/js/modal-alert.js"></script>
   	<script defer src="/assets/demo/facs/js/summary.js"></script>
   	<script defer src="/assets/demo/facs/js/demo.js"></script>
- 
-    <!-- Handshaking backend frontend -->
-    <script type="text/javascript">
-      const present_conf = {{demo_screen|tojson|safe}}
-          , messages = {{alert_messages|tojson|safe}}
-          , media = {{demo_videos|tojson|safe}}
-          ;
-    </script>
+
 
 {% include "layout/_head_last.html" %}
 </head>
@@ -219,10 +221,10 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {% for each in demo_report %}
+                    {% for metric in demo_metrics|metric_sort %}
                       <tr>
-                        <td scope="row">{{each.metric_name}}</td>
-                        <td class="text-right" id="userMean{{each.metric_sdk}}">-</td>
+                        <td scope="row">{{metric.mr_name}}</td>
+                        <td class="text-right" id="userMean{{metric.sdk_name}}">-</td>
                         <!--<td class="text-right">5.3</td>-->
                       </tr>                    
                     {% endfor %}
