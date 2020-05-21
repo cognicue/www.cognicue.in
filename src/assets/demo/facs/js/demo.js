@@ -1,4 +1,4 @@
-function Demo(pageAlert, metric) {
+function Demo(pageAlert, metric, defaults) {
     const t = this;
 
     this.States = {
@@ -25,14 +25,15 @@ function Demo(pageAlert, metric) {
 
     let recorder, stream, capturer, beam, demo_type;
 
-    const u = 20, p = metric;
+    const u = 20, p = metric, q = defaults;
 
     let g = AsyncPlayer("media-stimulus")
       , h = AsyncPlayer("media-object")
       , j = AsyncPlayer("media-subject")
       , y = new Graph("#svg-curve",{
                 emoRoot: "#emotion-buttons",
-                buttons: p
+                buttons: p,
+                defaults: q
             })
       , b = Summarizer(p)
       , w = pageAlert;
@@ -305,18 +306,7 @@ function Demo(pageAlert, metric) {
 
 }
 
-
-const _messages = {
-    incompatableBrowser: "It appears that you are using an unsupported browser. Please try this demo on an updated version of Chrome, Firefox, Opera or Edge.",
-    loadingPlayer: "Loading Player...",
-    webcamFailure: "Unable to connect to webcam, please make sure your webcam is connected, and this page has permission to access it.",
-    detectorLoaded: "Loading the emotion detector...",
-    noFace: "<h4>No face detected</h4> <p>Please make sure your face is in view of the webcam.</p>",
-    videoStart: '\n  <h4>Welcome!</h4>\n  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>\n  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking a label on the left.</p>\n  <button type="button" class="btnC btn btn-primary float-left" id="startShare" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>\n  ',
-    videoEnd: '\n  <p>Analysis Complete!</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>\n  ',
-    noPresent: '\n  <p>Analyse New Video</p>\n  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>\n  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>\n  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>\n  <br>\n  <a href="." class="btnC btn btn-info float-right">Cancel</a>\n  ',
-}
-  , browserCheck = ()=>!0;
+browserCheck = ()=>!0;
 
 
 
@@ -324,6 +314,6 @@ let FACSDemo = null;
 const pageAlert = Alert("alert");
 
 $(document).ready(()=>{
-    FACSDemo = new Demo(pageAlert, metric),
+    FACSDemo = new Demo(pageAlert, metric, defaults),
     browserCheck() ? FACSDemo.start() : pageAlert.warn(messages.incompatableBrowser)
 });

@@ -58,6 +58,13 @@ demo_videos:
       id: 2
 
 
+default_metrics:
+  - joy
+  - surprise
+  - contempt
+  - disgust
+
+
 demo_metrics:
   Anger:
     color: '#fc4627'

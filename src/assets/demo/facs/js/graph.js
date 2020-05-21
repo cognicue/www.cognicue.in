@@ -7,7 +7,7 @@ function Graph(t, r) {
     }),
     this.emotions = Object.keys(a).map(t=>r.buttons[t].sdk_name);
     //this.emotions_selected = e.emotions[Math.floor(Math.random() * e.emotions.length)];
-    this.emotions_selected = ["joy", "surprise", "contempt", "disgust"];
+    this.emotions_selected = r.defaults;
 
     const o = Object.keys(a).map(t=>r.buttons[t].color)
       , emoRoot = $(r.emoRoot)
