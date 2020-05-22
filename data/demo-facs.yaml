@@ -3,28 +3,28 @@ page_title: Facial Action Coding System (FACS)
 privacy_note:
   para1: This demo makes use of the CogniCue JavaScript SDK. To use it, you must enable your webcam.
   para2: Your webcam data and frame-by-frame emotion metrics will <strong>not</strong> be sent to CogniCue. This means <strong>no data</strong> will be sent back to CogniCue. Eventually, after loading all resources you can use the application offline. You may review CogniCue's privacy policy <a href="/privacy-policy/" target="_new_tab">here</a>.
-  para3: Click "I Accept" to proceed to the demo.
+  para3: Click "I Accept" to proceed with the demo.
 
-loading_text: This demo requires your webcam, please make sure it is enabled.
+loading_text: This demo requires the access to your webcam, please make sure it is enabled.
 
 left_card1:
   header: Engagement Metric
   body: Click below to select or remove different FACS metrics
 
 left_card2:
-  para1: Color curves represent moment-by-moment emotion probabilities
-  para2: Gray bar in graph indicates no face found
+  para1: Color curves represent moment-by-moment facial movements probabilities
+  para2: Gray bar in graph signifies that the entire face couldn't be captured
 
 right_card1:
   header: Engagement Subject
 
 right_card2:
   header: Engagement Control
-  para1: Click the button below to stop the execution of FACS at any time or it will automatically stop if you are watching any video here.
+  para1: Click the button below to stop the execution of FACS at any time or it will stop automatically if you are watching any video here.
 
 right_card3:
   para1: You can click in the graph to seek the video to that point in time and press the <span class="theme-color">spacebar</span> key to play or pause the video.
-  para2: Click the button below to see your average reactions.
+  para2: Click the button below to view your reaction at particular time
   para3: Click the button to start over with another video.
 
 
@@ -32,7 +32,7 @@ alert_messages:
     incompatableBrowser:  It appears that you are using an unsupported browser. Please try this demo on an updated version of Chrome, Firefox, Opera or Edge.
     loadingPlayer:        Loading Player...
     detectorLoaded:       Loading FACS...    
-    webcamFailure:        Unable to connect to webcam, please make sure your webcam is connected, and this page has permission to access it.
+    webcamFailure:        Unable to connect to webcam, please make sure your webcam is connected, and this page has the permission to access it.
     noFace:               <h4>No face detected</h4> <p>Please make sure your face is in view of the webcam.</p>
     videoStart:           <h4>Welcome!</h4>  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking a label on the left.</p>  <button type="button" class="btnC btn btn-primary float-left" id="startShare" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>
     videoEnd:             <p>Analysis Complete!</p>  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>  <p>You can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>  <br>  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>
@@ -49,13 +49,39 @@ demo_screen:
 demo_videos:
   english:
 
-    - data: /assets/demo/facs/media/BBC_interview.mp4
-      poster: /assets/demo/facs/media/BBC_interview.png
+
+    - data: /assets/demo/facs/media/YouTube (360p) (2).mp4
+      poster: ''
       id: 1
 
-    - data: /assets/demo/facs/media/goat_4_sale.mp4
-      poster: /assets/demo/facs/media/goat_4_sale.jpg
+    - data: /assets/demo/facs/media/YouTube (360p).mp4 
+      poster: ''
       id: 2
+
+    - data: /assets/demo/facs/media/Joe Hursley in VEGAS CINGULAR commercial.mp4
+      poster: ''
+      id: 3
+
+    - data: /assets/demo/facs/media/Volkswagen - Dog-Fish (funny commercial).mp4
+      poster: ''
+      id: 4
+
+    - data: /assets/demo/facs/media/YouTube (720p).mp4
+      poster: ''
+      id: 5
+
+    - data: /assets/demo/facs/media/Dirt Devil Vacuum Cleaner vs The Exorcist Commercial - YouTube (360p).mp4
+      poster: ''
+      id: 6
+
+    - data: /assets/demo/facs/media/Semir Gymnastic.mp4
+      poster: ''
+      id: 7
+
+    - data: /assets/demo/facs/media/Scary Japanese Tire Commercial - YouTube (480p).mp4
+      poster: ''
+      id: 8
+
 
 
 default_metrics:
