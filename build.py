@@ -1,4 +1,4 @@
-import argparse, os, re, shutil, yaml
+import argparse, os, glob, re, shutil, yaml
 from datetime import datetime
 from staticjinja import Site
 from urllib import request
@@ -18,51 +18,104 @@ class Template:
 
     def __init__(self, new_pages, new_posts, datapath):
         self.datapath = datapath
+        self.new_pages = new_pages
+        self.new_posts = new_posts
+        self.new_temps = dict()
+
         for page in new_pages+new_posts:
             if re.match(REGEX_PATH, page):
-                new_path = os.path.join(SOURCE_PATH, request.url2pathname(page[1:]))
+
+                path = request.url2pathname(page[1:])
+                new_path = os.path.join(SOURCE_PATH, path)
+
+                new_temp = os.path.join(path, "index.html")
                 new_file = os.path.join(new_path, "index.html")
+
                 if not os.path.exists(new_path):
                     os.makedirs(new_path)
+
                 if not os.path.exists(new_file):
                     template = page in new_pages and NEW_PAGE or NEW_POST
                     shutil.copyfile(template, new_file)
 
+                self.new_temps.update({new_temp: page})
+
+
     def context(self):
         datapath = self.datapath
+
         def _context(template):
             dirname = os.path.dirname(template.name).replace("/", "-")
-            filepath = os.path.join(datapath, "{}.yaml".format(dirname or "home"))
-            if os.path.exists(filepath):
-                context = self.yaml_reader(filepath)
-            else:
-                if "post" in template.blocks:
+            page_url = self.new_temps.get(template.name) or "/"
+            page_title = page_url.title().replace("/", " ").replace("-", " ").strip()
+
+            if "post" in template.blocks:
+                post_filepath = os.path.join(datapath, 'post', "{}.yaml".format(dirname))
+                if os.path.exists(post_filepath):
+                    context = self.yaml_reader(post_filepath)
+                else:
                     context = {
                         "page_generated": datetime.now().isoformat(),
-                        "page_title": "",
+                        "page_title": page_title,
+                        "page_url": page_url,
                         "post_detail": {
-                            "title": "Post Title",
-                            "excerpt": "Post Excerpt<br/>Modify data file: {}".format(filepath),
+                            "title": page_title,
+                            "image": "/assets/img/blog/single_blog_1.png",
+                            "excerpt": "Excerpt<br/>Modify data file: {}".format(post_filepath),
                             "sections": [
                                 {"para": "Paragraph 1", "quote": "Quotes"},
                                 {"para": "Paragraph 2"},
                                 {"para": "Paragraph 3"},
                             ],
+                        },
+                        "author": {
+                            "name": "Harvard Milan",
+                            "photo": "/assets/img/blog/author.png",
+                            "desc": "Author Description"
                         }
                     }
+                    self.yaml_writer(post_filepath, context)
+            else:
+                page_filepath = os.path.join(datapath, "{}.yaml".format(dirname or "home"))
+                if os.path.exists(page_filepath):
+                    context = self.yaml_reader(page_filepath)
                 else:
                     context = {
                         "page_generated": datetime.now().isoformat(),
-                        "page_title": "",
+                        "page_title": page_title,
+                        "page_url": page_url,
                         "section": {
                             "heading": "Section Heading",
-                            "text": "Section Paragraph<br/>Modify data file: {}".format(filepath)
+                            "text": "Section Paragraph<br/>Modify data file: {}".format(page_filepath)
                         }
                     }
-                with open(filepath, "w") as file:
-                    file.write(yaml.dump(context))
+                    self.yaml_writer(page_filepath, context)
+
             return context
+
         return _context
+
+
+    def insights_context(self):
+        datapath = self.datapath
+
+        def _context(template):
+            posts = glob.glob(os.path.join(datapath,"post","*.yaml"))
+            posts.sort(key=os.path.getctime, reverse=True)
+            context = list()
+            for post in posts[:1]:
+                c = self.yaml_reader(post) or {}
+                post_c = {
+                    "page_generated": datetime.fromisoformat(c.get("page_generated")),
+                    "post_detail": c.get("post_detail"),
+                    "page_url": c.get("page_url"),
+                }
+                context.append(post_c)
+            return {
+                "posts": context
+            }
+        return _context
+
 
     def filters(self):
         return {
@@ -80,27 +133,40 @@ class Template:
     def env_globals(self):
         return self.yaml_reader(os.path.join(self.datapath, "env_globals.yaml"))
 
+
     def yaml_reader(self, filename):
         with open(filename) as file:
             data = yaml.load(file, Loader=yaml.FullLoader)
         return data
 
+
+    def yaml_writer(self, filepath, context):
+        dirname = os.path.dirname(filepath)
+        os.path.exists(dirname) or os.makedirs(dirname)
+        with open(filepath, "w") as file:
+            file.write(yaml.dump(context))
+
+
 if __name__ == "__main__":
     arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument("-w", action='store_true')
     arg_parser.add_argument("--page", nargs='*', default=[])
     arg_parser.add_argument("--post", nargs='*', default=[])
     args = arg_parser.parse_args()
 
-    tmp = Template(new_pages = args.page, new_posts = args.post, datapath=DATA_PATH)
+    tmp = Template(new_pages=args.page, new_posts=args.post, datapath=DATA_PATH)
 
     site = Site.make_site(
         searchpath=SOURCE_PATH,
         outpath=BUILD_PATH,
         staticpaths=["assets", "CNAME", "favicon.ico"],
-        contexts=[(".*.html", tmp.context())],
+        contexts=[
+            (".*.html", tmp.context()),
+            ("insights/index.html", tmp.insights_context()),
+        ],
         env_globals=tmp.env_globals(),
         filters=tmp.filters(),
         mergecontexts=True,
     )
     # enable automatic reloading
-    site.render(use_reloader=True)
+    site.render(use_reloader=args.w)

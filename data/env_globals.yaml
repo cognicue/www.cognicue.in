@@ -1,30 +1,12 @@
 site_title: CogniCue
 
+site_url: https://www.cognicue.in
+
 site_description: 
 
 site_logo: /assets/img/logo/logo-200x200.png
 
 site_favicon: /assets/img/logo/favicon-60x66.png
-
-site_pages:  
-  about:
-    text: About Us
-    link: /about/
-  products:
-    text: Products
-    link: /products/
-    sub:
-      - text: Media Analytics
-        link: /products/media-analytics/
-  contact:
-    text: Contact Us
-    link: /contact/
-  privacy:
-    text: Privacy Policy
-    link: /privacy-policy/
-  terms:
-    text: Terms of Service
-    link: /terms-of-service/
 
 site_headers:
   - text: Home
@@ -48,8 +30,35 @@ site_headers:
       - text: FACS
         link: /demo/facs/
 
+  - text: Insights
+    link: /insights/
+
   - text: Contact
     link: /contact/
+
+site_pages:
+  about:
+    text: About Us
+    link: /about/
+  products:
+    text: Products
+    link: /products/
+    sub:
+      - text: Media Analytics
+        link: /products/media-analytics/
+  contact:
+    text: Contact Us
+    link: /contact/
+  privacy:
+    text: Privacy Policy
+    link: /privacy-policy/
+  terms:
+    text: Terms of Service
+    link: /terms-of-service/
+  insights:
+    text: Insights
+    link: /insights/
+
 
 site_social:
   slack: https://bodyspeaksbetter.slack.com

@@ -1,0 +1,56 @@
+{% extends "layout/_base.html" %}
+{% block main %}
+{% block page %}{% endblock %}
+<section class="blog_area single-post-area section-padding">
+<div class="container">
+<div class="row">
+
+
+<div class="col-lg-12 mb-5 mb-lg-0">
+<div class="blog_left_sidebar">
+
+{% for post in posts %}
+	<article class="blog_item">
+	<div class="blog_item_img">
+	 <img class="card-img rounded-0" src="{{post.post_detail.image}}" alt="">
+	<a href="javascript:void(0)" class="blog_item_date">
+	<h3>{{ post.page_generated.strftime('%d') }}</h3>
+	<p>{{ post.page_generated.strftime('%b') }}</p>
+	</a>
+	</div>
+	<div class="blog_details">
+	<a class="d-inline-block" href="{{ post.page_url or '/' }}">
+	<h2>{{post.post_detail.title}}</h2>
+	</a>
+	<p>{{post.post_detail.excerpt}}</p>
+	<ul class="blog-info-link">
+	<li><a href="javascript:void(0)"><i class="fa fa-user"></i> {{post.post_detail.categories|join(', ')}}</a></li>
+	<li><a href="javascript:void(0)"><i class="fa fa-comments"></i> Comments</a></li>
+	</ul>
+	</div>
+	</article>
+{% endfor %}
+
+<!-- Place <div> tag where you want the feed to appear -->
+<div id="curator-feed-default-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
+<!-- The Javascript can be moved to the end of the html page before the </body> tag -->
+<script type="text/javascript">
+/* curator-feed-default-layout */
+(function(){
+var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
+i.src = "https://cdn.curator.io/published/c7de9366-fae8-4ded-be2f-49099d452fe5.js";
+e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+})();
+</script>
+
+
+</div>
+</div>
+
+
+</div>
+</div>
+</section>	
+{% include "layout/_quick_demo.html" %}
+{% include "layout/_contact_us.html" %}
+{% endblock %}
