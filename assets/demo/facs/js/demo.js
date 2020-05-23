@@ -153,8 +153,8 @@ function Demo(pageAlert, metric, defaults) {
     }
 
       , stopPresenting = ()=>{
-            recorder && recorder.state === "recording" ?
-            (recorder.stop(),stream.getVideoTracks()[0].stop()) : !0
+          recorder && recorder.state === "recording" && recorder.stop();
+          stream.getVideoTracks()[0].stop();
     }
 
     , startCapturing = async () =>{
@@ -192,8 +192,8 @@ function Demo(pageAlert, metric, defaults) {
     }
 
       , stopCapturing = ()=>{
-            capturer && capturer.state === "recording" ?
-            (capturer.stop(),beam.getVideoTracks()[0].stop()) : !0
+            capturer && capturer.state === "recording" && capturer.stop();
+            beam.getVideoTracks()[0].stop();
     }    
 
 
