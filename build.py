@@ -159,7 +159,13 @@ if __name__ == "__main__":
     site = Site.make_site(
         searchpath=SOURCE_PATH,
         outpath=BUILD_PATH,
-        staticpaths=["assets", "CNAME", "favicon.ico"],
+        staticpaths=[
+            "assets",
+            "CNAME",
+            "favicon.ico",
+            "apple-touch-icon.png",
+            "apple-touch-icon-precomposed.png",
+        ],
         contexts=[
             (".*.html", tmp.context()),
             ("insights/index.html", tmp.insights_context()),
