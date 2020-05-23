@@ -119,14 +119,14 @@ class Template:
 
     def filters(self):
         return {
-            "metric_sort": self.metric_sort
+            "summary_metric": self.summary_metric
         }
 
     @staticmethod
-    def metric_sort(metric):
+    def summary_metric(metric):
         return [
-            {"mr_name": i["mr_name"], "sdk_name": i["sdk_name"]}
-            for i in sorted(filter(lambda x: x["visible"], metric.values()), key=lambda y:y["order"])
+            dict(i)
+            for i in sorted(filter(lambda x: x.get("summary"), metric.values()), key=lambda y:y.get("order"))
         ]
 
 

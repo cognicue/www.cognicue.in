@@ -301,7 +301,16 @@ function Demo(pageAlert, metric, defaults) {
             f("#demo-container", "#summary-container"),
             $("#demoButton").on("click", ()=>{
                 f("#summary-container", "#demo-container")
-            })
+            });
+
+            let object_length = Math.round(document.getElementById("media-object").duration),
+            subject_length = Math.round(document.getElementById("media-subject").duration);
+
+            object_length = object_length == Infinity || isNaN(object_length) ? 0 : object_length;
+            subject_length = subject_length == Infinity || isNaN(subject_length) ? 0 : subject_length;
+
+            $("#summaryObject").html(object_length);
+            $("#summarySubject").html(subject_length);
     }
 
 }

@@ -18,17 +18,14 @@ site_headers:
   - text: Technology
     link: /technology/    
 
-  - text: Products
+  - text: Solutions
     link: "#"
     sub_header:
       - text: Media Analytics
-        link: /products/media-analytics/
+        link: /solutions/media-analytics/
 
-  - text: Demo
-    link: "#"
-    sub_header:
-      - text: FACS
-        link: /demo/facs/
+  - text: FACS
+    link: /demo/facs/
 
   - text: Insights
     link: /insights/
@@ -40,12 +37,12 @@ site_pages:
   about:
     text: About Us
     link: /about/
-  products:
-    text: Products
-    link: /products/
+  solutions:
+    text: Solutions
+    link: /solutions/
     sub:
       - text: Media Analytics
-        link: /products/media-analytics/
+        link: /solutions/media-analytics/
   contact:
     text: Contact Us
     link: /contact/

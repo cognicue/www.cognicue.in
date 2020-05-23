@@ -63,11 +63,15 @@
 
 <nav class="navbar navbar-light bg-highlight">
   <div class="container">
-    <div>
-      <a class="brand-logo-adj navbar-brand align-middle" href="/">
-        <img class="brand-logo" src="{{site_logo}}" alt="{{site_title}}" />
-      </a>
-    <span class="navbar-text boldtext align-middle">{{page_title}}</span>
+    <div class="row w-100">
+      <div class="col-lg-3 col-sm-4">
+        <a class="brand-logo-adj navbar-brand align-middle" href="/">
+          <img class="brand-logo" src="{{site_logo}}" alt="{{site_title}}" />
+        </a>
+      </div>
+      <div class="col-lg-9 col-sm-8 mt-2">
+        <h1 class="navbar-text boldtext ">{{page_title}}</h1>
+      </div>
     </div>
   </div>
 </nav>
@@ -218,22 +222,42 @@
                 <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
                 <table class="table table-bordered table-striped">
                   <thead>
-                    <tr>
+                    <tr class="summary-heading">
+                      <th scope="col" colspan="2" class="boldtext">Summary</th>
+                      <!--<th class="text-right" scope="col">Ad Average</th>-->
+                    </tr>
+                  </thead>                                                      
+                  <thead>
+                    <tr class="summary-metric">
                       <th scope="col">Metric</th>
-                      <th class="text-right" scope="col">Your Average</th>
+                      <th scope="col" class="text-right">Point</th>
                       <!--<th class="text-right" scope="col">Ad Average</th>-->
                     </tr>
                   </thead>
                   <tbody>
-                    {% for metric in demo_metrics|metric_sort %}
-                      <tr>
-                        <td scope="row">{{metric.mr_name}}</td>
-                        <td class="text-right" id="userMean{{metric.sdk_name}}">-</td>
+                    {% for metric in demo_metrics|summary_metric %}
+                      <tr class="col-8 {% if metric.type == 'Expressions' %}summary-expression{% else %}summary-emotion{% endif %}">
+                        <td scope="col" class="col-4">{{metric.mr_name}}</td>
+                        <td scope="col" class="text-right col-4" id="userMean{{metric.sdk_name}}">-</td>
                         <!--<td class="text-right">5.3</td>-->
                       </tr>                    
                     {% endfor %}
                     </tr>
                   </tbody>
+                  <thead>
+                    <tr class="summary-video">
+                      <th scope="col">Video Length</th>
+                      <th scope="col" class="text-right" id="summaryObject">-</th>
+                      <!--<th class="text-right" scope="col">Ad Average</th>-->
+                    </tr>
+                  </thead>
+                  <thead>
+                    <tr class="summary-video">
+                      <th scope="col">Viewed Time</th>
+                      <th scope="col" class="text-right" id="summarySubject">-</th>
+                      <!--<th class="text-right" scope="col">Ad Average</th>-->
+                    </tr>
+                  </thead>                  
                 </table>
                 </div>
                 <div class="tab-pane fade" id="visual" role="tabpanel" aria-labelledby="visual-tab">

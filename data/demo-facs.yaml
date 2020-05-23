@@ -34,10 +34,10 @@ alert_messages:
     detectorLoaded:       Loading FACS...    
     webcamFailure:        Unable to connect to webcam, please make sure your webcam is connected, and this page has the permission to access it.
     noFace:               <h4>No face detected</h4> <p>Please make sure your face is in view of the webcam.</p>
-    videoStart:           <h4>Welcome!</h4>  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking a label on the left.</p>  <button type="button" class="btnC btn btn-primary float-left" id="startShare" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>
-    videoEnd:             <p>Analysis Complete!</p>  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>  <p>You can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>  <br>  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>
+    videoStart:           <h4>Welcome!</h4>  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking searchbar on the left.</p>  <button type="button" class="btnC btn btn-primary float-left" id="startShare" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>
+    videoEnd:             <h4>Analysis Complete!</h4>  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>  <p>You can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>  <p>Use the searchbar to the left of the video to highlight a specific metric or all metrics.</p>  <br>  <button type="button" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>
     videoLoadingFailure:  <h4>Network Problem</h4>  <p>Unable to fetch the video for you. Click the button below to try another.</p>  <br>  <a href="." id="try_another" class="btnC btn btn-info float-right">Try Another</a>
-    noPresent:            <p>Analyse New Video</p>  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>  <p>You can use the video controls to play, pause, and seek the video. Also, you can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>  <p>Use the buttons to the left of the video to highlight a specific metric or highlight all metrics.</p>  <br>  <a href="." class="btnC btn btn-info float-right">Cancel</a>
+    noPresent:            <h4>Share your screen</h4>  <p>Since you canceled to share your screen or there is a problem while sharing the screen, we could not process. Click the below button to try again.  </p>  <br>  <a href="." class="btnC btn btn-info float-right">OK</a>
 
 
 demo_screen:
@@ -86,8 +86,7 @@ demo_videos:
 default_metrics:
   - joy
   - surprise
-  - contempt
-  - disgust
+  - engagement
 
 
 demo_metrics:
@@ -102,10 +101,11 @@ demo_metrics:
   Attention:
     color: '#27833C'
     mr_name: Attention
-    order: 27
+    order: 1
     sdk_name: attention
     type: Expressions
     visible: true
+    summary: true
 
   Brow Furrow:
     color: '#ac6ef7'
@@ -142,10 +142,11 @@ demo_metrics:
   Contempt:
     color: '#2bb3f7'
     mr_name: Contempt
-    order: 22
+    order: 3
     sdk_name: contempt
     type: Emotions
     visible: true
+    summary: true
 
   Dimpler:
     color: '#a2f76e'
@@ -153,23 +154,25 @@ demo_metrics:
     order: 21
     sdk_name: dimpler
     type: Expressions
-    visible: true
+    visible: false
 
   Disgust:
     color: '#ffd000'
     mr_name: Disgust
-    order: 20
+    order: 4
     sdk_name: disgust
     type: Emotions
     visible: true
+    summary: true
 
   Expressiveness:
     color: '#f76e7f'
     mr_name: Expressiveness
-    order: 29
+    order: 2
     sdk_name: engagement
     type: Expressions
     visible: true
+    summary: true
 
   Eye Closure:
     color: '#6e79f7'
@@ -190,18 +193,20 @@ demo_metrics:
   Fear:
     color: '#813790'
     mr_name: Fear
-    order: 17
+    order: 5
     sdk_name: fear
     type: Emotions
     visible: true
+    summary: true
 
   Happiness:
     color: '#2ee65d'
     mr_name: Happiness
-    order: 14
+    order: 6
     sdk_name: joy
     type: Emotions
     visible: true
+    summary: true
 
   Inner Brow Raise:
     color: '#46AFB3'
@@ -249,7 +254,7 @@ demo_metrics:
     order: 10
     sdk_name: lipPucker
     type: Expressions
-    visible: true
+    visible: false
 
   Lip Stretch:
     color: '#906ef7'
@@ -286,10 +291,11 @@ demo_metrics:
   Sadness:
     color: '#f76e9c'
     mr_name: Sadness
-    order: 32
-    sdk_name: sadness
+    order: 7
+    sdk_name: lipCornerDepressor
     type: Emotions
     visible: true
+    summary: true
 
   Sentimentality:
     color: '#46AFB3'
@@ -297,7 +303,7 @@ demo_metrics:
     order: 31
     sdk_name: innerBrowRaise
     type: Expressions
-    visible: true
+    visible: false
 
   Smile:
     color: '#962B07'
@@ -318,10 +324,11 @@ demo_metrics:
   Surprise:
     color: '#FA8C36'
     mr_name: Surprise
-    order: 33
+    order: 8
     sdk_name: surprise
     type: Emotions
     visible: true
+    summary: true
 
   Upper Lip Raise:
     color: '#f76e6e'
@@ -337,4 +344,4 @@ demo_metrics:
     order: 30
     sdk_name: valence
     type: Emotions
-    visible: true
+    visible: false
