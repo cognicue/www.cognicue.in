@@ -1,4 +1,4 @@
-page_title: Facial Action Coding System (FACS)
+page_title: FACS (Facial Action Coding System)
 
 privacy_note:
   para1: This demo makes use of the CogniCue JavaScript SDK. To use it, you must enable your webcam.
@@ -41,45 +41,44 @@ alert_messages:
 
 
 demo_screen:
-  share: /assets/demo/facs/media/share_icon.png
-  play: /assets/demo/facs/media/share_icon.png
+  share: /assets/demo/facs/img/share.png
+  play: /assets/demo/facs/img/play.png
   timeout: 120
 
 
 demo_videos:
   english:
 
-
     - data: https://media.cognicue.in/demo/facs/1/coffeebeach.mp4
-      poster: ''
+      poster: /assets/demo/facs/img/play.png
       id: 1
 
     - data: https://media.cognicue.in/demo/facs/2/darthvaderkid.mp4
-      poster: ''
+      poster: /assets/demo/facs/img/play.png
       id: 2
 
     - data: https://media.cognicue.in/demo/facs/3/japanesetyre.mp4
-      poster: ''
+      poster: /assets/demo/facs/img/play.png
       id: 3
 
     - data: https://media.cognicue.in/demo/facs/4/karatekid.mp4
-      poster: ''
+      poster: /assets/demo/facs/img/play.png
       id: 4
 
     - data: https://media.cognicue.in/demo/facs/5/lasvegas.mp4
-      poster: ''
+      poster: /assets/demo/facs/img/play.png
       id: 5
 
     - data: https://media.cognicue.in/demo/facs/6/Semirgymnastic.mp4
-      poster: ''
+      poster: /assets/demo/facs/img/play.png
       id: 6
 
     - data: https://media.cognicue.in/demo/facs/7/vaccumcleaner.mp4
-      poster: ''
+      poster: /assets/demo/facs/img/play.png
       id: 7
 
     - data: https://media.cognicue.in/demo/facs/8/vowedogfish.mp4
-      poster: ''
+      poster: /assets/demo/facs/img/play.png
       id: 8
 
 

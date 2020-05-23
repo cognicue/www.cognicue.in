@@ -116,8 +116,8 @@ function Demo(pageAlert, metric, defaults) {
             audio: true
           }).catch((e)=>{w.warn(messages.noPresent)}).then((_stream)=>{
 
-          video.attr("poster", present_conf.play);
-          video_playback.attr("poster", present_conf.share);
+          video.attr("poster", present_conf.share);
+          video_playback.attr("poster", present_conf.play);
 
           stream = _stream;
           recorder = new MediaRecorder(stream);

@@ -1511,4 +1511,12 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
         $("#media-stimulus,#media-object").attr("poster", random_media.poster).attr("data", random_media.data);
         $("body").delegate("#try_another,#choose_another", "click", (e)=>{e.preventDefault(),window.location.href=new_link});      
     });
+
+    $(window).on('load', function() {
+        $('#preloader-active').delay(450).fadeOut('slow');
+        $('body').delay(450).css({
+            'overflow': 'visible'
+        });
+    });
+
 })($);

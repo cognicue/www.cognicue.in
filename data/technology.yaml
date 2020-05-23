@@ -2,25 +2,27 @@ page_generated: 2020-05-19 08:06:28.628555
 page_title: 'Technology'
 section:
   heading: Deep Learning
-  text: ''
+  text: Current Convolutional neural networks have become a standard method of machine learning for 'mesh data' (pictures, videos, etc.). Initially we started with the FER-2013 emotion dataset and tried implementing general CNN with different classifiers, achieved <b>66.05%</b> [1] classification accuracy and improved it to further <b>71.11%</b> till we reach the plateau. To improve it more further, we started gathering more and more data and then propose a CNN (Convolutional Neural Networks) and RNN (Recurrent Neural Networks) mixed model [2] for image classification, the proposed network, called CNN-RNN model. Image data can be viewed as two-dimensional wave data, and convolution calculation is a filtering process. It can filter non-critical band information in an image, leaving behind important features of image information. The CNN-RNN model can use the RNN to Calculate the Dependency and Continuity Features of the Intermediate Layer Output of the CNN Model, connect the characteristics of these middle tiers to the final full-connection network for classification prediction, which will result in better classification accuracy, achieved greater classification success rate <b>85.04%</b>.
 
 portfolio:
-  - poster: /assets/img/projects/rnn_cnn.png
-    link: /assets/img/projects/rnn_cnn.png
-    text: View
-    type: image
 
   - poster: /assets/img/projects/deep.png
     link: /assets/img/projects/deep.png
     text: View
     type: image
 
-  - poster: /assets/img/projects/cnn_rnn.jpg
-    link: https://www.matec-conferences.org/articles/matecconf/pdf/2019/26/matecconf_jcmme2018_02001.pdf
-    text: Read
-    type: iframe
+  - poster: /assets/img/projects/rnn_cnn.png
+    link: /assets/img/projects/rnn_cnn.png
+    text: View
+    type: image
 
   - poster: /assets/img/projects/sigmoid.gif
-    link: https://www.youtube.com/watch?v=H-HVZJ7kGI0
-    text: Watch
+    link: /assets/paper/oarriaga-face_classification-report.pdf
+    text: '[1] - Read'
     type: iframe
+
+  - poster: /assets/img/projects/cnn_rnn.jpg
+    link: /assets/paper/matecconf_jcmme2018_02001.pdf
+    text: '[2] - Read'
+    type: iframe
+
