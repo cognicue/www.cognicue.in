@@ -246,8 +246,13 @@ line.cursor-wide {
 .summary-heading {
 	text-align: center;
 	background-color: #444;
-	font-size: 25px;
+
 }
+
+.summary-heading .boldtext {
+	font-size: 16pt;
+}
+
 /*
 .summary-metric {
 	background-color: #000;
