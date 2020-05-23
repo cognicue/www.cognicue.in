@@ -37,6 +37,9 @@ function AsyncPlayer(e) {
             }
         }  
         else
+            if (n === null){
+                return;
+            }
             "play" === s ? (n.play().then(()=>{
                 l = n.duration,
                 p("video start", {
