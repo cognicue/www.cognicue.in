@@ -41,7 +41,7 @@ jobs:
         cp -av /tmp/build/* .
     - name: Checking git status
       run: |
-        git status
+        git status -v
     - name: Commiting new changes
       run: |
         git commit -am"[CogniCue] Auto Build"
