@@ -30,7 +30,7 @@ jobs:
         python build.py -o /tmp/build        
     - name: Checkout and clean gh-pages branch
       run: |
-        git checkout gh-pages
+        git checkout gh-pages origin/gh-pages
         rm -rf *
     - name: Copying new build
       run: |
