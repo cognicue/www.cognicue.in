@@ -41,7 +41,9 @@ jobs:
         git status
     - name: Commiting new changes
       run: |
-        git commit -am"Latest Workflow Build"
+        git config --global user.email "fasihahmadfakhri@gmail.com"
+        git config --global user.name "Fasih Ahmad Fakhri"
+        git commit -am"Latest CC Build"
     - name: Publishing new changes
       run: |
         git push origin HEAD  
