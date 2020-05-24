@@ -30,7 +30,7 @@ jobs:
         python build.py -o /tmp/build        
     - name: Checkout and clean gh-pages branch
       run: |
-        /usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin refs/remotes/origin/gh-pages
+        git fetch --all
         git checkout gh-pages
         rm -rf *
     - name: Copying new build
