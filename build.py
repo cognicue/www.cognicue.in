@@ -149,7 +149,8 @@ class Template:
 
 if __name__ == "__main__":
     arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument("-w", action='store_true')
+    arg_parser.add_argument("-w", action='store_true', help="Build in watch mode")
+    arg_parser.add_argument("-o", default=BUILD_PATH, help="Output directory path")
     arg_parser.add_argument("--page", nargs='*', default=[])
     arg_parser.add_argument("--post", nargs='*', default=[])
     args = arg_parser.parse_args()
@@ -158,7 +159,7 @@ if __name__ == "__main__":
 
     site = Site.make_site(
         searchpath=SOURCE_PATH,
-        outpath=BUILD_PATH,
+        outpath=os.path.abspath(args.o),
         staticpaths=[
             "assets",
             "CNAME",
