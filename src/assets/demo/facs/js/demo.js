@@ -113,14 +113,20 @@ function Demo(pageAlert, metric, defaults) {
       , startPresenting = async () => {
           await navigator.mediaDevices.getDisplayMedia({
             video: { mediaSource: "screen" },
-            audio: true
-          }).catch((e)=>{w.warn(messages.noPresent)}).then((_stream)=>{
+            audio: false
+          }).catch(e=>{w.warn(messages.noPresent)}).then(_stream=>{
 
-          video.attr("poster", present_conf.play);
-          video_playback.attr("poster", present_conf.share);
+          video.attr("poster", present_conf.share);
+          video_playback.attr("poster", present_conf.play);
 
           stream = _stream;
-          recorder = new MediaRecorder(stream);
+          try{
+            recorder = new MediaRecorder(stream);
+          }
+          catch{
+            $("#checkMediaRecorder").html(messages.noMediaRecorder);
+            return;
+          }
 
           const chunks = [];
 
@@ -147,18 +153,24 @@ function Demo(pageAlert, metric, defaults) {
     }
 
       , stopPresenting = ()=>{
-            recorder && recorder.state === "recording" ?
-            (recorder.stop(),stream.getVideoTracks()[0].stop()) : !0
+          recorder && recorder.state === "recording" && recorder.stop();
+          stream.getVideoTracks()[0].stop();
     }
 
     , startCapturing = async () =>{
         await navigator.mediaDevices.getUserMedia({
           video: true,
-          audio: true
-        }).catch((e)=>{w.warn(messages.noPresent)}).then((_stream)=>{
+          audio: false
+        }).catch(e=>{w.warn(messages.noPresent)}).then(_stream=>{
 
               beam = _stream;
-              capturer = new MediaRecorder(beam);
+              try{
+                capturer = new MediaRecorder(beam);
+              }
+              catch{
+                $("#checkMediaRecorder").html(messages.noMediaRecorder);
+                return;
+              }
               const chunks = [];
 
               capturer.onstart = e => {
@@ -169,7 +181,7 @@ function Demo(pageAlert, metric, defaults) {
               capturer.onstop = e => {
                 const completeBlob = new Blob(chunks, { type: chunks[0].type });
                 subject.attr("src", URL.createObjectURL(completeBlob));
-                j('load');
+                j('load'),j("seek", 1000000000),j("seek", 0),j("pause");
               },
               capturer.onerror = e => {
               };
@@ -180,8 +192,8 @@ function Demo(pageAlert, metric, defaults) {
     }
 
       , stopCapturing = ()=>{
-            capturer && capturer.state === "recording" ?
-            (capturer.stop(),beam.getVideoTracks()[0].stop()) : !0
+            capturer && capturer.state === "recording" && capturer.stop();
+            beam.getVideoTracks()[0].stop();
     }    
 
 
@@ -301,8 +313,27 @@ function Demo(pageAlert, metric, defaults) {
             f("#demo-container", "#summary-container"),
             $("#demoButton").on("click", ()=>{
                 f("#summary-container", "#demo-container")
-            })
+            });
+            setSubjectDuration();
+            setObjectDuration();
     }
+
+      , getDuration =  e=>{
+          let video = document.getElementById(e)
+            , duration = Math.round(video.duration);
+
+          return duration === Infinity ? "-" : duration || "--";
+      }
+
+      , setObjectDuration = ()=>{
+          let subject = getDuration("media-object");
+          $("#summaryObject").html(subject);
+      }
+
+      , setSubjectDuration = ()=>{
+          let subject = getDuration("media-subject");
+          $("#summarySubject").html(subject);
+      }
 
 }
 
