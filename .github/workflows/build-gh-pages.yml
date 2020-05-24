@@ -6,8 +6,7 @@ name: Build gh-pages
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+
 
 jobs:
   build:
@@ -24,7 +23,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Build CC in /tmp/build
+    - name: Setting git config
+      run: |
+        git config --global user.email "fasihahmadfakhri@gmail.com"
+        git config --global user.name "Fasih Ahmad Fakhri"
+    - name: Build CogniCue in /tmp/build
       run: |
         mkdir /tmp/build
         python build.py -o /tmp/build        
@@ -41,9 +44,7 @@ jobs:
         git status
     - name: Commiting new changes
       run: |
-        git config --global user.email "fasihahmadfakhri@gmail.com"
-        git config --global user.name "Fasih Ahmad Fakhri"
-        git commit -am"Latest CC Build"
+        git commit -am"[CogniCue] Auto Build"
     - name: Publishing new changes
       run: |
         git push origin HEAD  
