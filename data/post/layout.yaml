@@ -1,0 +1,16 @@
+author:
+  desc: Author Description
+  name: Harvard Milan
+  photo: /assets/img/blog/author.png
+page_generated: '2020-05-26T15:05:09.910735'
+page_title: ''
+page_url: /
+post_detail:
+  excerpt: 'Excerpt<br/>Modify data file: C:\Users\bodys\Documents\Cogni\www.cognicue.in\data\post\layout.yaml'
+  image: /assets/img/blog/single_blog_1.png
+  sections:
+  - para: Paragraph 1
+    quote: Quotes
+  - para: Paragraph 2
+  - para: Paragraph 3
+  title: ''
