@@ -46,6 +46,7 @@ jobs:
       run: |
         git add .
         git commit -m"[CogniCue] Auto Build"
+        git status
     - name: Publishing new changes
       run: |
         git push origin HEAD  
