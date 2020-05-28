@@ -44,7 +44,8 @@ jobs:
         git status
     - name: Commiting new changes
       run: |
-        git commit -am"[CogniCue] Auto Build"
+        git add .
+        git commit -m"[CogniCue] Auto Build"
     - name: Publishing new changes
       run: |
         git push origin HEAD  
