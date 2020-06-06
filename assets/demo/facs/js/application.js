@@ -1503,8 +1503,9 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
           , media_language = Object.keys(media)
           , random_language = media_language[Math.floor(Math.random() * media_language.length)]
           , media_list = media[random_language]
-          , excluded_list = media_list.filter((v)=>(v.id === video_id || (isNaN(video_id) && v.id  != exclude_id)))
-          , random_media = excluded_list[Math.floor(Math.random() * excluded_list.length)]
+          , video_list = video_id && media_list.filter(v=>(v.id === video_id))
+          , final_list = video_list.length ? video_list : media_list.filter(v=>(v.id  != exclude_id))
+          , random_media = final_list[Math.floor(Math.random() * final_list.length)]
           , demo_id = random_media.id
           , new_link = window.location.origin+window.location.pathname+"?e="+demo_id;
 
