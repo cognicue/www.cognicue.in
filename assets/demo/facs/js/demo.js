@@ -125,6 +125,7 @@ function Demo(pageAlert, metric, defaults) {
           }
           catch{
             $("#checkMediaRecorder").html(messages.noMediaRecorder);
+            s = !0,startCapturing();
             return;
           }
 
@@ -154,7 +155,7 @@ function Demo(pageAlert, metric, defaults) {
 
       , stopPresenting = ()=>{
           recorder && recorder.state === "recording" && recorder.stop();
-          stream.getVideoTracks()[0].stop();
+          stream && stream.getVideoTracks()[0].stop();
     }
 
     , startCapturing = async () =>{
@@ -193,7 +194,7 @@ function Demo(pageAlert, metric, defaults) {
 
       , stopCapturing = ()=>{
             capturer && capturer.state === "recording" && capturer.stop();
-            beam.getVideoTracks()[0].stop();
+            beam && beam.getVideoTracks()[0].stop();
     }    
 
 
