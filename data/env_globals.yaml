@@ -60,6 +60,7 @@ site_pages:
 site_social:
   slack: https://bodyspeaksbetter.slack.com
   github: https://github.com/cognicue
+  discord: https://discord.gg/am9k5Rb
   facebook: https://www.facebook.com/bodyspeaksbetter
   instagram: https://www.instagram.com/cognicue
   twitter: https://twitter.com/kanantandi
@@ -71,6 +72,9 @@ site_contact:
   address: Goa, India 403601
   city: Goa
   country_pin: India, 403601
+
+site_discord:
+  welcome: https://e.widgetbot.io/channels/719576217946161262/719660079837741187
 
 site_copyright: CogniCue, A Body Speaks Better Company
 
