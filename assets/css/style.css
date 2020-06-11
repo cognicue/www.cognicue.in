@@ -7231,3 +7231,8 @@ del {
 .single-slider {
 	margin-top: 20px;
 }
+
+.mfp-iframe-holder .mfp-content{
+    max-width: 1200px;
+    height: 600px;
+}
