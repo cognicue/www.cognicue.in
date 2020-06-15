@@ -1,0 +1,34 @@
+{% extends "layout/_base.html" %}
+{% block main %}
+<section class="sample-text-area">
+	<div class="container box_1170">
+		<h2 class="text-heading">{{section.heading}}</h2>
+		<p class="sample-text">{{section.text}}</p>
+	</div>
+</section>
+
+<div class="project-gallery-area">
+<div class="container">
+<div class="row">
+
+{% for each in portfolio %}
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="portfolio-wrapper mb-30">
+<div class="portfolio-thumb small-img" style="background-image: url({{each.poster}});">
+</div>
+
+<div class="portfolio-content">
+<a type={{each.type}} href="{{each.link}}" class="img-pop-up">{{each.text}}</a>
+</div>
+</div>
+</div>
+{% endfor %}
+
+
+</div>
+</div>
+</div>
+
+{% include "layout/_quick_demo.html" %}
+{% include "layout/_reach_us.html" %}
+{% endblock %}
