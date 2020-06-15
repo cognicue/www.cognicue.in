@@ -23,6 +23,8 @@ site_headers:
     sub_header:
       - text: Media Analytics
         link: /solutions/media-analytics/
+      - text: Recruitment Analytics
+        link: /solutions/recruitment-analytics/
 
   - text: FACS
     link: /demo/facs/
@@ -43,6 +45,8 @@ site_pages:
     sub:
       - text: Media Analytics
         link: /solutions/media-analytics/
+      - text: Recruitment Analytics
+        link: /solutions/recruitment-analytics/
   contact:
     text: Contact Us
     link: /contact/
