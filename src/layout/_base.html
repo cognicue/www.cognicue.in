@@ -7,9 +7,9 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 <title>{% if page_title %}{{page_title}} - {% endif %}{{site_title}} </title>
-<meta name="description" content="{{site_description}}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/x-icon" href="{{site_favicon}}">
+{% include "layout/_meta_tags.html" %}
 
 {% block page %}{% endblock %}
 {% block post %}{% endblock %}
