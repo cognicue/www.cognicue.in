@@ -41,6 +41,9 @@ site_pages:
   about:
     text: About Us
     link: /about/
+  technology:
+    text: Technology
+    link: /technology/
   solutions:
     text: Solutions
     link: /solutions/
