@@ -12,8 +12,8 @@
         var name = document.getElementById("name").value;
 
         if (yourMessage.length && subject.length && name.length){
-          var message = "Hi CogniCue \n\n"+yourMessage+"\n\n"+name;
-          var mailString = "mailto:info@bodyspeaksbetter.com?subject="
+          var message = "CogniCue, \n\n"+yourMessage+"\n\n"+name;
+          var mailString = "mailto:info@cognicue.in?subject="
               + encodeURIComponent(subject)
               + "&body=" + encodeURIComponent(message);
           myPopup(mailString, 'mail', 1050, 550);
@@ -28,6 +28,16 @@
                 sendMail();
                 this.reset();
             }
+        });
+
+        $('#site_contact_info').click(function(event){
+            event.preventDefault();
+            var message = "CogniCue, \n\n";
+            var subject = "Inquiring about your services";
+            var mailString = "mailto:info@cognicue.in?subject="
+              + encodeURIComponent(subject)
+              + "&body=" + encodeURIComponent(message);
+            myPopup(mailString, 'mail', 1050, 550);            
         });
     });
 
