@@ -44,6 +44,14 @@ site_pages:
   technology:
     text: Technology
     link: /technology/
+  applications:
+    text: Applications
+    link: /applications/
+    sub:
+      - text: Services Admin
+        link: https://services.cognicue.in
+      - text: Interview System
+        link: https://app.cognicue.in/candidate/interview/
   solutions:
     text: Solutions
     link: /solutions/

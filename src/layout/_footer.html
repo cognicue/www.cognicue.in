@@ -5,7 +5,7 @@
 	<div class="footer-top footer-padding">
 	<div class="row justify-content-between">
 
-		<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+		<div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
 		<div class="single-footer-caption mb-50">
 		<div class="single-footer-caption mb-30">
 
@@ -17,6 +17,22 @@
 		</div>
 		</div>
 		</div>
+
+
+		<!-- Section -->
+		<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+		<div class="single-footer-caption mb-50">
+		<div class="footer-tittle">
+		<h4>Applications</h4>
+		<ul>
+			{% for each in site_pages.applications.sub %}
+				<li><a target="_blank" href="{{each.link}}">{{each.text}}</a></li>
+			{% endfor %}
+		</ul>
+		</div>
+		</div>
+		</div>
+		<!-- Section -->
 
 
 		<!-- Section -->
@@ -36,7 +52,7 @@
 
 
 		<!-- Section -->
-		<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+		<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
 		<div class="single-footer-caption mb-50">
 		<div class="footer-tittle">
 		<h4>Customer Care</h4>
@@ -53,7 +69,7 @@
 
 
 		<!-- Section -->
-		<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+		<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
 		<div class="single-footer-caption mb-50">
 		<div class="footer-tittle">
 		<h4><span>+91</span> <a href="tel:{{site_contact.mobile}}">{{site_contact.mobile}}</a></h4>
@@ -69,7 +85,7 @@
 		<!--<a href="{{site_social.facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
 		<a href="{{site_social.twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>-->
 		<a href="{{site_social.instagram}}" target="_blank"><i class="fab fa-instagram"></i></a>
-		<a href="{{site_social.website}}" target="_blank"><i class="fas fa-globe"></i></a>
+		<!--<a href="{{site_social.website}}" target="_blank"><i class="fas fa-globe"></i></a>-->
 		</div>
 		</div>
 		</div>
