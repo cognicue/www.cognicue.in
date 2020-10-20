@@ -104,7 +104,7 @@ function Graph(t, r) {
     ),
     this.initButtons = (()=>{
         let emoOptgroup = $('<optgroup label="All Emotions"></optgroup>')
-          , expOptgroup = $('<optgroup label="All Expressions"></optgroup>');
+          , expOptgroup = $('<optgroup label="All Facial Expressions"></optgroup>');
         F(),
         Object.values(a).sort((t,r)=>r.order - t.order).map(t=>t.mr_name).forEach(t=>{
             let r = a[t];
