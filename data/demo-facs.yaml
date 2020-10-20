@@ -114,7 +114,7 @@ demo_metrics:
     order: 26
     sdk_name: browFurrow
     type: Expressions
-    visible: true
+    visible: false
 
   Brow Raise:
     color: '#C7600F'
@@ -130,7 +130,7 @@ demo_metrics:
     order: 24
     sdk_name: cheekRaise
     type: Expressions
-    visible: true
+    visible: false
 
   Chin Raise:
     color: '#f76eca'
@@ -189,7 +189,7 @@ demo_metrics:
     order: 18
     sdk_name: eyeWiden
     type: Expressions
-    visible: true
+    visible: false
 
   Fear:
     color: '#813790'
@@ -215,7 +215,7 @@ demo_metrics:
     order: 16
     sdk_name: innerBrowRaise
     type: Expressions
-    visible: true
+    visible: false
 
   Jaw Drop:
     color: '#da6ef7'
@@ -231,7 +231,7 @@ demo_metrics:
     order: 13
     sdk_name: lidTighten
     type: Expressions
-    visible: true
+    visible: false
 
   Lip Corner Depress:
     color: '#6ec4f7'
@@ -271,7 +271,7 @@ demo_metrics:
     order: 8
     sdk_name: lipSuck
     type: Expressions
-    visible: true
+    visible: false
 
   Mouth Open:
     color: '#6ef7e0'
