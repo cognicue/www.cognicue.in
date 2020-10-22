@@ -253,6 +253,21 @@ line.cursor-wide {
 	font-size: 16pt;
 }
 
+.demo-table-actions {
+	vertical-align: middle !important;
+}
+
+#startVideo {
+	margin-left: 14px;
+}
+
+#startMirror {
+	margin-left: 6px;
+}
+
+#startShare {
+	margin-left: 10px;
+}
 /*
 .summary-metric {
 	background-color: #000;

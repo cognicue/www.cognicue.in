@@ -1510,7 +1510,27 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
           , new_link = window.location.origin+window.location.pathname+"?e="+demo_id;
 
         $("#media-stimulus,#media-object").attr("poster", random_media.poster).attr("data", random_media.data);
-        $("body").delegate("#try_another,#choose_another", "click", (e)=>{e.preventDefault(),window.location.href=new_link});      
+        $("body").delegate("#try_another,#choose_another", "click", (e)=>{e.preventDefault(),window.location.href=new_link});
+
+        let demoType = qs.get("type")
+          , demoFACSId = 'facevideo-node'
+          , demoMessage;
+
+        if(demoType === "play"){
+            demoMessage = messages.demoMessageStart+messages.demoPlay+messages.demoMessageEnd;
+        }
+        else if(demoType === "watch"){
+            demoMessage = messages.demoMessageStart+messages.demoWatch+messages.demoMessageEnd;
+            demoFACSId = 'video-wrapper'
+        }
+        else if(demoType === "present"){
+            demoMessage = messages.demoMessageStart+messages.demoPresent+messages.demoMessageEnd;
+        }
+        else{
+            demoMessage = messages.demoMessageStart+messages.demoPlay+messages.demoWatch+messages.demoPresent+messages.demoMessageEnd;
+        }
+        messages.demoMessage = demoMessage;
+        messages.demoFACSId = demoFACSId;
     });
 
     $(window).on('load', function() {
