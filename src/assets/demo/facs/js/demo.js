@@ -116,8 +116,8 @@ function Demo(pageAlert, metric, defaults) {
             audio: false
           }).catch(e=>{w.warn(messages.noPresent)}).then(_stream=>{
 
-          video.attr("poster", present_conf.share);
-          video_playback.attr("poster", present_conf.play);
+          video.attr("poster", DEMO_TYPE.present);
+          video_playback.attr("poster", DEMO_TYPE.play);
 
           stream = _stream;
           try{
@@ -133,7 +133,7 @@ function Demo(pageAlert, metric, defaults) {
 
           recorder.onstart = e => {
             s = !0,startCapturing()
-            setTimeout(presentTimeout, present_conf.timeout*1000);
+            setTimeout(presentTimeout, DEMO_TYPE.presentTimeout*1000);
           },
           recorder.ondataavailable = e => {
             chunks.push(e.data);
@@ -158,11 +158,26 @@ function Demo(pageAlert, metric, defaults) {
           stream && stream.getVideoTracks()[0].stop();
     }
 
-    , startCapturing = async () =>{
+    , startCapturing = async (audio=false) =>{
         await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false
+          video: { mirrored: true },
+          audio: audio
         }).catch(e=>{w.warn(messages.noPresent)}).then(_stream=>{
+
+              if(demo_type==="watch"){
+                let mirror = document.querySelector('#media-stimulus')
+                  , buffer = document.querySelector('#media-object');
+
+                mirror.style.webkitTransform = buffer.style.webkitTransform = "scaleX(-1)";
+                mirror.style.transform = buffer.style.transform = "scaleX(-1)";
+                
+                mirror.srcObject = _stream;
+                mirror.play();
+                mirror.onplay = function() {
+                  video.prop('muted', true);
+                  video.css("display", "block");
+                };
+              }
 
               beam = _stream;
               try{
@@ -181,8 +196,14 @@ function Demo(pageAlert, metric, defaults) {
               },
               capturer.onstop = e => {
                 const completeBlob = new Blob(chunks, { type: chunks[0].type });
-                subject.attr("src", URL.createObjectURL(completeBlob));
-                j('load'),j("seek", 1000000000),j("seek", 0),j("pause");
+                if(demo_type==="watch"){
+                  video_playback.attr("src", URL.createObjectURL(completeBlob));
+                  video_playback.attr("data", null);
+                }
+                else{
+                  subject.attr("src", URL.createObjectURL(completeBlob));
+                  j('load'),j("seek", 1000000000),j("seek", 0),j("pause");
+                }
               },
               capturer.onerror = e => {
               };
@@ -195,14 +216,19 @@ function Demo(pageAlert, metric, defaults) {
       , stopCapturing = ()=>{
             capturer && capturer.state === "recording" && capturer.stop();
             beam && beam.getVideoTracks()[0].stop();
-    }    
+    }
+
+      , startMirroring = ()=>{
+          $("#checkMediaRecorder").html(messages.verbalAnalyticsBody);
+          $('#rhsCardHeader').text(messages.verbalAnalyticsCard)
+      }
 
 
       , A = ()=>{
             w.hide(),
             f("#loading-container", "#demo-container").then(()=>{
                 current_state = t.States.RECORDING,
-                w.warn(messages.videoStart),
+                w.warn(messages.demoMessage),
                 y.initPlot(document.getElementById("media-stimulus").duration, $("#video-wrapper").width()),
                 y.initButtons(),
 
@@ -223,16 +249,34 @@ function Demo(pageAlert, metric, defaults) {
                 }),
                 $("#startShare").one("click", ()=>{
                     $("#showControl").fadeIn(100),
-                    y.clearPlot(present_conf.timeout),
+                    y.clearPlot(DEMO_TYPE.presentTimeout),
                     demo_type = "present",
                     startPresenting();
                 }),
+                $("#startMirror").one("click", ()=>{
+                    $("#showControl").fadeIn(100),
+                    y.clearPlot(60),
+                    demo_type = "watch",
+                    s = !0,
+                    startMirroring();
+                    startCapturing(true);
+                }),                
                 $("#stopFACS").one("click", ()=>{
-                    demo_type === "play" ? (E(a=>{
-                        "stop recording" === a ? stopCapturing() : !0}),g("pause")) :
-                    E(a=>{
-                        "stop recording" === a ? (stopPresenting(),stopCapturing()) : "loaded" === a ? (h("seek", 0), h("pause")) : !0
-                    });
+                    if(demo_type === "play"){
+                      (E(a=>{
+                        "stop recording" === a ? stopCapturing() : !0}),g("pause"))
+                    }
+                    else if(demo_type === "present"){
+                      E(a=>{
+                          "stop recording" === a ? (stopPresenting(),stopCapturing()) : "loaded" === a ? (h("seek", 0), h("pause")) : !0
+                      });
+                    }
+                    else if(demo_type === "watch"){
+                      E(a=>{
+                          "stop recording" === a ? (stopCapturing()) : "loaded" === a ? (h("seek", 0), h("pause")) : !0
+                      });
+                    }                    
+
                 })
             })
     }

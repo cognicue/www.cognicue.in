@@ -25,26 +25,42 @@ right_card2:
 right_card3:
   para1: You can click in the graph to seek the video to that point in time and press the <span class="theme-color">spacebar</span> key to play or pause the video.
   para2: Click the button below to view your reaction at particular time
-  para3: Click the button to start over with another video.
+  para3: Click the button to start over with another demo.
 
 
 alert_messages:
+  
     incompatableBrowser:  It appears that you are using an unsupported browser. Please try this demo on an updated version of Chrome, Firefox, Opera or Edge.
     loadingPlayer:        Loading Player...
     detectorLoaded:       Loading FACS...    
     webcamFailure:        Unable to connect to webcam, please make sure your webcam is connected, and this page has the permission to access it.
     noFace:               <h4>No face detected</h4> <p>Please make sure your face is in view of the webcam.</p>
-    videoStart:           <h4>Welcome!</h4>  <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p>  <p>The graph below will plot your engagement with the video over time using various metrics. You can focus on a specific metric by clicking searchbar on the left.</p>  <button type="button" class="btnC btn btn-primary float-left" id="startShare" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button><button type="button" class="btnC btn btn-primary float-right" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button>
+    videoStart:           <table class="table table-bordered table-striped"> <thead> <tr class="summary-heading"> <th scope="col" colspan="3" class="boldtext">FACS Demo</th> </tr> </thead> <tbody> <tr class="play"> <td colspan="2"> <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p> </td> <td class="demo-table-actions"> <button type="button" class="btnC btn btn-primary btn-demo" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button> </td> </tr> <tr class="watch"> <td colspan="2"> <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p> </td> <td class="demo-table-actions"> <button type="button" class="btnC btn btn-primary btn-demo" id="startMirror" data-dismiss="modal">Watch <i class="fa fa-share-square-o"></i></button> </td> </tr> <tr class="present"> <td colspan="2"> <p>We are about to play a video for you. While that video is playing, we will be using your webcam to determine your emotional engagement.</p> </td> <td class="demo-table-actions"> <button type="button" class="btnC btn btn-primary btn-demo" id="startShare" data-dismiss="modal">Present <i class="fa fa-share-square-o"></i></button> </td> </tr> </tbody></table>
     videoEnd:             <h4>Analysis Complete!</h4>  <p>Now that your analysis has finished, you can playback the video and see your emotional reactions to it over time.</p>  <p>You can click in the graph to seek the video to that point in time and press the spacebar key to play or pause the video.</p>  <p>Use the searchbar to the left of the video to highlight a specific metric or all metrics.</p>  <br>  <button type="button" id="gtm-analysis-done" class="btnC btn btn-primary float-right" data-dismiss="modal">OK</button>
     videoLoadingFailure:  <h4>Network Problem</h4>  <p>Unable to fetch the video for you. Click the button below to try another.</p>  <br>  <a href="." id="try_another" class="btnC btn btn-info float-right">Try Another</a>
     noPresent:            <h4>Share your screen</h4>  <p>Since you canceled to share your screen or there is a problem while sharing the screen, we could not process. Click the below button to try again.  </p>  <br>  <a href="." id="gtm-cancel-present" class="btnC btn btn-info float-right">OK</a>
     noMediaRecorder:      <p class="small">Check your browser compatibility for <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder/MediaRecorder" target="_blank" id="gtm-media-recorder">MediaRecorder</a> API. Enable it from Experimental Features if you are using latest Safari</p>
 
+    demoMessageStart:     <table class="table table-bordered table-striped"> <thead> <tr class="summary-heading"> <th scope="col" colspan="3" class="boldtext">Select Demo</th> </tr> </thead> <tbody>
+    demoPlay:             <tr class="play"> <td colspan="2"> <p>A video will be played, and your facial movements would be captured. After the video is played you can see each of your facial expressions and emotions moment by moment. Get the summary of your expressions too.</p> </td> <td class="demo-table-actions"> <button type="button" class="btnC btn btn-primary btn-demo" id="startVideo" data-dismiss="modal">Play <i class="fa fa-play-circle"></i></button> </td> </tr>
+    demoWatch:            <tr class="watch"> <td colspan="2"> <p>Watch yourself in real time while you can speak and get facial expressions captured. The system will request an access of the microphone also. Get the summary of your facial movements.</p> </td> <td class="demo-table-actions"> <button type="button" class="btnC btn btn-primary btn-demo" id="startMirror" data-dismiss="modal">Watch <i class="fa fa-user-circle"></i></button> </td> </tr>
+    demoPresent:          <tr class="present"> <td colspan="2"> <p>Share and watch anything on your screen. Let the system analyze your facial expressions and present a summary of the facial expressions displayed.</p> </td> <td class="demo-table-actions"> <button type="button" class="btnC btn btn-primary btn-demo" id="startShare" data-dismiss="modal">Share <i class="fa fa-share-square-o"></i></button> </td> </tr>
+    demoMessageEnd:       </tbody></table>
 
-demo_screen:
-  share: /assets/demo/facs/img/share.png
+    verbalAnalyticsCard:  Verbal Analytics 
+    verbalAnalyticsBody:  <p class="small">Summary of your speech is available in the paid version which contains the score of communication, speaking rate, articulation, pauses and fillers.</p>
+
+
+demo_version: 0.1.0
+
+demo_type:
   play: /assets/demo/facs/img/play.png
-  timeout: 120
+  watch: /assets/demo/facs/img/share.png
+  present: /assets/demo/facs/img/share.png
+
+  playTimeout: 0
+  watchTimeout: 60  
+  presentTimeout: 120
 
 
 demo_videos:
@@ -86,7 +102,8 @@ demo_videos:
 
 default_metrics:
   - joy
-  - surprise
+  - disgust
+  - attention
   - engagement
 
 

@@ -11,15 +11,16 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-ae362vOLHy2F1EfJtpMbNW0i9pNM1TP2l5O4VGYYiLJKsaejqVWibbP6BSf0UU5i" crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
-    <link href="/assets/demo/facs/css/index-dark.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/demo/facs/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/demo/facs/css/index-dark.css?version={{demo_version}}" rel="stylesheet" type="text/css" />
+    <link href="/assets/demo/facs/css/common.css?version={{demo_version}}" rel="stylesheet" type="text/css" />
+    <link href="/assets/demo/facs/css/loader.css?version={{demo_version}}" rel="stylesheet" type="text/css" />
     <!-- fontawesome glyphs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <!-- Handshaking backend frontend -->
     <script type="text/javascript">
-      const present_conf = {{demo_screen|tojson|safe}}
+      const DEMO_TYPE = {{demo_type|tojson|safe}}
           , messages = {{alert_messages|tojson|safe}}
           , defaults = {{default_metrics|tojson|safe}}
           , metric = {{demo_metrics|tojson|safe}}
@@ -35,14 +36,14 @@
     <!-- D3 - Data Driven Documents -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
-    <script src="/assets/demo/facs/js/application.js"></script>
-    <script defer src="/assets/demo/facs/js/cogni.js"></script>
-  	<script defer src="/assets/demo/facs/js/graph.js"></script>
-  	<script defer src="/assets/demo/facs/js/player.js"></script>
-  	<script defer src="/assets/demo/facs/js/summarizer.js"></script>
-  	<script defer src="/assets/demo/facs/js/modal-alert.js"></script>
-  	<script defer src="/assets/demo/facs/js/summary.js"></script>
-  	<script defer src="/assets/demo/facs/js/demo.js"></script>
+    <script src="/assets/demo/facs/js/application.js?version={{demo_version}}"></script>
+    <script defer src="/assets/demo/facs/js/cogni.js?version={{demo_version}}"></script>
+  	<script defer src="/assets/demo/facs/js/graph.js?version={{demo_version}}"></script>
+  	<script defer src="/assets/demo/facs/js/player.js?version={{demo_version}}"></script>
+  	<script defer src="/assets/demo/facs/js/summarizer.js?version={{demo_version}}"></script>
+  	<script defer src="/assets/demo/facs/js/modal-alert.js?version={{demo_version}}"></script>
+  	<script defer src="/assets/demo/facs/js/summary.js?version={{demo_version}}"></script>
+  	<script defer src="/assets/demo/facs/js/demo.js?version={{demo_version}}"></script>
 
 
 {% include "layout/_head_last.html" %}
@@ -115,9 +116,17 @@
 
   <div class="row align-items-center text-center full-height" id="loading-container" style="display:none;">
     <div class="col loading-state" id="loading-info">
-      <div class="loader"></div>
-      <br>
-      <span id="loading-text">{{loading_text}}</span>
+      <!--<div class="loader"></div><br>-->      
+        <div class=overflow></div>
+        <div class=skChase>
+          <div class=skChaseDot></div>
+          <div class=skChaseDot></div>
+          <div class=skChaseDot></div>
+          <div class=skChaseDot></div>
+          <div class=skChaseDot></div>
+          <div class=skChaseDot></div>
+        </div>      
+      <span id="loading-text" class="boldtext">{{loading_text}}</span>
     </div>
   </div>
 
@@ -174,7 +183,7 @@
       <!-- Transition Menu -->
 
       <div id="showSubject" class="card rounded bg-transparent" style="display: none;border: 1px solid white;">
-        <div class="card-header small">{{right_card1.header}}</div>
+        <div id="rhsCardHeader" class="card-header small">{{right_card1.header}}</div>
         <div class="card-body bg-transparent pt-1 pb-2" id="checkMediaRecorder">
           <video poster="" id="media-subject" class="my-1 img-fluid" style="display: none;" data="" oncontextmenu="return false;"></video>
         </div>
@@ -201,7 +210,7 @@
           <div><hr class="bg-white"/></div>
           <p class="small mb-2">{{right_card3.para3}}</p>
           <div class="text-center">
-            <a id="choose_another" class="btnC btn btn-info btn-sm" href=".">New Video</a>
+            <a id="choose_another" class="btnC btn btn-info btn-sm" href=".">Demo</a>
           </div>
         </div>
       </div>
@@ -229,7 +238,7 @@
                   </thead>                                                      
                   <thead>
                     <tr class="summary-metric">
-                      <th scope="col">Metric</th>
+                      <th scope="col" class="text-center">Metric</th>
                       <th scope="col" class="text-right">Point</th>
                       <!--<th class="text-right" scope="col">Ad Average</th>-->
                     </tr>
@@ -237,7 +246,7 @@
                   <tbody>
                     {% for metric in demo_metrics|summary_metric %}
                       <tr class="col-8 {% if metric.type == 'Expressions' %}summary-expression{% else %}summary-emotion{% endif %}">
-                        <td scope="col" class="col-4">{{metric.mr_name}}</td>
+                        <td scope="col" class="text-center">{{metric.mr_name}}</td>
                         <td scope="col" class="text-right col-4" id="userMean{{metric.sdk_name}}">-</td>
                         <!--<td class="text-right">5.3</td>-->
                       </tr>                    
@@ -246,14 +255,14 @@
                   </tbody>
                   <thead>
                     <tr class="summary-video">
-                      <th scope="col">Video Length</th>
+                      <th scope="col" class="text-center">Video Length</th>
                       <th scope="col" class="text-right" id="summaryObject"></th>
                       <!--<th class="text-right" scope="col">Ad Average</th>-->
                     </tr>
                   </thead>
                   <thead>
                     <tr class="summary-video">
-                      <th scope="col">Viewed Time</th>
+                      <th scope="col" class="text-center">Viewed Time</th>
                       <th scope="col" class="text-right" id="summarySubject"></th>
                       <!--<th class="text-right" scope="col">Ad Average</th>-->
                     </tr>
@@ -276,7 +285,7 @@
           <div class="row">
             <!-- Transition Menu -->
             <div id="toDemo" class="col text-center" >
-              <a href="#" id="demoButton" class="btnC btn btn-success">Back to Graph</a>
+              <a href="#" id="demoButton" class="btnC btn btn-success">Back</a>
             </div>
           </div>
         </div>

@@ -53,7 +53,7 @@ function Graph(t, r) {
                 return e.emotions[r]
             }).attr("d", b).attr("stroke", function(t, r) {
                 return o[r]
-            }).attr("fill", "transparent").attr("stroke-width", "3px").attr("stroke-opacity", function(t, r) {
+            }).attr("fill", "transparent").attr("stroke-width", "2px").attr("stroke-opacity", function(t, r) {
                 let selected_emotions = emoRoot.val() || [];
                 return (selected_emotions.indexOf(this.id) >= 0) ? 1 : 0
             }),
@@ -91,7 +91,7 @@ function Graph(t, r) {
             return e.emotions[r]
         }).attr("d", b).attr("stroke", function(t, r) {
             return o[r]
-        }).attr("fill", "transparent").attr("stroke-width", sw||"3px").attr("stroke-opacity", so||"0"),
+        }).attr("fill", "transparent").attr("stroke-width", sw||"2px").attr("stroke-opacity", so||"0"),
         e.configureForPlayback(t),
         i = !0
     }

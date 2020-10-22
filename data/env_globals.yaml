@@ -28,8 +28,11 @@ site_headers:
       - text: Recruitment Analytics
         link: /solutions/recruitment-analytics/
 
-  - text: FACS
-    link: /demo/facs/
+  - text: Demo
+    link: "#"
+    sub_header:
+      - text: FACS
+        link: /demo/facs/
 
   - text: Insights
     link: /insights/
