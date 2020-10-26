@@ -53,8 +53,8 @@ site_pages:
     sub:
       - text: API Services
         link: https://services.cognicue.in/api/
-      - text: Admin System
-        link: https://services.cognicue.in
+      - text: Admin Services
+        link: https://services.cognicue.in/admin/
       - text: Interview System
         link: https://app.cognicue.in
       - text: Analytics System
