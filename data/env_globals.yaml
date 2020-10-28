@@ -56,7 +56,7 @@ site_pages:
       - text: Admin Services
         link: https://services.cognicue.in/admin/
       - text: Interview System
-        link: https://app.cognicue.in
+        link: https://interview.cognicue.in
       - text: Analytics System
         link: https://analytics.cognicue.in
   solutions:
