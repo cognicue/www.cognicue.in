@@ -84,9 +84,9 @@ site_pages:
 site_social:
   github: https://github.com/cognicue
   discord: https://bit.ly/cognicue
-  facebook: https://www.facebook.com/bodyspeaksbetter
+  facebook: https://www.facebook.com/CogniCue
   instagram: https://www.instagram.com/cognicue
-  twitter: https://twitter.com/kanantandi
+  twitter: https://twitter.com/CogniCue
   website: https://www.bodyspeaksbetter.com
 
 site_contact:
@@ -104,3 +104,5 @@ site_copyright: CogniCue, A Body Speaks Better Company
 page404:
   heading: 404 - Page Not Found
   text: You entered into the wrong wormhole
+
+post_detail:

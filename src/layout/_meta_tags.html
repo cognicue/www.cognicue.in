@@ -1,14 +1,14 @@
-<meta name="description" content="{{site_description}}">
+<meta name="description" content="{% if post_detail.excerpt %}{{ post_detail.excerpt }}{% else %}{{ site_description }}{% endif %}">
 
 <!-- Social: Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ site_title }}">
-<meta name="twitter:description" content="{{ site_description }}">
-<meta property="twitter:image:src" content="{{ site_url }}{{ site_social_image }}">
+<meta name="twitter:title" content="{% if page_title %}{{ page_title }}{% else %}{{ site_title }}{% endif %}">
+<meta name="twitter:description" content="{% if post_detail.excerpt %}{{ post_detail.excerpt }}{% else %}{{ site_description }}{% endif %}">
+<meta property="twitter:image:src" content="{% if post_detail.image %}{{ site_url }}{{ post_detail.image }}{% else %}{{ site_url }}{{ site_social_image }}{% endif %}">
 
 <!-- Social: Facebook / Open Graph -->
-<meta property="og:url" content="{{ site_url }}">
-<meta property="og:title" content="{{ site_title }}">
-<meta property="og:image" content="{{ site_url }}{{ site_social_image }}">
-<meta property="og:description" content="{{ site_description }}">
+<meta property="og:url" content="{{ site_url }}{{ page_url | default('')}}">
+<meta property="og:title" content="{% if page_title %}{{ page_title }}{% else %}{{ site_title }}{% endif %}">
+<meta property="og:image" content="{% if post_detail.image %}{{ site_url }}{{ post_detail.image }}{% else %}{{ site_url }}{{ site_social_image }}{% endif %}">
+<meta property="og:description" content="{% if post_detail.excerpt %}{{ post_detail.excerpt }}{% else %}{{ site_description }}{% endif %}">
 <meta property="og:site_name" content="{{ site_title }}">
