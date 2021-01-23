@@ -15,4 +15,4 @@ Make sure you have python & pip installed first.
 2. Install dependencies `pip install -r requirements.txt`,
 3. Run build script `python build.py`
 4. In another terminal, run  `cd build && python -m http.server`
-5. Open web browser and test http://localhost:8000/demo/facs/
+5. Open web browser and test http://localhost:8000/
