@@ -101,7 +101,7 @@ class Template:
 
         def _context(template):
             posts = glob.glob(os.path.join(datapath,"post","*.yaml"))
-            posts.sort(key=os.path.getctime, reverse=True)
+            posts.sort(key=os.path.getctime, reverse=False)
             context = list()
             for post in posts[:6]:
                 c = self.yaml_reader(post) or {}
