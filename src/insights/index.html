@@ -10,24 +10,27 @@
 <div class="blog_left_sidebar">
 
 {% for post in posts %}
-	<article class="blog_item">
+	<article class="blog_item card" style="width: 18rem;">
+
 	<div class="blog_item_img">
-	 <img class="card-img rounded-0" src="{{post.post_detail.image}}" alt="">
-	<a href="javascript:void(0)" class="blog_item_date">
-	<h3>{{ post.page_generated.strftime('%d') }}</h3>
-	<p>{{ post.page_generated.strftime('%b') }}</p>
-	</a>
+		<img class="card-img rounded-0" width="200px" height="200px" src="{{post.post_detail.image}}" alt="">
+		<a href="javascript:void(0)" class="blog_item_date">
+			<h3>{{ post.page_generated.strftime('%d') }}</h3>
+			<p>{{ post.page_generated.strftime('%b') }}</p>
+		</a>
 	</div>
-	<div class="blog_details">
-	<a class="d-inline-block" href="{{ post.page_url or '/' }}">
-	<h2>{{post.post_detail.title}}</h2>
-	</a>
-	<p>{{post.post_detail.excerpt}}</p>
-	<ul class="blog-info-link">
-	<li><a href="javascript:void(0)"><i class="fa fa-user"></i> {{post.post_detail.categories|join(', ')}}</a></li>
-	<li><a href="javascript:void(0)"><i class="fa fa-comments"></i> Comments</a></li>
-	</ul>
+
+	<div class="blog_details card-body">
+		<a class="d-inline-block" href="{{ post.page_url or '/' }}">
+			<h2 class="card-title">{{post.post_detail.title}}</h2>
+		</a>
+		<p class="card-text">{{post.post_detail.excerpt}}</p>
+		<ul class="blog-info-link">
+			<li><a href="javascript:void(0)"><i class="fa fa-user"></i> {{post.post_detail.categories|join(', ')}}</a></li>
+			<li><a href="javascript:void(0)"><i class="fa fa-comments"></i> Comments</a></li>
+		</ul>
 	</div>
+
 	</article>
 {% endfor %}
 

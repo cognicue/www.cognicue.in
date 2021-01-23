@@ -103,7 +103,7 @@ class Template:
             posts = glob.glob(os.path.join(datapath,"post","*.yaml"))
             posts.sort(key=os.path.getctime, reverse=True)
             context = list()
-            for post in posts[:1]:
+            for post in posts[:6]:
                 c = self.yaml_reader(post) or {}
                 post_c = {
                     "page_generated": datetime.fromisoformat(c.get("page_generated")),
