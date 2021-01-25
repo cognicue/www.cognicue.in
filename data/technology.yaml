@@ -17,12 +17,12 @@ portfolio:
     type: image
 
   - poster: /assets/img/projects/sigmoid.gif
-    link: /assets/paper/oarriaga-face_classification-report.pdf
-    text: '[1] - Read'
-    type: iframe
+    link: /assets/img/projects/sigmoid.gif
+    text: View
+    type: image
 
   - poster: /assets/img/projects/cnn_rnn.jpg
-    link: /assets/paper/matecconf_jcmme2018_02001.pdf
-    text: '[2] - Read'
-    type: iframe
+    link: /assets/img/projects/cnn_rnn.jpg
+    text: View
+    type: image
 
