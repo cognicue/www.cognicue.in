@@ -146,6 +146,13 @@ h6 {
 	text-transform: normal
 }
 
+h1 {
+	font-family: CogniCue, josefin sans, sans-serif;
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: condensed;
+}
+
 p {
 	font-family: muli, sans-serif;
 	color: #506172;

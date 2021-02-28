@@ -10,11 +10,6 @@ body {
 	height: 60vh
 }
 
-@font-face {
-	font-family: DINBold;
-	src: url("/assets/demo/facs/font/DINBoldAlternate.woff2")
-}
-
 @keyframes spin {
 	0% {
 		transform: rotate(0deg)

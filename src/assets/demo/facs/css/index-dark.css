@@ -7,9 +7,11 @@ body {
 }
 
 .boldtext {
-	font-family: DINBold, Helvetica;
+	font-family: CogniCue, Helvetica;
 	color: white !important;
 	font-size: 24pt;
+	font-weight: 700;
+	font-stretch: condensed;
 	letter-spacing: 0.05em
 }
 
