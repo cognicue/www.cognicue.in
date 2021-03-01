@@ -19,6 +19,18 @@ body {
 	}
 }
 
+@media only screen and (max-width:767px) and (orientation:landscape){
+  #demo-container,#summary-container{ display:block; }
+  #consent-container,#portrait-container{ display:none; }
+}
+@media only screen and (max-width:767px) and (orientation:portrait){
+  #demo-container,#summary-container{ display:none; }
+  #consent-container,#portrait-container{ display:block; }
+}
+@media only screen and (min-width:767px){
+  #portrait-container{ display: none; }
+}
+
 #facevideo-node {
 	display: none
 }
