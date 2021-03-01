@@ -59,8 +59,31 @@ function Demo(pageAlert, metric, defaults) {
         }).then(a)
     }
 
+      , lock = (orientation)=>{
+        // Go into full screen first
+        if (document.documentElement.requestFullscreen) {
+          document.documentElement.requestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) {
+          document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+          document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) {
+          document.documentElement.msRequestFullscreen();
+        }
+        try{
+          // Then lock orientation
+          screen.orientation.lock(orientation);
+        }
+        catch{
+          console.log("Screen Orientation Web API Not Supported");
+        }
+
+
+    }
+
       , v = ()=>new Promise(e=>{
         $("#demo-consent").one("click", ()=>{
+            lock("landscape-primary");
             f("#consent-container", "#loading-container").then(e)
         })
     })
