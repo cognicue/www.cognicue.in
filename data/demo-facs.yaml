@@ -1,8 +1,8 @@
-page_title: FACS (Facial Action Coding System)
+page_title: Facial Action Coding System
 
 privacy_note:
   para1: This demo makes use of the CogniCue JavaScript SDK. To use it, you must enable your webcam.
-  para2: Your webcam data and frame-by-frame emotion metrics will <strong>not</strong> be sent to CogniCue. This means <strong>no data</strong> will be sent back to CogniCue. Eventually, after loading all resources you can use the application offline. You may review CogniCue's privacy policy <a href="/privacy-policy/" target="_new_tab">here</a>.
+  para2: No data will be sent back to CogniCue. You may review CogniCue's privacy policy <a href="/privacy-policy/" target="_new_tab">here</a>. Once you accept it, the demo will be changed to landscape mode.
   para3: Click "I Accept" to proceed with the demo.
 
 loading_text: This demo requires the access to your webcam, please make sure it is enabled.
@@ -51,12 +51,13 @@ alert_messages:
     verbalAnalyticsBody:  <p class="small">Summary of your speech is available in the paid version which contains the score of communication, speaking rate, articulation, pauses and fillers.</p>
 
 
-demo_version: 0.1.0
+demo_version: 0.3.0
 
 demo_type:
   play: /assets/demo/facs/img/play.png
   watch: /assets/demo/facs/img/share.png
   present: /assets/demo/facs/img/share.png
+  rodate: /assets/demo/facs/img/rotate.png
 
   playTimeout: 0
   watchTimeout: 60  

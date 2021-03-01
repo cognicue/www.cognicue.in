@@ -10,11 +10,6 @@ body {
 	height: 60vh
 }
 
-@font-face {
-	font-family: DINBold;
-	src: url("/assets/demo/facs/font/DINBoldAlternate.woff2")
-}
-
 @keyframes spin {
 	0% {
 		transform: rotate(0deg)
@@ -22,6 +17,18 @@ body {
 	100% {
 		transform: rotate(-360deg)
 	}
+}
+
+@media only screen and (max-width:767px) and (orientation:landscape){
+  #demo-container,#summary-container{ display:block; }
+  #consent-container,#portrait-container{ display:none; }
+}
+@media only screen and (max-width:767px) and (orientation:portrait){
+  #demo-container,#summary-container{ display:none; }
+  #consent-container,#portrait-container{ display:block; }
+}
+@media only screen and (min-width:767px){
+  #portrait-container{ display: none; }
 }
 
 #facevideo-node {

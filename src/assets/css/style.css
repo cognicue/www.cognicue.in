@@ -138,12 +138,13 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: josefin sans, sans-serif;
 	color: #0b1c39;
 	margin-top: 0;
+	text-transform: normal;
+	font-family: CogniCue, sans-serif;
+	font-weight: 700;
 	font-style: normal;
-	font-weight: 500;
-	text-transform: normal
+	font-stretch: condensed;
 }
 
 p {
