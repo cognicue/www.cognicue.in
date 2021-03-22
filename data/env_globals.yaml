@@ -82,6 +82,10 @@ site_pages:
     text: Insights
     link: /insights/
 
+site_header_cta:
+  text: Try for free
+  link: https://services.cognicue.in/minics/cognicue/cognicue-interview-demo/?ref=cognicue
+  popup: false
 
 site_social:
   linkedin: https://in.linkedin.com/company/cognicue
@@ -95,9 +99,9 @@ site_social:
 site_contact:
   email: info@cognicue.in
   mobile: 976 959 8282
-  address: Goa, India 403601
+  address: Goa, India 403101
   city: Goa
-  country_pin: India, 403601
+  country_pin: India, 403101
 
 site_discord:
   welcome: https://e.widgetbot.io/channels/719576217946161262/719660079837741187

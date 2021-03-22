@@ -32,7 +32,10 @@
 </div>
 <div class="col-xl-2 col-lg-3 col-md-3">
 <div class="header-right-btn f-right d-none d-lg-block">
-<a type="iframe" href="{{site_discord.welcome}}" class="btn header-btn img-pop-up">Contact Now</a>
+<a type="iframe" href="{{site_header_cta.link}}"
+   class="btn header-btn {% if site_header_cta.popup %}img-pop-up{% endif %}"
+>{{site_header_cta.text}}
+</a>
 </div>
 </div>
 
