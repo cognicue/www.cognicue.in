@@ -16,11 +16,11 @@
 <ul id="navigation">
 {% for each in site_headers %}
 	<li>
-		<a href="{{each.link}}">{{each.text}}</a>
+		<a href="{{each.link}}" {% if each.blank %}target="_blank"{% endif %}>{{each.text}}</a>
 	{% if each.sub_header %}
 		<ul class="submenu">
 			{% for submenu in each.sub_header %}
-				<li><a href="{{submenu.link}}">{{submenu.text}}</a></li>
+				<li><a href="{{submenu.link}}" {% if submenu.blank %}target="_blank"{% endif %}>>{{submenu.text}}</a></li>
 			{% endfor %}
 		</ul>
 	{% endif %}
@@ -34,6 +34,7 @@
 <div class="header-right-btn f-right d-none d-lg-block">
 <a type="iframe" href="{{site_header_cta.link}}"
    class="btn header-btn {% if site_header_cta.popup %}img-pop-up{% endif %}"
+   {% if site_header_cta.blank %}target="_blank"{% endif %}
 >{{site_header_cta.text}}
 </a>
 </div>

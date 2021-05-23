@@ -1,4 +1,4 @@
-site_version: 10.3.5
+site_version: 10.3.6
 
 site_title: CogniCue
 
@@ -41,6 +41,10 @@ site_headers:
 
   - text: Contact
     link: /contact/
+
+  - text: Login
+    link: https://services.cognicue.in/admin/login/
+    blank: true
 
 site_pages:
   about:
@@ -86,11 +90,12 @@ site_header_cta:
   text: Try for free
   link: https://services.cognicue.in/minics/cognicue/cognicue-interview-demo/?ref=cognicue
   popup: false
+  blank: true
 
 site_social:
   linkedin: https://in.linkedin.com/company/cognicue
   github: https://github.com/cognicue
-  discord: https://bit.ly/cognicue
+  discord: https://meet.cognicue.in
   facebook: https://www.facebook.com/CogniCue
   instagram: https://www.instagram.com/cognicue
   twitter: https://twitter.com/CogniCue
