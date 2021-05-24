@@ -101,6 +101,11 @@ site_social:
   twitter: https://twitter.com/CogniCue
   website: https://www.bodyspeaksbetter.com
 
+site_register:
+  text: Get Early Access
+  link: https://register.cognicue.in
+  blank: true
+
 site_contact:
   email: info@cognicue.in
   mobile: 976 959 8282
