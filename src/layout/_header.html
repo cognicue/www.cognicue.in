@@ -20,7 +20,7 @@
 	{% if each.sub_header %}
 		<ul class="submenu">
 			{% for submenu in each.sub_header %}
-				<li><a href="{{submenu.link}}" {% if submenu.blank %}target="_blank"{% endif %}>>{{submenu.text}}</a></li>
+				<li><a href="{{submenu.link}}" {% if submenu.blank %}target="_blank"{% endif %}>{{submenu.text}}</a></li>
 			{% endfor %}
 		</ul>
 	{% endif %}
