@@ -2880,7 +2880,7 @@ hr {
 }
 
 .header-area .slicknav_btn {
-	top: -46px
+	top: -55px
 }
 
 .slicknav_menu .slicknav_nav a:hover {
@@ -4329,7 +4329,7 @@ hr {
 }
 
 .footer-area .footer-logo {
-	margin-bottom: 40px
+	margin-top: -14px;
 }
 
 .footer-area .footer-pera p {
@@ -7225,8 +7225,11 @@ del {
 }
 
 .logo-adj-nav {
-	margin-top: -80px;
-	margin-bottom: -80px
+
+}
+
+.logo-img{
+	height: 50px;
 }
 
 .single-slider {

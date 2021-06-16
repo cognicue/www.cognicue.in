@@ -171,9 +171,8 @@ line.cursor-wide {
 	z-index: -1
 }
 
-.brand-logo-adj {
-	margin-top: -70px;
-	margin-bottom: -70px;
+.brand-logo {
+	height: 50px;
 }
 
 .preloader {
