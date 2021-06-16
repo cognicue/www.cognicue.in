@@ -1,4 +1,4 @@
-site_version: 10.3.6
+site_version: 10.3.8
 
 site_title: CogniCue
 
@@ -6,9 +6,9 @@ site_url: https://www.cognicue.in
 
 site_description: Converting Emotions into Analytics 
 
-site_logo: /assets/img/logo/logo-200x200.png
+site_logo: /assets/img/logo/logo-whiteText.svg
 
-site_favicon: /assets/img/logo/favicon-60x66.png
+site_favicon: /assets/img/logo/logo-graphic.svg
 
 site_social_image: /assets/img/hero/differentfacess.jpg
 
