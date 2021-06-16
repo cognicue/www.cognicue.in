@@ -51,7 +51,7 @@ alert_messages:
     verbalAnalyticsBody:  <p class="small">Summary of your speech is available in the paid version which contains the score of communication, speaking rate, articulation, pauses and fillers.</p>
 
 
-demo_version: 0.3.0
+demo_version: 0.3.1
 
 demo_type:
   play: /assets/demo/facs/img/play.png
