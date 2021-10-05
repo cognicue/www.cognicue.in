@@ -1,4 +1,4 @@
-site_version: 10.3.10
+site_version: 11.3.10
 
 site_title: CogniCue
 
@@ -25,10 +25,10 @@ site_headers:
   - text: Solutions
     link: "#"
     sub_header:
-      - text: Media Analytics
-        link: /solutions/media-analytics/
       - text: Recruitment Analytics
         link: /solutions/recruitment-analytics/
+      - text: Mock Interview Analytics
+        link: /solutions/mock-interview-analytics/
 
   - text: Demo
     link: "#"
