@@ -2821,12 +2821,9 @@ hr {
 	top: 120%;
 	visibility: hidden;
 	opacity: 0;
-	box-shadow: 0 0 10px 3px rgba(0, 0, 0, .05);
+	box-shadow: 0 0 10px 3px rgba(0, 0, 0, .25);
 	padding: 17px 0;
 	border-top: 5px solid #04dbec;
-	border-right: 1px solid #014b85;
-	border-left: 1px solid #014b85;
-	border-bottom: 1px solid #014b85;
 	-webkit-transition: all .3s ease-out 0s;
 	-moz-transition: all .3s ease-out 0s;
 	-ms-transition: all .3s ease-out 0s;
@@ -3493,7 +3490,8 @@ hr {
 }
 
 .our-services .single-services:hover {
-	border: 1px solid #04dbec
+	border: 1px solid #04dbec;
+	box-shadow: 0 0 10px 3px rgba(0, 0, 0, .25)
 }
 
 .our-services .single-services:hover .services-ion span {
