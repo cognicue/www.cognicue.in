@@ -559,7 +559,7 @@ hr {
 	height: 50px;
 	width: 50px;
 	right: 31px;
-	bottom: 18px;
+	bottom: 16px;
 	position: fixed;
 	color: #fff;
 	font-size: 20px;
@@ -2292,23 +2292,35 @@ hr {
 	}
 }
 
+.w-padding-0 {
+	padding-top: 100px;
+}
+
 .w-padding {
-	padding-top: 150px;
-	padding-bottom: 100px
+	padding-top: 50px;
+	padding-bottom: 50px
 }
 
 @media only screen and (min-width:1200px) and (max-width:1600px) {
 	.w-padding {
-		padding-top: 150px;
-		padding-bottom: 100px
+		padding-top: 50px;
+		padding-bottom: 50px
 	}
+
+	.w-padding-0 {
+		padding-top: 100px;
+	}
+
 }
 
 @media only screen and (min-width:992px) and (max-width:1199px) {
 	.w-padding {
-		padding-top: 150px;
-		padding-bottom: 100px
+		padding-top: 50px;
+		padding-bottom: 50px
 	}
+	.w-padding-0 {
+		padding-top: 100px;
+	}	
 }
 
 @media only screen and (min-width:768px) and (max-width:991px) {
@@ -2316,6 +2328,9 @@ hr {
 		padding-top: 80px;
 		padding-bottom: 80px
 	}
+	.w-padding-0 {
+		padding-top: 100px;
+	}	
 }
 
 @media only screen and (min-width:576px) and (max-width:767px) {
@@ -2323,6 +2338,9 @@ hr {
 		padding-top: 70px;
 		padding-bottom: 70px
 	}
+	.w-padding-0 {
+		padding-top: 100px;
+	}	
 }
 
 @media(max-width:575px) {
@@ -2330,6 +2348,9 @@ hr {
 		padding-top: 70px;
 		padding-bottom: 70px
 	}
+	.w-padding-0 {
+		padding-top: 100px;
+	}	
 }
 
 .w-padding2 {
@@ -2373,20 +2394,20 @@ hr {
 }
 
 .w-padding3 {
-	padding-top: 190px;
+	padding-top: 90px;
 	padding-bottom: 55px
 }
 
 @media only screen and (min-width:1200px) and (max-width:1600px) {
 	.w-padding3 {
-		padding-top: 190px;
+		padding-top: 90px;
 		padding-bottom: 55px
 	}
 }
 
 @media only screen and (min-width:992px) and (max-width:1199px) {
 	.w-padding3 {
-		padding-top: 190px;
+		padding-top: 90px;
 		padding-bottom: 55px
 	}
 }
@@ -2794,7 +2815,7 @@ hr {
 
 .main-header .main-menu ul ul.submenu {
 	position: absolute;
-	width: 175px;
+	width: 200px;
 	background: #fff;
 	left: 0;
 	top: 120%;
@@ -2803,6 +2824,9 @@ hr {
 	box-shadow: 0 0 10px 3px rgba(0, 0, 0, .05);
 	padding: 17px 0;
 	border-top: 5px solid #04dbec;
+	border-right: 1px solid #014b85;
+	border-left: 1px solid #014b85;
+	border-bottom: 1px solid #014b85;
 	-webkit-transition: all .3s ease-out 0s;
 	-moz-transition: all .3s ease-out 0s;
 	-ms-transition: all .3s ease-out 0s;
@@ -2909,18 +2933,18 @@ hr {
 
 .slider-area {
 	margin-top: -1px;
-	padding-top: 110px;
+	padding-top: 100px;
 }
 
 @media only screen and (min-width:576px) and (max-width:767px) {
 	.slider-area {
-		padding-top: 120px
+		padding-top: 110px
 	}
 }
 
 @media(max-width:575px) {
 	.slider-area {
-		padding-top: 120px
+		padding-top: 110px
 	}
 }
 
@@ -2980,6 +3004,10 @@ hr {
 	color: #fff;
 	line-height: 1.1;
 	display: block
+}
+
+.slider-area .single-slider .slider-cap-wrapper .hero__caption h2 {
+	color: #fff;
 }
 
 @media only screen and (min-width:1200px) and (max-width:1300px) {
@@ -3093,6 +3121,10 @@ hr {
 	}
 }
 
+.hero-area {
+	background-color: #000;
+}
+
 .hero-area .hero-cap h2 {
 	color: #fff;
 	font-size: 50px;
@@ -3169,6 +3201,7 @@ hr {
 	background-repeat: no-repeat
 }
 
+
 .slider-active button.slick-arrow {
 	position: absolute;
 	right: 60px;
@@ -3185,13 +3218,19 @@ hr {
 	background: #00444b
 }
 
+@media only screen and (min-width:576px) {
+	.slider-active {
+		padding-bottom: 100px;
+	}
+}
+
 @media only screen and (min-width:768px) and (max-width:991px) {
 	.slider-active button.slick-arrow {
 		line-height: 40px;
 		height: 40px;
 		width: 40px;
 		right: 40px
-	}
+	}	
 }
 
 @media only screen and (min-width:576px) and (max-width:767px) {
@@ -3382,8 +3421,8 @@ hr {
 }
 
 .our-services .single-services {
-	border: 1px solid #dafcef;
-	padding: 79px 52px;
+	border: 1px solid #014b85;
+	padding: 29px 30px;
 	-webkit-transition: all .4s ease-out 0s;
 	-moz-transition: all .4s ease-out 0s;
 	-ms-transition: all .4s ease-out 0s;
@@ -3416,7 +3455,7 @@ hr {
 }
 
 .our-services .single-services:hover {
-	box-shadow: 0 10px 30px 0 rgba(133, 66, 189, .1)
+	box-shadow: 0 30px 40px 0 rgba(133, 66, 189, .1)
 }
 
 .our-services .single-services .services-ion span {
@@ -3934,6 +3973,13 @@ hr {
 	visibility: visible
 }
 
+@media only screen and (max-width:576px) {
+	.h1-testimonial-active button.slick-arrow {
+		display: none !important;
+	}	
+}
+
+
 .t-bg {
 	background: #021a47
 }
@@ -4144,7 +4190,6 @@ hr {
 
 .all-starups-area .starups-img {
 	width: 50%;
-	background-image: url(../img/gallery/dashboardxx.jpg);
 	background-size: 100%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -6157,6 +6202,17 @@ del {
 
 .button-group-area .genric-btn:last-child {
 	margin-right: 0
+}
+
+.generic-link {
+	text-decoration: none;
+	font-weight: 500;
+	cursor: pointer;
+	color: #415094;
+}
+
+.generic-link:hover {
+	color: #04dbec;
 }
 
 .genric-btn {
