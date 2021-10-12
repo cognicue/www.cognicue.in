@@ -1,6 +1,19 @@
 page_generated: '2021-10-05T17:30:27.680545'
-page_title: Solutions Mock Interview Analytics
-page_url: /solutions/mock-interview-analytics/
+
+page_title: Mock Interview Analytics
+
 section:
-  heading: Section Heading
-  text: 'Section Paragraph<br/>Modify data file: /Users/fasih/Source/CogniCue/Code/Public/www.cognicue.in/data/solutions-mock-interview-analytics.yaml'
+  heading: Mock Interview Analytics
+  text: Interviews are a crucial part of the hiring process. A candidate's performance on an interview can make or break his/her chances at getting hired. It is also a very stressful situation for anyone to face, especially if it is their first time being interviewed. In this fast-paced world, where everyone wants to get ahead and stand out from the crowd, candidates want to practice their interviewing skills in order to perform better during actual interviews. However, there aren't many resources available that allow them to do so without having the stress of actually going through one themselves. CogniCue has developed an automated mock interview platform which allows students who have never been interviewed before as well as those who would like more practice with real-time feedback and analysis based on verbal and nonverbal cues displayed by the candidate during his/her response(s). 
+
+  
+portfolio:
+  - poster: /assets/img/gallery/Mock_Interview_Preview.jpg
+    link: /assets/img/gallery/Mock_Interview.jpg
+    text: View
+    type: image
+
+  - poster: /assets/img/gallery/Minics_Preview.png
+    link: /assets/img/gallery/Minics.png
+    text: View
+    type: image

@@ -1,4 +1,4 @@
-site_version: 11.3.10
+site_version: 12.3.0
 
 site_title: CogniCue
 
@@ -17,18 +17,22 @@ site_headers:
     link: "/"
 
   - text: About
-    link: /about/
-
-  - text: Technology
-    link: /technology/    
+    link: /about/ 
 
   - text: Solutions
     link: "#"
     sub_header:
       - text: Recruitment Analytics
         link: /solutions/recruitment-analytics/
+
       - text: Mock Interview Analytics
         link: /solutions/mock-interview-analytics/
+
+      - text: Media Analytics
+        link: /solutions/media-analytics/
+
+  - text: Insights
+    link: /insights/
 
   - text: Demo
     link: "#"
@@ -36,52 +40,59 @@ site_headers:
       - text: FACS
         link: /demo/facs/
 
-  - text: Insights
-    link: /insights/
-
-  - text: Contact
-    link: /contact/
-
   - text: Login
     link: https://services.cognicue.in/admin/login/
-    blank: true
 
 site_pages:
   about:
     text: About Us
     link: /about/
+
   technology:
     text: Technology
     link: /technology/
+
   applications:
     text: Applications
     link: /applications/
     sub:
       - text: API Services
         link: https://services.cognicue.in/api/
+
       - text: Admin Services
         link: https://services.cognicue.in/admin/
+
       - text: Interview System
         link: https://interview.cognicue.in
+
       - text: Analytics System
         link: https://analytics.cognicue.in
+
   solutions:
     text: Solutions
     link: /solutions/
     sub:
-      - text: Media Analytics
-        link: /solutions/media-analytics/
+      - text: Mock Interview Analytics
+        link: /solutions/mock-interview-analytics/
+
       - text: Recruitment Analytics
         link: /solutions/recruitment-analytics/
+
+      - text: Media Analytics
+        link: /solutions/media-analytics/
+
   contact:
     text: Contact Us
     link: /contact/
+
   privacy:
     text: Privacy Policy
     link: /privacy-policy/
+
   terms:
     text: Terms of Use
     link: /terms-of-use/
+
   insights:
     text: Insights
     link: /insights/

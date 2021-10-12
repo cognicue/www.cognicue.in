@@ -1,10 +1,11 @@
 (function($) {
     "use strict"
     $(window).on('load', function() {
-        $('#preloader-active').delay(450).fadeOut('slow');
-        $('body').delay(450).css({
+        $('#preloader-active').delay(250).fadeOut('slow');
+        $('body').delay(250).css({
             'overflow': 'visible'
         });
+        $('#back-top').fadeOut();
     });
     $(window).on('scroll', function() {
         var scroll = $(window).scrollTop();
@@ -42,7 +43,7 @@
             doAnimations($animatingElements);
         });
         BasicSlider.slick({
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 4000,
             dots: false,
             fade: true,
@@ -96,8 +97,8 @@
             dots: false,
             infinite: true,
             speed: 1000,
-            autoplay: false,
-            arrows: false,
+            autoplay: true,
+            arrows: true,
             prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
             nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
             slidesToShow: 1,
@@ -117,7 +118,7 @@
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     dots: false,
-                    arrow: true
+                    arrow: false
                 }
             }, {
                 breakpoint: 480,
@@ -125,7 +126,7 @@
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     dots: false,
-                    arrow: true
+                    arrow: false
                 }
             }]
         });

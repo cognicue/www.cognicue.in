@@ -1,8 +1,8 @@
 {% extends "layout/_base.html" %}
 {% block main %}
-<div class="slider-area  slider-height" data-background="{{slider_area.background}}">
+<div class="slider-area slider-height" data-background="{{hero_slider.background}}">
 	<div class="slider-active">
-	{% for slide in slider_area.slides %}
+	{% for slide in hero_slider.slides %}
 		<div class="single-slider">
 		<div class="slider-cap-wrapper">
 		<div class="hero__img">
@@ -10,25 +10,25 @@
 		</div>
 		<div class="hero__caption">
 		<h1 data-animation="fadeInLeft" data-delay=".4s">{{slide.title}}</h1>
-		<p data-animation="fadeInLeft" data-delay=".6s">{{slide.description}}</p>
+		<!--<h2 data-animation="fadeInLeft" data-delay=".6s">{{slide.subtitle}}</h2>-->
+		<p data-animation="fadeInLeft" data-delay=".8s">{{slide.description}}</p>
 		</div>
 		</div>
 		</div>	
 	{% endfor %}
-</div>
+	</div>
 </div>
 
 
-<div class="wantToWork-area w-padding">
+<div class="wantToWork-area w-padding w-padding-0">
 <div class="container">
 <div class="row align-items-end">
-<div class="col-xl-5 col-lg-7 col-md-8">
+<div class="col-xl-8 col-lg-8 col-md-8">
 <div class="wantToWork-caption">
-<p>Capturing the voluntary and involuntary movements of the body</p>
-<h2>An inexpensive and portable technology.</h2>
+<h2>{{application_section.title}}</h2>
 </div>
 </div>
-<div class="col-xl-7 col-lg-5 col-md-4">
+<div class="col-xl-4 col-lg-4 col-md-4">
 <div class="wantToWork-btn f-right">
 <a href="{{site_register.link}}" {% if site_register.blank %}target="_blank"{% endif %} class="btn btn-ans">{{site_register.text}}</a>
 </div>
@@ -38,42 +38,24 @@
 </div>
 
 
-<div class="our-services  pt-50 pb-150">
+<div class="our-services  pt-50 pb-50">
 <div class="container">
 <div class="row">
+
+{% for application in application_section.applications %}
 <div class=" col-lg-4 col-md-6 col-sm-6">
 <div class="single-services text-center mb-30">
 <div class="services-ion">
-<span class="flaticon-experience"></span>
+<span class="{{application.image}}"></span>
 </div>
 <div class="services-cap">
-<h5>Measuring Media Effectiveness</h5>
-<p>Tracking real time emotions in analyzing digital impressions like print or advertisements.</p>
+<a href="{{application.link}}"><h5>{{application.title}}</h5>
+<p>{{application.description}}</p></a>
 </div>
 </div>
 </div>
-<div class=" col-lg-4 col-md-6 col-sm-6">
-<div class="single-services text-center mb-30">
-<div class="services-ion">
-<span class="flaticon-pay"></span>
-</div>
-<div class="services-cap">
-<h5>Detailed Reports</h5>
-<p>Featured report mentioning the emotions and expressions tracked with the duration and baseline.</p>
-</div>
-</div>
-</div>
-<div class=" col-lg-4 col-md-6 col-sm-6">
-<div class="single-services text-center mb-30">
-<div class="services-ion">
-<span class="flaticon-good"></span>
-</div>
-<div class="services-cap">
-<h5>Quality & Assurance</h5>
-<p>Our data is continuously upgraded and trained through deep learning and neural network to ensure best quality.</p>
-</div>
-</div>
-</div>
+{% endfor %}
+
 </div>
 </div>
 </div>
@@ -84,8 +66,8 @@
 <div class="tailor-offers"></div>
 
 <div class="tailor-details">
-<span>Our facial expressions reader uses <b>FACS</b> ( Facial Action Coding System)</span>
-<h3>Be able to identify <br>Authentic Interest</h3>
+<span>Our facial expressions reader uses <a class="generic-link" href="/demo/facs/">FACS (Facial Action Coding System)</a></span>
+<h3>Be able to identify Authentic Interest</h3>
 <p>We break down the Non Verbal Cues like expression, gesture, posture<br/> and voice, up to a level that it easy to understand.</p>
 
 <div class="skill-ara">
@@ -124,15 +106,13 @@
 <div class="wantToWork-area w-padding3">
 <div class="container">
 <div class="row align-items-end">
-<div class="col-xl-5 col-lg-7 col-md-8">
+<div class="col-xl-8 col-lg-10 col-md-10">
 <div class="wantToWork-caption">
-<p>Projects that we are working on currently</p>
-<h2>Showcasing the assignments which are being done independently</h2>
+<h2>{{analyses_section.title}}</h2>
 </div>
 </div>
-<div class="col-xl-7 col-lg-5 col-md-4">
+<div class="col-xl-4 col-lg-2 col-md-2">
 <div class="wantToWork-btn f-right">
-<!--<a href="javascript:void(0)" class="btn btn-ans">view more</a>-->
 </div>
 </div>
 </div>
@@ -140,117 +120,59 @@
 </div>
 
 
-<div class="project-gallery-area">
-<div class="container-full p-0">
-<div class="row no-gutters">
+<div class="our-services  pt-50 pb-50">
+<div class="container">
+<div class="row">
 
-<div class="col-lg-5 col-md-4">
-<div class="portfolio-wrapper">
-<div class="portfolio-thumb big-img" style="background-image: url(/assets/img/slider/project3.jpg);">
+{% for analysis in analyses_section.analyses %}
+<div class=" col-lg-4 col-md-6 col-sm-6">
+<div class="single-services text-center mb-30">
+<div class="services-ion">
+<span class="{{analysis.image}}"></span>
 </div>
+<div class="services-cap">
+<h5>{{analysis.title}}</h5>
+<p>{{analysis.description}}</p>
+</div>
+</div>
+</div>
+{% endfor %}
 
-<div class="portfolio-content">
-<a href="/assets/img/slider/project3edit.jpg" class="img-pop-up">Reveal</a>
-</div>
-</div>
-</div>
 
-<div class="col-lg-7 col-md-8">
-<div class="row no-gutters">
- <div class="col-lg-5 col-md-6 col-sm-6">
-<div class="portfolio-wrapper">
-<div class="portfolio-thumb small-img" style="background-image: url(/assets/img/slider/project5.jpg);">
-</div>
-
-<div class="portfolio-content">
-<a href="/assets/img/slider/project5edit.jpg" class="img-pop-up">Reveal</a>
-</div>
-</div>
-</div>
-<div class="col-lg-7 col-md-6 col-sm-6">
-<div class="portfolio-wrapper">
-<div class="portfolio-thumb small-img" style="background-image: url(/assets/img/slider/project1.jpg);">
-</div>
-
-<div class="portfolio-content">
-<a href="/assets/img/slider/project1edit.jpg" class="img-pop-up">Reveal</a>
-</div>
-</div>
-</div>
-</div>
-<div class="row no-gutters">
-<div class="col-lg-7 col-md-6 col-sm-6">
-<div class="portfolio-wrapper">
-<div class="portfolio-thumb small-img" style="background-image: url(/assets/img/slider/project2.jpg);"></div>
-
-<div class="portfolio-content">
-<a href="/assets/img/slider/project2edited.jpg" class="img-pop-up">Reveal</a>
-</div>
-</div>
-</div>
-<div class="col-lg-5 col-md-6 col-sm-6">
-<div class="portfolio-wrapper">
-<div class="portfolio-thumb small-img" style="background-image: url(/assets/img/slider/project6.jpg);"></div>
-
-<div class="portfolio-content">
-<a href="/assets/img/slider/project6edited.jpg" class="img-pop-up">Reveal</a>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
 
 
-<div class="testimonial-area testimonial-padding">
+<div class="testimonial-area">
 <div class="container ">
 <div class="row d-flex justify-content-center">
-<div class="col-xl-11 col-lg-11 col-md-9">
-<div class="h1-testimonial-active">
+<div class="col-xl-10 col-lg-10 col-md-9">
+<div class="h1-testimonial-active pb-50">
 
-
-
+{% for section in general_slider %}
 <div class="single-testimonial text-center">
 
 <div class="testimonial-caption ">
 <div class="testimonial-top-cap">
-<img src="/assets/img/icon/testimonial.png" alt="">
-<p>But behavior in the human being is sometimes a defense, a way of concealing motives and thoughts, as language can be a way of hiding your thoughts and preventing communication.</p>
+<div class="wantToWork-caption pb-50">
+<h2>{{section.title}}</h2>
+</div>
 </div>
 
 <div class="testimonial-founder d-flex align-items-center justify-content-center">
+{% for slide in section.slides %}
+<div class=" col-lg-4 col-md-6 col-sm-6">
 <div class="founder-img">
-<img src="/assets/img/testmonial/Homepage_testi.png" alt="">
-</div>
-<div class="founder-text">
-<span>Abraham Maslow</span>
-<p>American Psychologist</p>
+<img class="img-fluid" src="{{slide.image}}" alt="">
 </div>
 </div>
-</div>
-</div>
-
-<div class="single-testimonial text-center">
-
-<div class="testimonial-caption ">
-<div class="testimonial-top-cap">
-<img src="/assets/img/icon/testimonial.png" alt="">
-<p>Emotion always has its roots in the unconscious and manifests itself in the body.</p>
-</div>
-
-<div class="testimonial-founder d-flex align-items-center justify-content-center">
-<div class="founder-img">
+{% endfor %}
 
 </div>
-<div class="founder-text">
-<span><i>Irene Claremont de Castillejo</i></span>
-<p>Jungian Psychoanalyst</p>
 </div>
 </div>
-</div>
-</div>
+{% endfor %}
 
 </div>
 </div>
@@ -263,10 +185,11 @@
 
 <div class="starups">
 <div class="starups-details">
-<span>Features That You Will Get</span>
-<h3>A platform which uses multiple metrics to give you the best results.</h3>
+<span>{{starups_details.help_text}}</span>
+<h3>{{starups_details.title}}</h3>
 
 <div class="starups-list">
+{% for item in starups_details.starups_list %}
 <ul>
 <li>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px">
@@ -275,40 +198,18 @@
 </svg>
 </li>
 <li>
-<p>Having a dashboard where you can view, upload and measure your results</p>
+<p>{{item.text}}</p>
 </li>
 </ul>
-<ul>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px">
-<path fill-rule="evenodd" fill="rgb(4, 219, 236)" d="M15.000,0.000 C23.284,0.000 30.000,6.716 30.000,15.000 C30.000,23.284 23.284,30.000 15.000,30.000 C6.716,30.000 -0.000,23.284 -0.000,15.000 C-0.000,6.716 6.716,0.000 15.000,0.000 Z" />
-<text kerning="auto" font-family="themify" fill="rgb(255, 255, 255)" font-size="14px" x="9px" y="22.0320000000002px">&#58956;</text>
-</svg>
-</li>
-<li>
-<p>Being able to re upload the media multiple times</p>
-</li>
-</ul>
-<ul>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px">
-<path fill-rule="evenodd" fill="rgb(4, 219, 236)" d="M15.000,0.000 C23.284,0.000 30.000,6.716 30.000,15.000 C30.000,23.284 23.284,30.000 15.000,30.000 C6.716,30.000 -0.000,23.284 -0.000,15.000 C-0.000,6.716 6.716,0.000 15.000,0.000 Z" />
-<text kerning="auto" font-family="themify" fill="rgb(255, 255, 255)" font-size="14px" x="9px" y="22.0320000000002px">&#58956;</text>
-</svg>
-</li>
-<li>
-<p>Able to access the dashboard from any location with the help of a special passcode</p>
-</li>
-</ul>
+{% endfor %}
 </div>
 </div>
 </div>
 
-<div class="starups-img"></div>
+<div class="starups-img" style="background-image: url({{starups_details.image}});"></div>
 </div>
 
 
-{% include "layout/_quick_demo.html" %}
 {% include "layout/_reach_us.html" %}
 
 
