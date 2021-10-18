@@ -1,8 +1,8 @@
 (function($) {
     "use strict"
     $(window).on('load', function() {
-        $('#preloader-active').delay(250).fadeOut('slow');
-        $('body').delay(250).css({
+        $('#preloader-active').delay(100).fadeOut('slow');
+        $('body').delay(100).css({
             'overflow': 'visible'
         });
         $('#back-top').fadeOut();
@@ -158,4 +158,10 @@
             }
         });
     }
+    $(document).ready(function(){
+        if(!window.location.hash){return;}
+        let $tooltip = $(".tooltiptext", window.location.hash);
+        $tooltip.css("visibility", "visible");
+        setTimeout(()=>{$tooltip.hide(500);}, 2000);
+    });
 })(jQuery);
