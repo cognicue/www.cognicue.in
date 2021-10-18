@@ -1,4 +1,4 @@
-site_version: 12.3.3
+site_version: 12.3.4
 
 site_title: CogniCue
 
@@ -42,6 +42,7 @@ site_headers:
 
   - text: Login
     link: https://services.cognicue.in/admin/login/
+    blank: true
 
 site_pages:
   about:
@@ -99,7 +100,7 @@ site_pages:
 
 site_header_cta:
   text: Try for free
-  link: https://services.cognicue.in/minics/cognicue/cognicue-interview-demo/?ref=cognicue
+  link: https://services.cognicue.in/interview/cognicue/cognicue-interview-demo/?ref=cognicue
   popup: false
   blank: true
 
