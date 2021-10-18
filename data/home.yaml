@@ -24,32 +24,32 @@ application_section:
     - title: Smart Recruitment Process
       description: It assists recruiters in saving time by automating many repetitive operations such as candidate screening, scheduling interviews...
       image: flaticon-experience
-      link: /solutions/recruitment-analytics/
+      link: /solutions/recruitment-analytics/#continue
 
     - title: Mock Interview Practice
       description: Online interview practice is an essential tool for anyone to use when preparing to conduct job interviews. The report then provides...
       image: flaticon-tour
-      link: /solutions/mock-interview-analytics/
+      link: /solutions/mock-interview-analytics/#continue
 
     - title: Consumer Behavior
       description: With our platform, brands can make better choices based on customer instincts. The technology captures the behavioral filters that come...
       image: flaticon-good
-      link: /solutions/media-analytics/    
+      link: /solutions/media-analytics/#continue
 
     - title: Healthcare and Diagnosis
       description: It helps doctors and therapists increase emotional awareness for their patients, such as in expressing empathy or delivering diagnoses...
       image: flaticon-pay
-      link: /solutions/others/
+      link: /solutions/others/#solution_1
 
     - title: Video Surveys and Feedback
       description: With our platform, you can get a better idea about what people are thinking and feeling while answering the question. With facial...
       image: flaticon-good
-      link: /solutions/others/
+      link: /solutions/others/#solution_2
 
     - title: Dating & Matrimony
-      description: With our platform glued to the app, people would be able to make a better decisions. Decoding facial expressions and emotions to help...
+      description: With our platform glued to the app, people would be able to make a better decisions. Decoding facial expressions and emotions...
       image: flaticon-tour
-      link: /solutions/others/
+      link: /solutions/others/#solution_3
 
 
 analyses_section:
@@ -74,6 +74,7 @@ analyses_section:
 
 
 general_slider:
+
   - title: Supported by
     slides:
       - title:
@@ -89,6 +90,7 @@ general_slider:
 
       - title:
         image: /assets/img/logo/OpenAPILogo.png
+
 
 starups_details:
 
