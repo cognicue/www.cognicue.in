@@ -21,15 +21,15 @@ application_section:
   title: Our Emotion AI platform's present applications
 
   applications:
-    - title: Smart Recruitment Process
-      description: It assists recruiters in saving time by automating many repetitive operations such as candidate screening, scheduling interviews...
-      image: flaticon-experience
-      link: /solutions/recruitment-analytics/#continue
-
     - title: Mock Interview Practice
       description: Online interview practice is an essential tool for anyone to use when preparing to conduct job interviews. The report then provides...
       image: flaticon-tour
       link: /solutions/mock-interview-analytics/#continue
+
+    - title: Smart Recruitment Process
+      description: It assists recruiters in saving time by automating many repetitive operations such as candidate screening, scheduling interviews...
+      image: flaticon-experience
+      link: /solutions/recruitment-analytics/#continue
 
     - title: Consumer Behavior
       description: With our platform, brands can make better choices based on customer instincts. The technology captures the behavioral filters that come...

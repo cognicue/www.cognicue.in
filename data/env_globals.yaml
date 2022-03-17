@@ -1,4 +1,4 @@
-site_version: 12.3.5
+site_version: 12.3.6
 
 site_title: CogniCue
 
@@ -22,11 +22,11 @@ site_headers:
   - text: Solutions
     link: "#"
     sub_header:
-      - text: Recruitment Analytics
-        link: /solutions/recruitment-analytics/
-
       - text: Mock Interview Analytics
         link: /solutions/mock-interview-analytics/
+
+      - text: Recruitment Analytics
+        link: /solutions/recruitment-analytics/
 
       - text: Media Analytics
         link: /solutions/media-analytics/
@@ -100,7 +100,7 @@ site_pages:
 
 site_header_cta:
   text: Try for free
-  link: https://services.cognicue.in/interview/cognicue/cognicue-interview-demo/?ref=cognicue
+  link: https://services.cognicue.in/interview/cognicue/?ref=cognicue
   popup: false
   blank: true
 
