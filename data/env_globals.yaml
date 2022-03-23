@@ -1,4 +1,4 @@
-site_version: 12.3.6
+site_version: 12.3.7
 
 site_title: CogniCue
 
@@ -22,13 +22,13 @@ site_headers:
   - text: Solutions
     link: "#"
     sub_header:
-      - text: Mock Interview Analytics
+      - text: Interview Practice Platform
         link: /solutions/mock-interview-analytics/
 
-      - text: Recruitment Analytics
-        link: /solutions/recruitment-analytics/
+      - text: Employee Wellbeing Platform
+        link: /solutions/employee-wellbeing-platform/
 
-      - text: Media Analytics
+      - text: Customer Experience Platform
         link: /solutions/media-analytics/
 
   - text: Insights

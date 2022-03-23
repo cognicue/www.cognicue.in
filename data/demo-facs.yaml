@@ -60,8 +60,8 @@ demo_type:
   rodate: /assets/demo/facs/img/rotate.png
 
   playTimeout: 0
-  watchTimeout: 60  
-  presentTimeout: 120
+  watchTimeout: 180
+  presentTimeout: 300
 
 
 demo_videos:
