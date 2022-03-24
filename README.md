@@ -1,5 +1,6 @@
 # CogniCue - Converting Emotions into Analytics
 
+![made-with-python](https://forthebadge.com/images/badges/made-with-python.svg)
 ![Build gh-pages](https://github.com/bodyspeaksbetter/www.cognicue.in/workflows/Build%20gh-pages/badge.svg)
 
 This repo hosts the code for [www.cognicue.in](https://www.cognicue.in/) on the `master` branch which builds and serves through `gh-pages`.
