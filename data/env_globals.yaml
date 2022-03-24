@@ -24,15 +24,24 @@ site_headers:
     sub_header:
       - text: Interview Practice Platform
         link: /solutions/mock-interview-analytics/
+        sub_sub_header:
+          - text: Demo - Mock Interview & Feedback
+            link: https://services.cognicue.in/interview/cognicue/?ref=header
+            blank: true
 
       - text: Employee Wellbeing Platform
         link: /solutions/employee-wellbeing-platform/
+        sub_sub_header:
+          - text: Demo - Emotion Detection
+            link: /demo/facs/?type=watch
+            blank: true
 
       - text: Customer Experience Platform
         link: /solutions/media-analytics/
         sub_sub_header:
-          - text: Interview Practice Platform
-            link: /solutions/mock-interview-analytics/
+          - text: Demo - Engagement Analysis
+            link: /demo/facs/?type=present
+            blank: true
 
   - text: Insights
     link: /insights/
