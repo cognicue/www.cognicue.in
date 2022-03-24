@@ -1523,7 +1523,7 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
             demoMessage = messages.demoMessageStart+messages.demoWatch+messages.demoMessageEnd;
             demoFACSId = 'video-wrapper'
         }
-        else if(demoType === "present"){
+        else if(demoType === "share"){
             demoMessage = messages.demoMessageStart+messages.demoPresent+messages.demoMessageEnd;
         }
         else{
