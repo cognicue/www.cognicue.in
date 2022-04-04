@@ -156,7 +156,7 @@ demo_metrics:
     order: 23
     sdk_name: chinRaise
     type: Expressions
-    visible: true
+    visible: false
 
   Contempt:
     color: '#2bb3f7'
@@ -281,7 +281,7 @@ demo_metrics:
     order: 9
     sdk_name: lipStretch
     type: Expressions
-    visible: true
+    visible: false
 
   Lip Suck:
     color: '#f7b86e'
@@ -297,7 +297,7 @@ demo_metrics:
     order: 7
     sdk_name: mouthOpen
     type: Expressions
-    visible: true
+    visible: false
 
   Nose Wrinkle:
     color: '#f76ee6'
@@ -355,7 +355,7 @@ demo_metrics:
     order: 1
     sdk_name: upperLipRaise
     type: Expressions
-    visible: true
+    visible: false
 
   Valence:
     color: '#6ea7f7'
