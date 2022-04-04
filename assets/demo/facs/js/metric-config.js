@@ -101,7 +101,7 @@ const METRIC =
         "sdk_name": "chinRaise",
         "mr_name": "Chin Raise",
         "order": 23,
-        "visible": true,
+        "visible": false,
         "type": "Expressions"
     },
     "Dimpler": {
@@ -189,7 +189,7 @@ const METRIC =
         "sdk_name": "lipStretch",
         "mr_name": "Lip Stretch",
         "order": 9,
-        "visible": true,
+        "visible": false,
         "type": "Expressions"
     },
     "Lip Suck": {
@@ -205,7 +205,7 @@ const METRIC =
         "sdk_name": "mouthOpen",
         "mr_name": "Mouth Open",
         "order": 7,
-        "visible": true,
+        "visible": false,
         "type": "Expressions"
     },
     "Nose Wrinkle": {
@@ -245,7 +245,7 @@ const METRIC =
         "sdk_name": "upperLipRaise",
         "mr_name": "Upper Lip Raise",
         "order": 1,
-        "visible": true,
+        "visible": false,
         "type": "Expressions"
     }
 }
