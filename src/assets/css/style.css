@@ -4478,7 +4478,8 @@ hr {
 	line-height: 40px;
 	display: inline-block;
 	text-align: center;
-	margin-right: 4px
+	margin-right: 4px;
+	margin-bottom: 4px;
 }
 
 .footer-area .footer-social a i {
@@ -7328,4 +7329,17 @@ del {
   border-width: 5px;
   border-style: solid;
   border-color: black transparent transparent transparent;
+}
+
+.whatsapp-icon {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: 50px;
+    height: auto;
+	z-index: 9;
+}
+
+.whatsapp-icon img {
+	width: 100%;
 }
