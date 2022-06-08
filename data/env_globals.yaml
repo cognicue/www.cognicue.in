@@ -1,14 +1,18 @@
-site_version: 13.3.2
+site_version: 13.3.3
 
 site_title: CogniCue
 
-site_url: https://www.cognicue.in
+site_name: CogniCue Analytics Pvt. Ltd.
 
 site_description: Converting Emotions into Analytics 
+
+site_url: https://www.cognicue.in
 
 site_logo: /assets/img/logo/logo-whiteText.svg
 
 site_favicon: /assets/img/logo/logo-graphic.svg
+
+site_icon: https://media.cognicue.in/icons/icon-144x144.png
 
 site_social_image: /assets/img/hero/differentfacess.jpg
 
@@ -133,15 +137,13 @@ site_register:
 
 site_contact:
   email: info@cognicue.in
-  mobile: 976 959 8282
+  mobile: 9769598282
   address: Goa, India 403101
   city: Goa
   country_pin: India, 403101
 
 site_discord:
   welcome: https://e.widgetbot.io/channels/719576217946161262/719660079837741187
-
-site_copyright: CogniCue Analytics Pvt. Ltd.
 
 page404:
   heading: 404 - Page Not Found

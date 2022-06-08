@@ -1,4 +1,30 @@
 {% extends "layout/_base.html" %}
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{site_name}}",
+  "alternateName": "{{site_title}}",
+  "url": "{{site_url}}",
+  "logo": "{{site_icon}}",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "{{site_contact.mobile}}",
+    "contactType": "customer service",
+    "areaServed": "IN",
+    "availableLanguage": ["en","Hindi","Oriya"]
+  },
+  "sameAs": [
+    "{{site_social.facebook}}",
+    "{{site_social.twitter}}",
+    "{{site_social.instagram}}",
+    "{{site_social.linkedin}}",
+    "{{site_social.github}}"
+  ]
+}
+</script>
+{% endblock %}
 {% block main %}
 <div class="slider-area slider-height" data-background="{{hero_slider.background}}">
 	<div class="slider-active">
