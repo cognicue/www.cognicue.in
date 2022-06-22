@@ -12,9 +12,15 @@ site_logo: https://media.cognicue.in/logos/logo-white.svg
 
 site_icon: https://media.cognicue.in/icons/icon.svg
 
-site_schema_tag_icon: https://media.cognicue.in/icons/icon-144x144.png
+site_icon_16_16: https://media.cognicue.in/icons/icon-16x16.png
 
-site_apple_touch_icon: https://media.cognicue.in/icons/icon-180x180.png
+site_icon_32_32: https://media.cognicue.in/icons/icon-32x32.png
+
+site_icon_144_144: https://media.cognicue.in/icons/icon-144x144.png
+
+site_icon_152_152: https://media.cognicue.in/icons/icon-152x152.png
+
+site_icon_180_180: https://media.cognicue.in/icons/icon-180x180.png
 
 site_social_image: /assets/img/hero/differentfacess.jpg
 
@@ -31,7 +37,7 @@ site_headers:
       - text: Interview Practice Platform
         link: /solutions/mock-interview-analytics/
         sub_sub_header:
-          - text: Demo - Mock Interview & Feedback
+          - text: Demo - Mock Interview
             link: https://services.cognicue.in/interview/cognicue/?ref=header
             blank: true
 
@@ -129,7 +135,6 @@ site_social:
   facebook: https://www.facebook.com/CogniCue
   instagram: https://www.instagram.com/cognicue
   twitter: https://twitter.com/CogniCue
-  website: https://www.bodyspeaksbetter.com
   whatsapp: https://wa.me/919769598282
 
 site_register:
