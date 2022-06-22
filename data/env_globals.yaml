@@ -8,11 +8,13 @@ site_description: Converting Emotions into Analytics
 
 site_url: https://www.cognicue.in
 
-site_logo: /assets/img/logo/logo-whiteText.svg
+site_logo: https://media.cognicue.in/logos/logo-white.svg
 
-site_favicon: /assets/img/logo/logo-graphic.svg
+site_icon: https://media.cognicue.in/icons/icon.svg
 
-site_icon: https://media.cognicue.in/icons/icon-144x144.png
+site_schema_tag_icon: https://media.cognicue.in/icons/icon-144x144.png
+
+site_apple_touch_icon: https://media.cognicue.in/icons/icon-180x180.png
 
 site_social_image: /assets/img/hero/differentfacess.jpg
 

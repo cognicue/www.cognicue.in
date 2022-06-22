@@ -135,6 +135,9 @@ recognition_slider:
   - title: 'Next Generation Incubation Scheme'
     image: '/assets/img/logo/ngis.png'
 
+  - title: 'Pontaq VC'
+    image: '/assets/img/logo/pontaq.jpeg'
+
   - title: 'Confederation of Indian Industry'
     image: '/assets/img/logo/cii.png'
 
