@@ -4514,6 +4514,17 @@ hr {
 	padding-left: 5px
 }
 
+.footer-area .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+	.footer-area .footer-social {
+		width: 132px;
+	}
+}
+
 .footer-area .footer-social a {
 	color: #8ba4b1;
 	width: 40px;
