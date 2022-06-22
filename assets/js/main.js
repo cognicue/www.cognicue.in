@@ -101,12 +101,12 @@
             arrows: true,
             prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
             nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
-            slidesToShow: 1,
+            slidesToShow: 4,
             slidesToScroll: 1,
             responsive: [{
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: true,
                     dots: false,
@@ -115,7 +115,7 @@
             }, {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                     dots: false,
                     arrow: false
@@ -163,5 +163,38 @@
         let $tooltip = $(".tooltiptext", window.location.hash);
         $tooltip.css("visibility", "visible");
         setTimeout(()=>{$tooltip.hide(500);}, 2000);
+    });
+    $("#recognitionSlide").slick({
+        lazyLoad: 'ondemand',
+        prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        speed: 800,
+        autoplay: true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                arrow: true
+            }
+        }, {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                arrow: false
+            }
+        }, {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrow: false
+            }
+        }]
     });
 })(jQuery);
