@@ -3926,14 +3926,23 @@ hr {
 #recognitionSlide .slick-track {
 	display: flex;
 }
+
+/* the parent */
+#recognitionSlide.slick-initialized .slick-list {
+    margin: 0 -10px;
+}
+
 #recognitionSlide.slick-initialized .slick-slide {
 	height: inherit;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 0 10px;
 }
 #recognitionSlide img {
 	max-width: 200px;
+	width: 100%;
+	object-fit: contain;
 }
 
 #recognitionSlide button.slick-arrow,
