@@ -6,9 +6,10 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<title>{% if page_title %}{{page_title}} - {% endif %}{{site_title}} </title>
+<title>{% if page_title %}{{page_title}} - {% endif %}{{site_title}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/x-icon" href="{{site_favicon}}">
+<link rel="icon" type="image/svg+xml" href="{{site_icon}}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{site_apple_touch_icon}}" />
 
 {% block schema %}{% endblock %}
 
@@ -39,7 +40,7 @@
 <div class="preloader-inner position-relative">
 <div class="preloader-circle"></div>
 <div class="preloader-img pere-text">
-<img src="{{site_favicon}}" alt="{{site_title}}">
+<img src="{{site_icon}}" alt="{{site_title}}">
 </div>
 </div>
 </div>
