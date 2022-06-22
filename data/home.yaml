@@ -74,22 +74,17 @@ analyses_section:
 
 
 general_slider:
+  - title:
+    image: /assets/img/logo/StartupIndiaLogo.png
 
-  - title: Supported by
-    slides:
-      - title:
-        image: /assets/img/logo/StartupIndiaLogo.png
+  - title:
+    image: /assets/img/logo/StartupSchoolLogo.png
 
-      - title:
-        image: /assets/img/logo/StartupSchoolLogo.png
+  - title:
+    image: /assets/img/logo/AWSActivateLogo.jpg
 
-  - title: Built Using
-    slides:
-      - title:
-        image: /assets/img/logo/AWSActivateLogo.jpg
-
-      - title:
-        image: /assets/img/logo/OpenAPILogo.png
+  - title:
+    image: /assets/img/logo/OpenAPILogo.png
 
 
 starups_details:

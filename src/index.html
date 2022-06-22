@@ -182,16 +182,8 @@
         <div class="h1-testimonial-active pb-50">
           {% for section in general_slider %}
           <div class="single-testimonial text-center">
-            <div class="testimonial-caption">
-              <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                {% for slide in section.slides %}
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                  <div class="founder-img">
-                    <img class="img-fluid" src="{{slide.image}}" alt="">
-                  </div>
-                </div>
-                {% endfor %}
-              </div>
+            <div class="testimonial-caption px-3">
+              <img class="img-fluid" src="{{section.image}}" alt="" loading="lazy" decoding="async">
             </div>
           </div>
           {% endfor %}
