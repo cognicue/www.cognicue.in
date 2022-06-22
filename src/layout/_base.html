@@ -5,11 +5,18 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-
 <title>{% if page_title %}{{page_title}} - {% endif %}{{site_title}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="dns-prefetch" href="https://fonts.cognicue.in/" />
+<link rel="dns-prefetch" href="https://media.cognicue.in/" />
+
 <link rel="icon" type="image/svg+xml" href="{{site_icon}}" />
-<link rel="apple-touch-icon" sizes="180x180" href="{{site_apple_touch_icon}}" />
+
+<link rel="apple-touch-icon" sizes="16x16" href="{{site_icon_16_16}}" />
+<link rel="apple-touch-icon" sizes="32x32" href="{{site_icon_32_32}}" />
+<link rel="apple-touch-icon" sizes="152x152" href="{{site_icon_152_152}}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{site_icon_180_180}}" />
 
 {% block schema %}{% endblock %}
 
