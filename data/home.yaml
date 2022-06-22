@@ -104,3 +104,20 @@ starups_details:
     - text: The ability to detect and map individuals' unconscious biases, prejudices or other habits without them knowing.
 
     - text: Being able to engage with a larger number of individuals in a shorter amount of time.
+
+
+recognition_slides:
+  - title: 'Startup India'
+    image: '/assets/img/logo/startup-india.png'
+
+  - title: 'Forum for Innovation Incubation Research & Entrepreneurship'
+    image: '/assets/img/logo/fiire.png'
+
+  - title: 'Atal Incubation Centre - Goa Institute of Management'
+    image: '/assets/img/logo/aic.png'
+
+  - title: 'Next Generation Incubation Scheme'
+    image: '/assets/img/logo/ngis.png'
+
+  - title: 'Department for Promotion of Industry and Internal Trade'
+    image: '/assets/img/logo/dipi.png'
