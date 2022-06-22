@@ -3923,6 +3923,14 @@ hr {
 	line-height: 1.5
 }
 
+.testimonial-caption {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.h1-testimonial-active .slick-track,
 #recognitionSlide .slick-track {
 	display: flex;
 }
@@ -3943,6 +3951,10 @@ hr {
 	max-width: 200px;
 	width: 100%;
 	object-fit: contain;
+}
+
+.h1-testimonial-active.slick-initialized .slick-slide {
+	height: inherit;
 }
 
 #recognitionSlide button.slick-arrow,
@@ -4003,7 +4015,7 @@ hr {
 
 #recognitionSlide:hover button.slick-prev,
 .h1-testimonial-active:hover button.slick-prev {
-	left: -120px
+	left: -35px
 }
 
 @media only screen and (min-width:576px) and (max-width:767px) {
@@ -4015,7 +4027,7 @@ hr {
 
 #recognitionSlide:hover button.slick-next,
 .h1-testimonial-active:hover button.slick-next {
-	right: -120px
+	right: -35px
 }
 
 @media only screen and (min-width:576px) and (max-width:767px) {

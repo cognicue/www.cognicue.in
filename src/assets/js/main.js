@@ -168,10 +168,10 @@
         lazyLoad: 'ondemand',
         prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         infinite: true,
-        speed: 1000,
+        speed: 800,
         autoplay: true,
         responsive: [{
             breakpoint: 1024,
