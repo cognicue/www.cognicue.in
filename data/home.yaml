@@ -109,40 +109,40 @@ starups_details:
 
 recognition_slider:
   - title: 'Department for Promotion of Industry and Internal Trade'
-    image: '/assets/img/logo/dipi.png'
+    image: '/assets/img/recognitions/dpiit.png'
 
   - title: 'Startup Promotion Cell - Goa'
-    image: '/assets/img/logo/spc-goa.jpeg'
+    image: '/assets/img/recognitions/spc-goa.jpeg'
 
   - title: 'Startup India'
-    image: '/assets/img/logo/startup-india.png'
+    image: '/assets/img/recognitions/startup-india.png'
 
   - title: 'Forum for Innovation Incubation Research & Entrepreneurship'
-    image: '/assets/img/logo/fiire.png'
+    image: '/assets/img/recognitions/fiire.png'
 
   - title: 'Atal Incubation Centre - Goa Institute of Management'
-    image: '/assets/img/logo/aic.png'
+    image: '/assets/img/recognitions/aic-gim.png'
 
   - title: 'Expo 2020 Dubai UAE'
-    image: '/assets/img/logo/dubai-expo.png'
+    image: '/assets/img/recognitions/dubai-expo.png'
 
   - title: 'Startup Technology Park of India'
-    image: '/assets/img/logo/stpi.png'
+    image: '/assets/img/recognitions/stpi.png'
 
   - title: 'Chunauti 2.0'
-    image: '/assets/img/logo/chunauti-2.0.png'
+    image: '/assets/img/recognitions/chunauti-2.0.png'
 
   - title: 'Next Generation Incubation Scheme'
-    image: '/assets/img/logo/ngis.png'
+    image: '/assets/img/recognitions/ngis.png'
 
   - title: 'Pontaq VC'
-    image: '/assets/img/logo/pontaq.jpeg'
+    image: '/assets/img/recognitions/pontaq.jpeg'
 
   - title: 'Confederation of Indian Industry'
-    image: '/assets/img/logo/cii.png'
+    image: '/assets/img/recognitions/cii.png'
 
   - title: 'NASSCOM 10K'
-    image: '/assets/img/logo/nasscom.png'
+    image: '/assets/img/recognitions/nasscom-10k.png'
 
   - title: 'YC Startup School'
-    image: '/assets/img/logo/StartupSchoolLogo.png'
+    image: '/assets/img/recognitions/yc-startupschool.png'
