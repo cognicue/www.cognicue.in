@@ -1,67 +1,86 @@
-{% extends "layout/_base.html" %}
-{% block main %}
-
+{% extends "layout/_base.html" %} {% block page %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+  rel="stylesheet"
+/>
+{% endblock %} {% block main %}
 
 <section class="contact-section">
-<div class="container">
-
-<div class="row">
-<div class="col-12">
-<h2 class="contact-title">Get in Touch</h2>
-</div>
-<div class="col-lg-8">
-<form class="form-contact contact_form" method="post" id="contactForm">
-<div class="row">
-<div class="col-12">
-<div class="form-group">
-<textarea class="form-control w-100" name="message" required="required" id="message" cols="30" rows="9" placeholder=" Enter Message"></textarea>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<input class="form-control valid" name="name" id="name" type="text" required="required" placeholder="Enter your name">
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<input class="form-control valid" name="email" id="email" type="email" required="required" placeholder="Enter email address">
-</div>
-</div>
-<div class="col-12">
-<div class="form-group">
-<input class="form-control" name="subject" id="subject" type="text" required="required" placeholder="Enter Subject">
-</div>
-</div>
-</div>
-<div class="form-group mt-3">
-<button type="submit" class="button button-contactForm btn header-btn">Send</button>
-</div>
-</form>
-</div>
-<div class="col-lg-3 offset-lg-1">
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-home"></i></span>
-<div class="media-body">
-<h3>{{site_contact.city}}</h3>
-<p>{{site_contact.country_pin}}</p>
-</div>
-</div>
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-tablet"></i></span>
-<div class="media-body">
-<h3>+91 {{site_contact.mobile}}</h3>
-<p>Mon to Fri 9am to 6pm</p>
-</div>
-</div>
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-email"></i></span>
-<div class="media-body">
-<h3>{{site_contact.email}}</h3>
-<p>Send us your query anytime!</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="contact-title">Get in touch!</h2>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-3 text-center">
+        <span>
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M25 4.167c-8.063 0-14.583 6.52-14.583 14.583C10.417 29.688 25 45.833 25 45.833S39.583 29.688 39.583 18.75c0-8.063-6.52-14.583-14.583-14.583Zm0 19.791a5.21 5.21 0 0 1-5.208-5.208A5.21 5.21 0 0 1 25 13.542a5.21 5.21 0 0 1 5.208 5.208A5.21 5.21 0 0 1 25 23.958Z"
+              fill="#000"
+            />
+          </svg>
+        </span>
+        <address class="mt-1">{{site_contact.city}} {{site_contact.country_pin}}</address>
+      </div>
+      <div class="col-12 col-md-3 text-center">
+        <span>
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.792 22.48c3 5.895 7.833 10.707 13.729 13.728l4.583-4.583a2.071 2.071 0 0 1 2.125-.5 23.765 23.765 0 0 0 7.438 1.188 2.09 2.09 0 0 1 2.083 2.083v7.27a2.09 2.09 0 0 1-2.083 2.084C22.104 43.75 6.25 27.896 6.25 8.333A2.09 2.09 0 0 1 8.333 6.25h7.292a2.09 2.09 0 0 1 2.083 2.083c0 2.604.417 5.104 1.188 7.438a2.09 2.09 0 0 1-.521 2.125l-4.583 4.583Z"
+              fill="#000"
+            />
+          </svg>
+        </span>
+        <p class="mt-1">
+          <a href="tel:+91{{site_contact.mobile}}" class="text-body">+91 {{site_contact.mobile}}</a>
+        </p>
+      </div>
+      <div class="col-12 col-md-3 text-center">
+        <span>
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M41.667 8.333H8.333c-2.291 0-4.146 1.875-4.146 4.167l-.02 25a4.179 4.179 0 0 0 4.166 4.167h33.334a4.179 4.179 0 0 0 4.166-4.167v-25a4.179 4.179 0 0 0-4.166-4.167Zm0 8.334L25 27.083 8.333 16.667V12.5L25 22.917 41.667 12.5v4.167Z"
+              fill="#000"
+            />
+          </svg>
+        </span>
+        <p class="mt-1">
+          <a href="mailto:{{site_contact.email}}" class="text-body"
+            >{{site_contact.email}}</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12 col-lg-7">
+        left
+      </div>
+      <div class="col-12 col-lg-5">
+        Right
+      </div>
+    </div>
+  </div>
 </section>
 {% endblock %}
