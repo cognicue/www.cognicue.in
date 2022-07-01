@@ -17,7 +17,7 @@
     </div>
     <div class="row justify-content-md-center">
       <div class="col-12 col-md-3 text-center">
-        <span>
+        <a href="https://goo.gl/maps/BFFgx2MyZLwPCYkP7" target="_blank">
           <svg
             width="50"
             height="50"
@@ -30,13 +30,13 @@
               fill="#000"
             />
           </svg>
-        </span>
+        </a>
         <address class="mt-1">
-          {{site_contact.city}} {{site_contact.country_pin}}
+          <a href="https://goo.gl/maps/BFFgx2MyZLwPCYkP7" target="_blank"  class="text-body">{{site_contact.city}} {{site_contact.country_pin}}</a>
         </address>
       </div>
       <div class="col-12 col-md-3 text-center">
-        <span>
+        <a href="tel:+91{{site_contact.mobile}}">
           <svg
             width="50"
             height="50"
@@ -49,7 +49,7 @@
               fill="#000"
             />
           </svg>
-        </span>
+        </a>
         <p class="mt-1">
           <a href="tel:+91{{site_contact.mobile}}" class="text-body"
             >+91 {{site_contact.mobile}}</a
@@ -57,7 +57,7 @@
         </p>
       </div>
       <div class="col-12 col-md-3 text-center">
-        <span>
+        <a href="mailto:{{site_contact.email}}">
           <svg
             width="50"
             height="50"
@@ -70,7 +70,7 @@
               fill="#000"
             />
           </svg>
-        </span>
+        </a>
         <p class="mt-1">
           <a href="mailto:{{site_contact.email}}" class="text-body"
             >{{site_contact.email}}</a
@@ -94,11 +94,11 @@
                   >
                     <path
                       d="M55 0a50 50 0 0 1 43.301 75L55 50V0Z"
-                      fill="#F15412"
+                      fill="#FFD9C0"
                     />
                     <path
                       d="M93.301 79A50 50 0 1 1 50 4v50l43.301 25Z"
-                      fill="#FFD9C0"
+                      fill="#F15412"
                     />
                   </svg>
                 </span>

@@ -64,9 +64,8 @@ site_headers:
       - text: FACS
         link: /demo/facs/
 
-  - text: Login
-    link: https://services.cognicue.in/admin/login/
-    blank: true
+  - text: Contact Us
+    link: /contact/
 
 site_pages:
   about:
