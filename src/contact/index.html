@@ -5,6 +5,7 @@
   href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
   rel="stylesheet"
 />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 {% endblock %} {% block main %}
 
 <section class="contact-section">
@@ -222,8 +223,8 @@
         </div>
       </div>
       <div class="col-12 col-lg-5">
-        <form class="form form-custom">
-          <div class="form-group noflot">
+        <form id="contactGSForm" class="form form-custom">
+          <div class="form-group noflot position-relative mb-4">
             <label for="describe" class="d-block f-14"
               >What describes you best?</label
             >
@@ -236,8 +237,9 @@
                 Test Taker (Job Seeker/ Employee)
               </option>
             </select>
+            <span class="invalid-feedback">Please describe you</span>
           </div>
-          <div class="form-group clear">
+          <div class="form-group clear position-relative mb-4">
             <label for="userName" class="f-14">Full Name</label>
             <input
               type="text"
@@ -245,8 +247,9 @@
               id="userName"
               placeholder="Alan"
             />
+            <span class="invalid-feedback">Please enter your name</span>
           </div>
-          <div class="form-group">
+          <div class="form-group position-relative mb-4">
             <label for="companyName" class="f-14">Company Name</label>
             <input
               type="text"
@@ -254,12 +257,14 @@
               id="companyName"
               placeholder="Alan System"
             />
+            <span class="invalid-feedback">Please enter Company name</span>
           </div>
           <div class="form-group noflot">
             <label for="companySize" class="d-block f-14">Company Size</label>
             <select class="w-100" title="Company Size" id="companySize">
               <option value="0-50">0 - 50</option>
             </select>
+            <span class="invalid-feedback">Please Select Company Size</span>
           </div>
           <div class="form-group row clear">
             <div class="col col-md-6">
@@ -270,6 +275,7 @@
                 class="form-control"
                 placeholder="alan@cognicue.in"
               />
+              <span class="invalid-feedback">Please enter valid email</span>
             </div>
             <div class="col col-md-6">
               <label for="userPhone" class="f-14">Phone</label>
@@ -279,6 +285,7 @@
                 id="userPhone"
                 placeholder="9999999999"
               />
+              <span class="invalid-feedback">Please enter valid mobile number</span>
             </div>
           </div>
           <div class="form-group mt-4">
@@ -307,7 +314,7 @@
               <span class="f-14 ml-1">Need technical support</span>
             </label>
           </div>
-          <div class="form-group">
+          <div class="form-group position-relative">
             <label for="userMessage" class="f-14">Message</label>
             <textarea
               id="userMessage"
@@ -315,13 +322,14 @@
               rows="5"
               class="form-control"
             ></textarea>
+            <span class="invalid-feedback">Please enter valid message</span>
           </div>
-          <div>
+          <div class="mt-4 position-relative">
             <label class="d-flex align-middle">
               <input
                 type="checkbox"
                 checked
-                id="policy-accpeted"
+                id="policy-accepted"
                 aria-label="By checking this box, I consent to receive communication from CogniCue*"
               />
               <small class="ml-1"
@@ -329,6 +337,7 @@
                 CogniCue*</small
               >
             </label>
+            <span class="invalid-feedback">Please accept communication</span>
           </div>
           <div class="text-center mt-5">
             <button type="submit" class="btn">Submit</button>
