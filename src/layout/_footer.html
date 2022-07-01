@@ -23,6 +23,23 @@
 		<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
 		<div class="single-footer-caption mb-50">
 		<div class="footer-tittle">
+		<h4>Company</h4>
+		<ul>
+		<li><a href="{{site_pages.about.link}}">{{site_pages.about.text}}</a></li>
+		<li><a href="{{site_pages.contact.link}}">{{site_pages.contact.text}}</a></li>			
+		<li><a href="{{site_pages.privacy.link}}">{{site_pages.privacy.text}}</a></li>
+		<li><a href="{{site_pages.terms.link}}">{{site_pages.terms.text}}</a></li>
+		</ul>
+		</div>
+		</div>
+		</div>
+		<!-- Section -->
+
+
+		<!-- Section -->
+		<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+		<div class="single-footer-caption mb-50">
+		<div class="footer-tittle">
 		<h4>Applications</h4>
 		<ul>
 			{% for each in site_pages.applications.sub %}
@@ -44,23 +61,6 @@
 			{% for each in site_pages.solutions.sub %}
 				<li><a href="{{each.link}}">{{each.text}}</a></li>
 			{% endfor %}
-		</ul>
-		</div>
-		</div>
-		</div>
-		<!-- Section -->
-
-
-		<!-- Section -->
-		<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-		<div class="single-footer-caption mb-50">
-		<div class="footer-tittle">
-		<h4>Company</h4>
-		<ul>
-		<li><a href="{{site_pages.about.link}}">{{site_pages.about.text}}</a></li>
-		<li><a href="{{site_pages.contact.link}}">{{site_pages.contact.text}}</a></li>			
-		<li><a href="{{site_pages.privacy.link}}">{{site_pages.privacy.text}}</a></li>
-		<li><a href="{{site_pages.terms.link}}">{{site_pages.terms.text}}</a></li>
 		</ul>
 		</div>
 		</div>

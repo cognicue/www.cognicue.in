@@ -64,12 +64,12 @@ site_headers:
       - text: FACS
         link: /demo/facs/
 
-  - text: Contact Us
+  - text: Contact
     link: /contact/
 
 site_pages:
   about:
-    text: About Us
+    text: About
     link: /about/
 
   technology:
@@ -102,11 +102,14 @@ site_pages:
       - text: Recruitment Analytics
         link: /solutions/recruitment-analytics/
 
+      - text: Employee Wellbeing Platform
+        link: /solutions/employee-wellbeing-platform/
+
       - text: Media Analytics
         link: /solutions/media-analytics/
 
   contact:
-    text: Contact Us
+    text: Contact
     link: /contact/
 
   privacy:
@@ -138,15 +141,15 @@ site_social:
 
 site_register:
   text: Get Early Access
-  link: https://register.cognicue.in
-  blank: true
+  link: /contact/
+  blank: false
 
 site_contact:
   email: info@cognicue.in
   mobile: 9769598282
-  address: Goa, India 403101
+  address: Goa, India 403501
   city: Goa
-  country_pin: India, 403101
+  country_pin: India, 403501
 
 site_discord:
   welcome: https://e.widgetbot.io/channels/719576217946161262/719660079837741187
