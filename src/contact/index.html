@@ -1,67 +1,355 @@
-{% extends "layout/_base.html" %}
-{% block main %}
-
+{% extends "layout/_base.html" %} {% block page %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+  rel="stylesheet"
+/>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock %} {% block main %}
 
 <section class="contact-section">
-<div class="container">
-
-<div class="row">
-<div class="col-12">
-<h2 class="contact-title">Get in Touch</h2>
-</div>
-<div class="col-lg-8">
-<form class="form-contact contact_form" method="post" id="contactForm">
-<div class="row">
-<div class="col-12">
-<div class="form-group">
-<textarea class="form-control w-100" name="message" required="required" id="message" cols="30" rows="9" placeholder=" Enter Message"></textarea>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<input class="form-control valid" name="name" id="name" type="text" required="required" placeholder="Enter your name">
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<input class="form-control valid" name="email" id="email" type="email" required="required" placeholder="Enter email address">
-</div>
-</div>
-<div class="col-12">
-<div class="form-group">
-<input class="form-control" name="subject" id="subject" type="text" required="required" placeholder="Enter Subject">
-</div>
-</div>
-</div>
-<div class="form-group mt-3">
-<button type="submit" class="button button-contactForm btn header-btn">Send</button>
-</div>
-</form>
-</div>
-<div class="col-lg-3 offset-lg-1">
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-home"></i></span>
-<div class="media-body">
-<h3>{{site_contact.city}}</h3>
-<p>{{site_contact.country_pin}}</p>
-</div>
-</div>
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-tablet"></i></span>
-<div class="media-body">
-<h3>+91 {{site_contact.mobile}}</h3>
-<p>Mon to Fri 9am to 6pm</p>
-</div>
-</div>
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-email"></i></span>
-<div class="media-body">
-<h3>{{site_contact.email}}</h3>
-<p>Send us your query anytime!</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="contact-title">Get in touch!</h2>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-3 text-center">
+        <a href="https://goo.gl/maps/BFFgx2MyZLwPCYkP7" target="_blank">
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M25 4.167c-8.063 0-14.583 6.52-14.583 14.583C10.417 29.688 25 45.833 25 45.833S39.583 29.688 39.583 18.75c0-8.063-6.52-14.583-14.583-14.583Zm0 19.791a5.21 5.21 0 0 1-5.208-5.208A5.21 5.21 0 0 1 25 13.542a5.21 5.21 0 0 1 5.208 5.208A5.21 5.21 0 0 1 25 23.958Z"
+              fill="#000"
+            />
+          </svg>
+        </a>
+        <address class="mt-1">
+          <a href="https://goo.gl/maps/BFFgx2MyZLwPCYkP7" target="_blank"  class="text-body">{{site_contact.city}} {{site_contact.country_pin}}</a>
+        </address>
+      </div>
+      <div class="col-12 col-md-3 text-center">
+        <a href="tel:+91{{site_contact.mobile}}">
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.792 22.48c3 5.895 7.833 10.707 13.729 13.728l4.583-4.583a2.071 2.071 0 0 1 2.125-.5 23.765 23.765 0 0 0 7.438 1.188 2.09 2.09 0 0 1 2.083 2.083v7.27a2.09 2.09 0 0 1-2.083 2.084C22.104 43.75 6.25 27.896 6.25 8.333A2.09 2.09 0 0 1 8.333 6.25h7.292a2.09 2.09 0 0 1 2.083 2.083c0 2.604.417 5.104 1.188 7.438a2.09 2.09 0 0 1-.521 2.125l-4.583 4.583Z"
+              fill="#000"
+            />
+          </svg>
+        </a>
+        <p class="mt-1">
+          <a href="tel:+91{{site_contact.mobile}}" class="text-body"
+            >+91 {{site_contact.mobile}}</a
+          >
+        </p>
+      </div>
+      <div class="col-12 col-md-3 text-center">
+        <a href="mailto:{{site_contact.email}}">
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M41.667 8.333H8.333c-2.291 0-4.146 1.875-4.146 4.167l-.02 25a4.179 4.179 0 0 0 4.166 4.167h33.334a4.179 4.179 0 0 0 4.166-4.167v-25a4.179 4.179 0 0 0-4.166-4.167Zm0 8.334L25 27.083 8.333 16.667V12.5L25 22.917 41.667 12.5v4.167Z"
+              fill="#000"
+            />
+          </svg>
+        </a>
+        <p class="mt-1">
+          <a href="mailto:{{site_contact.email}}" class="text-body"
+            >{{site_contact.email}}</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 col-lg-7 pr-md-5 pt-4">
+        <div class="row">
+          <div class="col-12 col-md-6 mb-80">
+            <div class="card-box h-100">
+              <div class="card-box-title">
+                <span class="card-box-icon">
+                  <svg
+                    width="105"
+                    height="104"
+                    viewBox="0 0 105 104"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M55 0a50 50 0 0 1 43.301 75L55 50V0Z"
+                      fill="#FFD9C0"
+                    />
+                    <path
+                      d="M93.301 79A50 50 0 1 1 50 4v50l43.301 25Z"
+                      fill="#F15412"
+                    />
+                  </svg>
+                </span>
+                <span class="card-box-text full orange-text"
+                  >2/3 <sup class="orange-text">rd</sup></span
+                >
+              </div>
+              <div class="card-box-subtitle">Fewer Interviews</div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-80">
+            <div class="card-box h-100">
+              <div class="card-box-title">
+                <span class="card-box-icon">
+                  <svg
+                    width="101"
+                    height="101"
+                    viewBox="0 0 101 101"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M52.076 0a49.278 49.278 0 0 1 18.722 3.693A48.953 48.953 0 0 1 86.67 14.211a48.496 48.496 0 0 1 10.606 15.741A48.172 48.172 0 0 1 101 48.52H52.076V0Z"
+                      fill="#47B5FF"
+                    />
+                    <path
+                      d="M97.849 52.076c0 9.597-2.87 18.978-8.246 26.957a48.84 48.84 0 0 1-21.956 17.87 49.296 49.296 0 0 1-28.267 2.761 49.052 49.052 0 0 1-25.05-13.279A48.398 48.398 0 0 1 .94 61.542a48.148 48.148 0 0 1 2.784-28.034 48.61 48.61 0 0 1 18.02-21.775 49.215 49.215 0 0 1 27.18-8.177v48.52H97.85Z"
+                      fill="#C6DCE4"
+                    />
+                  </svg>
+                </span>
+                <span class="card-box-text full blue-text"
+                  >1/4 <sup class="blue-text">th</sup></span
+                >
+              </div>
+              <div class="card-box-subtitle">
+                Time Spent in Assessment by Candidates
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 mb-80">
+            <div class="card-box h-100">
+              <div class="card-box-title">
+                <span class="card-box-icon">
+                  <svg
+                    width="100"
+                    height="97"
+                    viewBox="0 0 100 97"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#a)">
+                      <path
+                        d="M93.994 69.718v9.148H82.43v-9.148h11.564ZM32 43.376v35.49H20.435v-35.49h11.564Zm20.662 10.09v25.4H41.105v-25.4h11.556Zm20.663 6.625v18.775H61.768V60.09h11.556Z"
+                        fill="#FFD9C0"
+                      />
+                      <path
+                        d="M10.197 15.771v70.305h88.265v10.197H5.102A5.106 5.106 0 0 1 0 91.17V15.772h10.197Zm22.892-1.302-.846 6.625a3.734 3.734 0 0 1-4.167 3.23 3.734 3.734 0 0 1-3.23-4.166l2.156-16.78A3.724 3.724 0 0 1 32.056.252l16.162 6.225a3.724 3.724 0 0 1 2.132 4.818 3.724 3.724 0 0 1-4.818 2.132l-5.517-2.124c6.046 8.203 13.289 15.055 21.11 20.394 11.263 7.69 23.681 12.207 35.408 13.053a3.73 3.73 0 0 1 3.459 3.988 3.73 3.73 0 0 1-3.988 3.458c-13.013-.92-26.733-5.884-39.087-14.323-8.886-6.063-17.081-13.94-23.828-23.405Z"
+                        fill="#FF7723"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="a">
+                        <path fill="#fff" d="M0 0h100v96.273H0z" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <span class="card-box-text full orange-text"
+                  ><span class="upto orange-text">up to</span> 40%</span
+                >
+              </div>
+              <div class="card-box-subtitle">
+                Increase in productivity of Talent Teams
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-80">
+            <div class="card-box h-100">
+              <div class="card-box-title">
+                <span class="card-box-icon">
+                  <svg
+                    width="40"
+                    height="100"
+                    viewBox="0 0 40 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 50h14.815v50H0V50Z" fill="#C6DCE4" />
+                    <path d="M25.185 0H40v100H25.185V0Z" fill="#47B5FF" />
+                  </svg>
+                </span>
+                <span class="card-box-text half blue-text"
+                  ><span class="upto blue-text">up to</span> 2x</span
+                >
+              </div>
+              <div class="card-box-subtitle">
+                Productivity of Hired Candidates
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mapouter border-box d-none d-sm-block">
+              <div class="gmap_canvas">
+                <iframe
+                  width="600"
+                  height="360"
+                  id="gmap_canvas"
+                  src="https://maps.google.com/maps?q=Goa,%20India&t=&z=7&ie=UTF8&iwloc=&output=embed"
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5">
+        <form id="contactGSForm" class="form form-custom">
+          <div class="form-group noflot position-relative mb-4">
+            <label for="describe" class="d-block f-14"
+              >What describes you best?</label
+            >
+            <select
+              class="w-100"
+              title="What describes you best?"
+              id="describe"
+            >
+              <option value="Test Taker (Job Seeker/ Employee)"> Test Taker (Job Seeker/ Employee) </option>
+              <option value="Potential Customer"> Potential Customer </option>
+              <option value="Partnership (Resellers/ Social Impact)"> Partnership (Resellers/ Social Impact) </option>
+            </select>
+            <span class="invalid-feedback">Please describe you</span>
+          </div>
+          <div class="form-group clear position-relative mb-4">
+            <label for="userName" class="f-14">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userName"
+              placeholder="Alan"
+            />
+            <span class="invalid-feedback">Please enter your name</span>
+          </div>
+          <div class="form-group position-relative mb-4">
+            <label for="companyName" class="f-14">Company Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="companyName"
+              placeholder="Alan System"
+            />
+            <span class="invalid-feedback">Please enter Company name</span>
+          </div>
+          <div class="form-group noflot">
+            <label for="companySize" class="d-block f-14">Company Size</label>
+            <select class="w-100" title="Company Size" id="companySize">
+              <option value="0 - 50">0 - 50</option>
+              <option value="51 - 200">51 - 200</option>
+              <option value="201 - 1000">201 - 1000</option>
+              <option value="1001 - 5000">1001 - 5000</option>
+              <option value="5001 - 10000">5001 - 10000</option>
+              <option value="10000+">10000+</option>
+            </select>
+            <span class="invalid-feedback">Please Select Company Size</span>
+          </div>
+          <div class="form-group row clear">
+            <div class="col col-md-6">
+              <label for="userEmail" class="f-14">Email</label>
+              <input
+                type="email"
+                id="userEmail"
+                class="form-control"
+                placeholder="alan@cognicue.in"
+              />
+              <span class="invalid-feedback">Please enter valid email</span>
+            </div>
+            <div class="col col-md-6">
+              <label for="userPhone" class="f-14">Phone</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="userPhone"
+                placeholder="9999999999"
+              />
+              <span class="invalid-feedback">Please enter valid mobile number</span>
+            </div>
+          </div>
+          <div class="form-group mt-4">
+            <label class="d-flex">
+              <input
+                type="checkbox"
+                id="like-demo"
+                aria-label="Would like to see a demo"
+              />
+              <span class="f-14 ml-1">Would like to see a demo</span>
+            </label>
+            <label class="d-flex">
+              <input
+                type="checkbox"
+                id="like-discuss"
+                aria-label="Like to discuss partnership"
+              />
+              <span class="f-14 ml-1">Like to discuss partnership</span>
+            </label>
+            <label class="d-flex">
+              <input
+                type="checkbox"
+                id="need-support"
+                aria-label="Need technical support"
+              />
+              <span class="f-14 ml-1">Need technical support</span>
+            </label>
+          </div>
+          <div class="form-group position-relative">
+            <label for="userMessage" class="f-14">Message</label>
+            <textarea
+              id="userMessage"
+              placeholder="message....."
+              rows="5"
+              class="form-control"
+            ></textarea>
+            <span class="invalid-feedback">Please enter valid message</span>
+          </div>
+          <div class="mt-4 position-relative">
+            <label class="d-flex align-middle">
+              <input
+                type="checkbox"
+                checked
+                id="policy-accepted"
+                aria-label="By checking this box, I consent to receive communication from CogniCue*"
+              />
+              <small class="ml-1"
+                >By checking this box, I consent to receive communication from
+                CogniCue*</small
+              >
+            </label>
+            <span class="invalid-feedback">Please accept communication</span>
+          </div>
+          <div class="text-center mt-5">
+            <button type="submit" class="btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
 {% endblock %}
