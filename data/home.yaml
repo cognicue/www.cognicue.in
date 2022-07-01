@@ -1,11 +1,13 @@
 auto_generated: 2020-05-14 04:09:29.010837
 
+page_title: "CogniCue: Converting Emotions into Insights"
+
 hero_slider:
 
   background: /assets/img/hero/heronew.jpg
 
   slides:
-    - title: Converting Emotions into Analytics 
+    - title: Converting Emotions into Insights
       description: The new technology will find use in a variety of real-world applications, including facial expressions and emotions with non verbal communication facilitation for various fields.
       image: /assets/img/hero/differentfacess.jpg
       link: "#"
