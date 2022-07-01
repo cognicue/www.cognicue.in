@@ -4516,7 +4516,7 @@ hr {
 }
 
 @media (min-width: 768px) {
-  .footer-area .footer-social {
+  .footer-area .footer-social.w-132 {
     width: 132px;
   }
 }
