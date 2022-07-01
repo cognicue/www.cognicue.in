@@ -416,7 +416,7 @@
           text: "Thanks for Contacting us..! We Will Contact You Soon...",
           icon: "success",
         });
-        contactGSForm.reset();
+        contactGSForm[0].reset();
       })
       .catch(function (error) {
         swal({
