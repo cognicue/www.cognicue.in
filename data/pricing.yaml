@@ -21,24 +21,29 @@ pricing:
         access: 1
       - name: Verbal Analysis
         access: 1
+        title: Analysis constitute of comprises of Communication, Speaking Rate, Articulation Rate and No. of pauses
       - name: Non-verbal Analysis
         access: 1
+        title: Analysis constitute of Attention, Confidence, Engagement, Expressiveness, Positive & Negative Emotion
       - name: Customization of Question
         access: 1
       - name: Customer Support
         access: 0
       - name: Sentiment Analysis
         access: 0
+        title: There are 82 mini-emotions and 159 micro-emotions
       - name: Emotion Profile
         access: 0
       - name: Scope of improvement
         access: 0
       - name: Bulk Action
         access: 0
+        title: Upload candidate details and interview questions
       - name: Custom Interview Pages
         access: 0
       - name: Email Service
         access: 0
+        title: Email Configurations and interview scheduling
       - name: Custom Branding
         access: 0
       - name: Custom Domain
@@ -64,24 +69,29 @@ pricing:
         access: 1
       - name: Verbal Analysis
         access: 1
+        title: Analysis constitute of comprises of Communication, Speaking Rate, Articulation Rate and No. of pauses
       - name: Non-verbal Analysis
         access: 1
+        title: Analysis constitute of Attention, Confidence, Engagement, Expressiveness, Positive & Negative Emotion
       - name: Customization of Question
         access: 1
       - name: Customer Support
         access: 1
       - name: Sentiment Analysis
         access: 1
+        title: There are 82 mini-emotions and 159 micro-emotions
       - name: Emotion Profile
         access: 1
       - name: Scope of improvement
         access: 1
       - name: Bulk Action
         access: 1
+        title: Upload candidate details and interview questions
       - name: Custom Interview Pages
         access: 1
       - name: Email Service
         access: 1
+        title: Email Configurations and interview scheduling
       - name: Custom Branding
         access: 1
       - name: Custom Domain
@@ -107,24 +117,29 @@ pricing:
         access: 1
       - name: Verbal Analysis
         access: 1
+        title: Analysis constitute of comprises of Communication, Speaking Rate, Articulation Rate and No. of pauses
       - name: Non-verbal Analysis
         access: 1
+        title: Analysis constitute of Attention, Confidence, Engagement, Expressiveness, Positive & Negative Emotion
       - name: Customization of Question
         access: 1
       - name: Customer Support
         access: 1
       - name: Sentiment Analysis
         access: 1
+        title: There are 82 mini-emotions and 159 micro-emotions
       - name: Emotion Profile
         access: 1
       - name: Scope of improvement
         access: 1
       - name: Bulk Action
         access: 1
+        title: Upload candidate details and interview questions
       - name: Custom Interview Pages
         access: 1
       - name: Email Service
         access: 1
+        title: Email Configurations and interview scheduling
       - name: Custom Branding
         access: 1
       - name: Custom Domain
