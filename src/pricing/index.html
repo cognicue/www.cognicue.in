@@ -5,7 +5,45 @@
 <section class="sample-text-area">
 	<div class="container box_1170">
 		<h2 class="text-heading">{{section.heading}}</h2>
-			<p class="sample-text">{{section.text}}</p>
+		<p class="sample-text">{{section.text}}</p>
+	</div>
+	<div class="container mt-md-5">
+		<div class="row">
+			{% for item in pricing %}
+			<div class="col-12 col-md-4">
+				{% if item.recommended %}
+				<div class="pricing-box recommended-box">
+				{% else %}
+				<div class="pricing-box">
+				{% endif %}
+					{% if item.recommended %}
+						<div class="recommended">Recommended</div>
+					{% endif %}
+					<h4 class="text-center">{{item.name}}</h4>
+					<h3 class="text-center">{{item.price}}</h3>
+					<div>
+						<ul>
+							{% for list in item.lists %}
+							<li class="mb-1">
+								{% if list.access %}
+								<span class="mr-1"><svg width="18.984" viewBox="0 0 14.238 10.383" height="13.844" version="1.0" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="a"><path d="M33.387 97.563h14.25V108h-14.25zm0 0"/></clipPath></defs><g clip-path="url(#a)" transform="translate(-33.399 -97.617)"><path fill="#008037" d="m37.918 105.809-3.375-3.227-1.145 1.094 4.52 4.324 9.719-9.29-1.149-1.093zm0 0"/></g></svg></span>
+								{% else %}
+								<span class="mr-1"><svg width="14.835" viewBox="0 0 11.126 11.126" height="14.835" version="1.0" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="b"><path d="M8.754 10.133H20v11.25H8.754Zm0 0"/></clipPath></defs><g clip-path="url(#b)" transform="translate(-8.815 -10.225)"><path fill="#ff1616" d="m15.156 15.848 4.61-4.61a.59.59 0 0 0 0-.84.596.596 0 0 0-.84 0l-4.606 4.61-4.492-4.492a.597.597 0 0 0-.84 0 .596.596 0 0 0 0 .84l4.492 4.492-4.375 4.37a.596.596 0 0 0 .422 1.016c.153 0 .301-.058.418-.175l4.371-4.372 4.493 4.489c.117.117.27.176.421.176a.593.593 0 0 0 .418-1.012zm0 0"/></g></svg></span>
+								{% endif %}
+								{{ list.name }}
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% if item.recommended %}
+					<a class="buy-now recommended-buy" href="{{item.link}}">Buy now</a>
+					{% else %}
+					<a class="buy-now" href="{{item.link}}">Buy now</a>
+					{% endif %}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
 	</div>
 </section>
 {% include "layout/_quick_demo.html" %}
