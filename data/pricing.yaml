@@ -1,14 +1,16 @@
 page_generated: '2022-07-12T14:42:34.092523'
+
 page_title: Pricing
 page_url: /pricing/
+
 section:
-  heading: Section Heading
-  text: 'Section Paragraph<br/>Modify data file: /Users/fasih/Source/CogniCue/Code/Public/www.cognicue.in/data/pricing.yaml'
+  heading: Enterprise Pricing
+  text: Choose a plan that works best based on number of interviews at one time
 
 pricing:
   - name: Standard
-    price: 15k
-    link: ''
+    price: INR 15k
+    link: '#'
     recommended: 0
     lists:
       - name: 1 User
@@ -55,8 +57,8 @@ pricing:
       - name: Add your own video question
         access: 0
   - name: Plus
-    price: 30k
-    link: ''
+    price: INR 30k
+    link: '#'
     recommended: 1
     lists:
       - name: 3 Users
@@ -103,8 +105,8 @@ pricing:
       - name: Add your own video question
         access: 0
   - name: Premium
-    price: 50k
-    link: ''
+    price: INR 50k
+    link: '#'
     recommended: 0
     lists:
       - name: 5 Users
