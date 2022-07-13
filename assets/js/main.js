@@ -251,7 +251,7 @@
   var needSupport = $("#need-support");
   var userMessage = $("#userMessage");
   var policyAccepted = $("#policy-accepted");
-
+  var selectedOption = "Job Seeker / Candidate / Student";
   function validEmail(value) {
     if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)) {
       return true;
@@ -330,6 +330,16 @@
     }
   });
 
+  describe.on("change", function () {
+    if ($(this).val() === selectedOption) {
+      $('.company-wrapper').addClass('d-none');
+      $('.company-size-wrapper').addClass('d-none');
+    } else {
+      $('.company-wrapper').removeClass('d-none');
+      $('.company-size-wrapper').removeClass('d-none');
+    }
+  });
+
   contactGSForm.on("submit", function (e) {
     e.preventDefault();
     var formData = new FormData();
@@ -349,19 +359,27 @@
       return false;
     }
 
-    if ($.trim(companyName.val()) != "") {
-      formData.append("companyName", companyName.val());
+    if (describe.val() === selectedOption) {
+      formData.append("companyName", 'NA');
     } else {
-      companyName.closest("div").find(".invalid-feedback").show();
-      companyName.addClass("invalid-input");
-      return false;
+      if ($.trim(companyName.val()) != "") {
+        formData.append("companyName", companyName.val());
+      } else {
+        companyName.closest("div").find(".invalid-feedback").show();
+        companyName.addClass("invalid-input");
+        return false;
+      }
     }
 
-    if (companySize.val() != "") {
-      formData.append("companySize", companySize.val());
+    if (describe.val() === selectedOption) {
+      formData.append("companySize", 0);
     } else {
-      companySize.closest("div").find(".invalid-feedback").show();
-      return false;
+      if (companySize.val() != "") {
+        formData.append("companySize", companySize.val());
+      } else {
+        companySize.closest("div").find(".invalid-feedback").show();
+        return false;
+      }
     }
 
     if (validEmail(userEmail.val())) {
