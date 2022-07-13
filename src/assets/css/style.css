@@ -7518,3 +7518,63 @@ del {
       center right 1.75rem / calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)
       no-repeat;
 }
+
+.pricing-box {
+  box-shadow: rgb(255, 255, 255) 0px -4px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px;
+  border: 1px solid rgba(179, 187, 193, 0.25);
+  border-radius: 4px;
+  padding: 15px 15px 75px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.pricing-box.recommended-box {
+  overflow: hidden;
+  border-color: #010e21;
+  position: relative;
+  padding-top: 60px;
+}
+
+@media (min-width: 768px) {
+  .pricing-box.recommended-box {
+    margin-top: -15px;
+  }
+}
+
+.pricing-box.recommended-box .recommended {
+  padding: 10px;
+  text-align: center;
+  background: #010e21;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  border-radius: 4px 4px 0 0;
+}
+
+.buy-now {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #010e21;
+  display: block;
+  padding: 15px;
+  color: #000;
+  background: transparent;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 0 0 4px 4px;
+}
+
+.buy-now:hover {
+  background: #010e21;
+  color: #fff;
+}
+
+.buy-now.recommended-buy {
+  background: #010e21;
+  color: #fff;
+}

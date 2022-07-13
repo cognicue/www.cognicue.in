@@ -1,0 +1,154 @@
+page_generated: '2022-07-12T14:42:34.092523'
+
+page_title: Pricing
+page_url: /pricing/
+
+section:
+  heading: Pricing
+  text: Choose a plan which suits your requirement
+
+pricing:
+  - name: Standard
+    price: INR 15k
+    link: '#'
+    recommended: 0
+    lists:
+      - name: 1 User
+        access: 1
+      - name: 200 Profiles
+        access: 1
+      - name: Basic Report
+        access: 1
+      - name: AI based interview
+        access: 1
+      - name: Verbal Analysis
+        access: 1
+        title: Analysis constitute of comprises of Communication, Speaking Rate, Articulation Rate and No. of pauses
+      - name: Non-verbal Analysis
+        access: 1
+        title: Analysis constitute of Attention, Confidence, Engagement, Expressiveness, Positive & Negative Emotion
+      - name: Customization of Question
+        access: 1
+      - name: Customer Support
+        access: 0
+      - name: Sentiment Analysis
+        access: 0
+        title: There are 82 mini-emotions and 159 micro-emotions
+      - name: Emotion Profile
+        access: 0
+      - name: Scope of improvement
+        access: 0
+      - name: Bulk Action
+        access: 0
+        title: Upload candidate details and interview questions
+      - name: Custom Interview Pages
+        access: 0
+      - name: Email Service
+        access: 0
+        title: Email Configurations and interview scheduling
+      - name: Custom Branding
+        access: 0
+      - name: Custom Domain
+        access: 0
+      - name: API Access
+        access: 0
+      - name: Consultation
+        access: 0
+      - name: Add your own video question
+        access: 0
+  - name: Plus
+    price: INR 30k
+    link: '#'
+    recommended: 1
+    lists:
+      - name: 3 Users
+        access: 1
+      - name: 500 Profiles
+        access: 1
+      - name: Premium Report
+        access: 1
+      - name: AI based interview
+        access: 1
+      - name: Verbal Analysis
+        access: 1
+        title: Analysis constitute of comprises of Communication, Speaking Rate, Articulation Rate and No. of pauses
+      - name: Non-verbal Analysis
+        access: 1
+        title: Analysis constitute of Attention, Confidence, Engagement, Expressiveness, Positive & Negative Emotion
+      - name: Customization of Question
+        access: 1
+      - name: Customer Support
+        access: 1
+      - name: Sentiment Analysis
+        access: 1
+        title: There are 82 mini-emotions and 159 micro-emotions
+      - name: Emotion Profile
+        access: 1
+      - name: Scope of improvement
+        access: 1
+      - name: Bulk Action
+        access: 1
+        title: Upload candidate details and interview questions
+      - name: Custom Interview Pages
+        access: 1
+      - name: Email Service
+        access: 1
+        title: Email Configurations and interview scheduling
+      - name: Custom Branding
+        access: 1
+      - name: Custom Domain
+        access: 0
+      - name: API Access
+        access: 0
+      - name: Consultation
+        access: 0
+      - name: Add your own video question
+        access: 0
+  - name: Premium
+    price: INR 50k
+    link: '#'
+    recommended: 0
+    lists:
+      - name: 5 Users
+        access: 1
+      - name: 900 Profiles
+        access: 1
+      - name: Premium Report
+        access: 1
+      - name: AI based interview
+        access: 1
+      - name: Verbal Analysis
+        access: 1
+        title: Analysis constitute of comprises of Communication, Speaking Rate, Articulation Rate and No. of pauses
+      - name: Non-verbal Analysis
+        access: 1
+        title: Analysis constitute of Attention, Confidence, Engagement, Expressiveness, Positive & Negative Emotion
+      - name: Customization of Question
+        access: 1
+      - name: Customer Support
+        access: 1
+      - name: Sentiment Analysis
+        access: 1
+        title: There are 82 mini-emotions and 159 micro-emotions
+      - name: Emotion Profile
+        access: 1
+      - name: Scope of improvement
+        access: 1
+      - name: Bulk Action
+        access: 1
+        title: Upload candidate details and interview questions
+      - name: Custom Interview Pages
+        access: 1
+      - name: Email Service
+        access: 1
+        title: Email Configurations and interview scheduling
+      - name: Custom Branding
+        access: 1
+      - name: Custom Domain
+        access: 1
+      - name: API Access
+        access: 1
+      - name: Consultation
+        access: 1
+      - name: Add your own video question
+        access: 1

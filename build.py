@@ -164,6 +164,7 @@ if __name__ == "__main__":
             "assets",
             "CNAME",
             "favicon.ico",
+            "robots.txt",
             "apple-touch-icon.png",
             "apple-touch-icon-precomposed.png",
         ],
