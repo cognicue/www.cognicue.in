@@ -1,4 +1,4 @@
-site_version: 14.3.1
+site_version: 14.3.2
 
 site_title: CogniCue
 
@@ -86,11 +86,11 @@ site_pages:
       - text: Admin Services
         link: https://services.cognicue.in/admin/
 
-      - text: Interview System
-        link: https://interview.cognicue.in
-
       - text: Analytics System
         link: https://analytics.cognicue.in
+
+      - text: Interview System
+        link: https://interview.cognicue.in
 
   solutions:
     text: Solutions
@@ -126,7 +126,7 @@ site_pages:
 
 site_header_cta:
   text: Try for free
-  link: https://services.cognicue.in/interview/cognicue/?ref=cognicue
+  link: https://services.cognicue.in/interview/cognicue/?interview_mode__net=2&ref=www
   popup: false
   blank: true
 
