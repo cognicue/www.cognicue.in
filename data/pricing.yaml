@@ -10,7 +10,7 @@ section:
 pricing:
   - name: Standard
     price: INR 15k
-    link: '#'
+    link: 'https://analytics.cognicue.in/'
     recommended: 0
     lists:
       - name: 1 User
@@ -58,7 +58,7 @@ pricing:
         access: 0
   - name: Plus
     price: INR 30k
-    link: '#'
+    link: 'https://analytics.cognicue.in/'
     recommended: 1
     lists:
       - name: 3 Users
@@ -106,7 +106,7 @@ pricing:
         access: 0
   - name: Premium
     price: INR 50k
-    link: '#'
+    link: 'https://analytics.cognicue.in/'
     recommended: 0
     lists:
       - name: 5 Users

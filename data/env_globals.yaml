@@ -1,4 +1,4 @@
-site_version: 14.3.2
+site_version: 15.3.0
 
 site_title: CogniCue
 
@@ -34,21 +34,28 @@ site_headers:
   - text: Solutions
     link: "#"
     sub_header:
-      - text: Interview Practice Platform
+      - text: Interview Practice
         link: /solutions/mock-interview-analytics/
         sub_sub_header:
           - text: Demo - Mock Interview
             link: https://services.cognicue.in/interview/cognicue/?ref=header
             blank: true
 
-      - text: Employee Wellbeing Platform
+      - text: Smart Recruitment
+        link: /solutions/recruitment-analytics/
+        sub_sub_header:
+          - text: Demo - Candidate Interview
+            link: https://services.cognicue.in/interview/cognicue/?ref=header
+            blank: true
+
+      - text: Employee Wellbeing
         link: /solutions/employee-wellbeing-platform/
         sub_sub_header:
           - text: Demo - Emotion Detection
             link: /demo/facs/?type=watch
             blank: true
 
-      - text: Customer Experience Platform
+      - text: Consumer Experience
         link: /solutions/media-analytics/
         sub_sub_header:
           - text: Demo - Engagement Analysis
@@ -67,6 +74,9 @@ site_headers:
   - text: Contact
     link: /contact/
 
+  - text: Pricing
+    link: /pricing/
+
 site_pages:
   about:
     text: About
@@ -76,9 +86,9 @@ site_pages:
     text: Technology
     link: /technology/
 
-  applications:
-    text: Applications
-    link: /applications/
+  platforms:
+    text: Platforms
+    link: '#'
     sub:
       - text: API Services
         link: https://services.cognicue.in/api/
@@ -96,16 +106,16 @@ site_pages:
     text: Solutions
     link: /solutions/
     sub:
-      - text: Mock Interview Analytics
+      - text: Interview Practice
         link: /solutions/mock-interview-analytics/
 
-      - text: Recruitment Analytics
+      - text: Smart Recruitment
         link: /solutions/recruitment-analytics/
 
-      - text: Employee Wellbeing Platform
+      - text: Employee Wellbeing
         link: /solutions/employee-wellbeing-platform/
 
-      - text: Media Analytics
+      - text: Consumer Experience
         link: /solutions/media-analytics/
 
   contact:
@@ -117,12 +127,20 @@ site_pages:
     link: /privacy-policy/
 
   terms:
-    text: Terms of Use
+    text: Terms & Conditions
     link: /terms-of-use/
 
   insights:
     text: Insights
     link: /insights/
+
+  pricing:
+    text: Pricing
+    link: /pricing/
+
+  refund:
+    text: Refund Policy
+    link: /refund-policy/
 
 site_header_cta:
   text: Try for free
