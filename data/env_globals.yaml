@@ -74,6 +74,9 @@ site_headers:
   - text: Contact
     link: /contact/
 
+  - text: Pricing
+    link: /pricing/
+
 site_pages:
   about:
     text: About
