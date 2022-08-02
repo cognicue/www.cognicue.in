@@ -10,9 +10,11 @@
     <div class="row d-flex justify-content-center">
       <div class="col-xl-12 col-lg-12 col-md-12">
         <div class="mt-3" id="recognitionSlide">
-            {% for slide in recognition_slider %}
+            {% for slide in recognition_slider|reverse %}
                 <div>
+                    <a {% if slide.link %}href='{{slide.link}}' target='_blank' rel="noreferrer"{% else %}href='javascript:void(0);' style='cursor:default'{% endif %}>
                     <img data-lazy="{{ slide.image }}" alt="{{ slide.title }}" loading="lazy" decoding="async" />
+                    </a>
                 </div>
             {% endfor %}
         </div>

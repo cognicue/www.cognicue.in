@@ -110,29 +110,36 @@ starups_details:
 
 
 recognition_slider:
+  - title: 'YC Startup School'
+    image: '/assets/img/recognitions/yc-startupschool.png'
+
   - title: 'Department for Promotion of Industry and Internal Trade'
     image: '/assets/img/recognitions/dpiit.png'
+
+  - title: 'Startup India'
+    image: '/assets/img/recognitions/startup-india.png'
+    link:  'https://www.startupindia.gov.in/content/sih/en/profile.Startup.60d97c3ce4b0c264518b8e54.html'
 
   - title: 'Startup Promotion Cell - Goa'
     image: '/assets/img/recognitions/spc-goa.jpeg'
 
-  - title: 'Startup India'
-    image: '/assets/img/recognitions/startup-india.png'
-
-  - title: 'Forum for Innovation Incubation Research & Entrepreneurship'
-    image: '/assets/img/recognitions/fiire.png'
+  - title: 'Confederation of Indian Industry'
+    image: '/assets/img/recognitions/cii.png'
 
   - title: 'Atal Incubation Centre - Goa Institute of Management'
     image: '/assets/img/recognitions/aic-gim.png'
 
+  - title: 'Forum for Innovation Incubation Research & Entrepreneurship'
+    image: '/assets/img/recognitions/fiire.png'
+
   - title: 'Expo 2020 Dubai UAE'
     image: '/assets/img/recognitions/dubai-expo.png'
 
-  - title: 'Startup Technology Park of India'
-    image: '/assets/img/recognitions/stpi.png'
-
   - title: 'Chunauti 2.0'
     image: '/assets/img/recognitions/chunauti-2.0.png'
+
+  - title: 'Startup Technology Park of India'
+    image: '/assets/img/recognitions/stpi.png'
 
   - title: 'Next Generation Incubation Scheme'
     image: '/assets/img/recognitions/ngis.png'
@@ -140,14 +147,9 @@ recognition_slider:
   - title: 'Pontaq VC'
     image: '/assets/img/recognitions/pontaq.jpeg'
 
-  - title: 'Confederation of Indian Industry'
-    image: '/assets/img/recognitions/cii.png'
-
-  - title: 'NASSCOM 10K'
-    image: '/assets/img/recognitions/nasscom-10k.png'
-
-  - title: 'YC Startup School'
-    image: '/assets/img/recognitions/yc-startupschool.png'
-
   - title: 'T-Hub 2.0 Hyderabad'
     image: '/assets/img/recognitions/t-hub.png'
+
+  - title: 'NASSCOM DeepTech'
+    image: '/assets/img/recognitions/dtc-logo.png'
+    link:  'https://nasscom.in/product-connect/deeptechclub/our-startup.php'
