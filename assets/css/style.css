@@ -4525,9 +4525,7 @@ hr {
   color: #8ba4b1;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   font-size: 14px;
-  border: 1px solid #e5e5e5;
   line-height: 40px;
   display: inline-block;
   text-align: center;
@@ -4541,7 +4539,6 @@ hr {
 
 .footer-area .footer-social a:hover {
   background: #04dbec;
-  border: 1px solid transparent;
   color: #fff;
 }
 
