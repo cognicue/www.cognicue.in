@@ -1,0 +1,85 @@
+{% extends "layout/_base.html" %}
+{% block post %}{% endblock %}
+
+{% block main %}
+<section class="blog_area single-post-area section-padding">
+<div class="container">
+<div class="row">
+
+<div class="col-lg-8 posts-list">
+
+<div class="single-post">
+	<div class="feature-img">
+		<img class="img-fluid" src="{{post_detail.image}}" alt="">
+	</div>
+
+	<div class="blog_details">
+	<h2>{{post_detail.title}}</h2>
+
+	<ul class="blog-info-link mt-3 mb-4">
+	<li><a href="javascript:void(0)"><i class="fa fa-user"></i> {{post_detail.categories|join(', ')}}</a></li>
+	<li><a href="javascript:void(0)"><i class="fa fa-comments"></i> Comments</a></li>
+	</ul>
+
+	<p class="excert">{{post_detail.excerpt}}</p>
+
+	{% for section in post_detail.sections %}
+		{% for type, content in section.items() %}
+			{% if type == "head" %}
+				<h2>{{content}}</h2>
+			{% elif type == "image" %}
+				<img src="{{content}}" class="img-fluid" width="500" height="600"/>
+			{% elif type == "para" %}
+				<p>{{content}}</p>
+			{% elif type == "quote"%}
+				<div class="quote-wrapper">
+					<div class="quotes">
+						{{content}}
+					</div>
+				</div>			
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+
+	</div>
+
+</div>
+
+<div class="navigation-top">
+
+<div class="d-sm-flex justify-content-between text-center">
+	<p class="like-info">
+		<span class="align-middle">
+			<i class="fa fa-heart"></i>
+		</span> People like this
+	</p>
+	<div class="col-sm-4 text-center my-2 my-sm-0"></div>
+
+	<ul class="social-icons">
+	<li><a href="{{site_social.facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+	<li><a href="{{site_social.twitter}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+	</ul>
+</div>
+
+</div>
+
+<div class="blog-author">
+	<div class="media align-items-center">
+		<img src="{{author.photo}}" alt="">
+		<div class="media-body">
+			<a href="javascript:void(0)">
+			<h4>{{author.name}}</h4>
+			 </a>
+			<p>{{author.desc}}</p>
+		</div>
+	</div>
+</div>
+
+</div>
+
+{% include "layout/_post_aside.html" %}
+
+</div>
+</div>
+</section>
+{% endblock %}
