@@ -25,9 +25,13 @@
 
 	{% for section in post_detail.sections %}
 		{% for type, content in section.items() %}
-			{% if type == "para" %}
+			{% if type == "head" %}
+				<h2>{{content}}</h2>
+			{% elif type == "image" %}
+				<img src="{{content}}" class="img-fluid" width="500" height="600"/>
+			{% elif type == "para" %}
 				<p>{{content}}</p>
-			{% elif type == "quote"%}
+			{% elif type == "quote" %}
 				<div class="quote-wrapper">
 					<div class="quotes">
 						{{content}}
