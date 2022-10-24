@@ -2,15 +2,576 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import { site_contact } from "../../data/global.json";
+import { Icon } from "astro-icon";
 ---
 
 <Layout
   title="Contact - Cognicue"
   description="Converting Emotions into Insights"
   image="https://www.cognicue.in/assets/img/hero/differentfacess.jpg"
-  type="home"
+  type="contact"
 >
   <Navigation />
-  <main class=""></main>
+  <main class="mt-10 mb-20">
+    <h1
+      class="text-3xl font-bold tracking-tight text-blue-gray-900 sm:text-4xl text-center mb-10"
+    >
+      Get in touch!
+    </h1>
+    <div class="grid grid-cols-3 max-w-4xl mx-auto">
+      <div class="text-center">
+        <a
+          href="https://goo.gl/maps/BFFgx2MyZLwPCYkP7"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="text-black hover:text-gray-600"
+        >
+          <Icon
+            name="entypo:location-pin"
+            class="w-16 text-inherit inline-block"
+          />
+          <address class="mt-1 text-inherit not-italic">
+            {site_contact.city}
+            {site_contact.country_pin}
+          </address>
+        </a>
+      </div>
+      <div class="text-center">
+        <a
+          href={`tel:+91${site_contact.mobile}`}
+          class="text-black hover:text-gray-600"
+        >
+          <Icon
+            name="ic:baseline-call"
+            class="w-16 text-inherit inline-block"
+          />
+          <p class="mt-1 text-inherit">
+            +91 {site_contact.mobile}
+          </p>
+        </a>
+      </div>
+      <div class="text-center">
+        <a
+          href={`mailto:${site_contact.email}`}
+          class="text-black hover:text-gray-600"
+        >
+          <Icon
+            name="dashicons:email-alt"
+            class="w-16 text-inherit inline-block"
+          />
+          <p class="mt-1 text-inherit">
+            {site_contact.email}
+          </p>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 max-w-7xl mx-auto mt-20">
+      <div class="md:order-2">
+        <!-- form -->
+        <form id="contactGSForm" class="form form-custom max-w-md mx-auto px-4">
+          <div class="mb-8 relative">
+            <label for="describe" class="block mb-2"
+              >What describes you best?</label
+            >
+            <select
+              class="w-full block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              title="What describes you best?"
+              id="describe"
+            >
+              <option value="Job Seeker / Candidate / Student">
+                Job Seeker / Candidate / Student
+              </option>
+              <option value="Potential Customer"> Potential Customer</option>
+              <option value="Partnership / Collaboration">
+                Partnership / Collaboration
+              </option>
+            </select>
+            <span class="invalid-feedback absolute text-xs text-red-500"
+              >Please describe you</span
+            >
+          </div>
+          <div class="mb-8 relative">
+            <label for="userName" class="block mb-2">Full Name</label>
+            <input
+              type="text"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              id="userName"
+              placeholder="Alan"
+            />
+            <span class="invalid-feedback absolute text-xs pt-0.5 text-red-500"
+              >Please enter your name</span
+            >
+          </div>
+          <div class="mb-8 relative company-wrapper">
+            <label for="companyName" class="block mb-2">Company Name</label>
+            <input
+              type="text"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              id="companyName"
+              placeholder="Micro Systems"
+            />
+            <span class="invalid-feedback absolute text-xs pt-0.5 text-red-500"
+              >Please enter Company name</span
+            >
+          </div>
+          <div class="company-size-wrapper relative mb-8">
+            <label for="companySize" class="block mb-2">Company Size</label>
+            <select
+              class="w-full block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              title="Company Size"
+              id="companySize"
+            >
+              <option value="0 - 50">0 - 50</option>
+              <option value="51 - 200">51 - 200</option>
+              <option value="201 - 1000">201 - 1000</option>
+              <option value="1001 - 5000">1001 - 5000</option>
+              <option value="5001 - 10000">5001 - 10000</option>
+              <option value="10000+">10000+</option>
+            </select>
+            <span class="invalid-feedback absolute text-xs pt-0.5 text-red-500"
+              >Please Select Company Size</span
+            >
+          </div>
+          <div class="grid grid-cols-2 gap-5">
+            <div class="relative">
+              <label for="userEmail" class="block mb-2">Email</label>
+              <input
+                type="email"
+                id="userEmail"
+                class="block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                placeholder="alan@cognicue.in"
+              />
+              <span
+                class="invalid-feedback absolute text-xs pt-0.5 text-red-500"
+                >Please enter valid email</span
+              >
+            </div>
+            <div class="">
+              <label for="userPhone" class="block mb-2">Phone</label>
+              <input
+                type="tel"
+                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                id="userPhone"
+                placeholder="9999999999"
+              />
+              <span
+                class="invalid-feedback absolute text-xs pt-0.5 text-red-500"
+                >Please enter valid mobile number</span
+              >
+            </div>
+          </div>
+          <div class="mt-8">
+            <label class="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id="like-demo"
+                aria-label="Would like to see a demo"
+                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+              />
+              <span class="ml-2">Would like to see a demo</span>
+            </label>
+            <label class="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id="like-discuss"
+                aria-label="Like to discuss partnership"
+                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+              />
+              <span class="ml-2">Like to discuss partnership</span>
+            </label>
+            <label class="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id="need-support"
+                aria-label="Need technical support"
+                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+              />
+              <span class="ml-2">Need technical support</span>
+            </label>
+          </div>
+          <div class="mt-4 mb-8">
+            <label for="userMessage" class="mb-2 block">Message</label>
+            <textarea
+              id="userMessage"
+              placeholder="message....."
+              rows="5"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            ></textarea>
+            <span class="invalid-feedback absolute text-xs pt-0.5 text-red-500"
+              >Please enter valid message</span
+            >
+          </div>
+          <div class="mt-4 mb-8 relative">
+            <label class="block relative">
+              <input
+                type="checkbox"
+                checked
+                id="policy-accepted"
+                class="absolute top-1 rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+                aria-label="By checking this box, I consent to receive communication from CogniCue*"
+              />
+              <small class="pl-6 block text-sm"
+                >By checking this box, I consent to receive communication from
+                CogniCue*</small
+              >
+            </label>
+            <span class="invalid-feedback absolute text-xs pt-0.5 text-red-500"
+              >Please accept communication</span
+            >
+          </div>
+          <div class="text-center mt-12">
+            <button
+              type="submit"
+              class="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >Submit</button
+            >
+          </div>
+        </form>
+      </div>
+      <div class="md:order-1">
+        <div class="grid grid-cols-2 gap-8">
+          <div class="border border-gray-300 rounded-lg p-4 mb-8">
+            <div class="relative pt-20">
+              <span class="absolute -top-[40px] left-3">
+                <svg
+                  width="105"
+                  height="104"
+                  viewBox="0 0 105 104"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M55 0a50 50 0 0 1 43.301 75L55 50V0Z" fill="#FFD9C0"
+                  ></path>
+                  <path
+                    d="M93.301 79A50 50 0 1 1 50 4v50l43.301 25Z"
+                    fill="#F15412"></path>
+                </svg>
+              </span>
+              <span
+                class="absolute left-32 top-1.5 text-5xl font-semibold text-[#F15412] font-poppins"
+                >2/3 <sup class="orange-text">rd</sup>
+              </span>
+            </div>
+            <div class="text-center text-sm">Fewer Interviews</div>
+          </div>
+          <div class="border border-gray-300 rounded-lg p-4 mb-8">
+            <div class="relative pt-20">
+              <span class="absolute -top-[40px] left-3">
+                <svg
+                  width="101"
+                  height="101"
+                  viewBox="0 0 101 101"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M52.076 0a49.278 49.278 0 0 1 18.722 3.693A48.953 48.953 0 0 1 86.67 14.211a48.496 48.496 0 0 1 10.606 15.741A48.172 48.172 0 0 1 101 48.52H52.076V0Z"
+                    fill="#47B5FF"></path>
+                  <path
+                    d="M97.849 52.076c0 9.597-2.87 18.978-8.246 26.957a48.84 48.84 0 0 1-21.956 17.87 49.296 49.296 0 0 1-28.267 2.761 49.052 49.052 0 0 1-25.05-13.279A48.398 48.398 0 0 1 .94 61.542a48.148 48.148 0 0 1 2.784-28.034 48.61 48.61 0 0 1 18.02-21.775 49.215 49.215 0 0 1 27.18-8.177v48.52H97.85Z"
+                    fill="#C6DCE4"></path>
+                </svg>
+              </span>
+              <span
+                class="absolute left-32 top-1.5 text-5xl font-semibold text-[#47B5FF] font-poppins"
+                >1/4 <sup class="blue-text">th</sup>
+              </span>
+            </div>
+            <div class="text-center text-sm max-w-[200px] mx-auto">
+              Time Spent in Assessment by Candidates
+            </div>
+          </div>
+          <div class="border border-gray-300 rounded-lg p-4 mb-8">
+            <div class="relative pt-20">
+              <span class="absolute -top-[50px] left-0">
+                <svg
+                  width="100"
+                  height="97"
+                  viewBox="0 0 100 97"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#a)">
+                    <path
+                      d="M93.994 69.718v9.148H82.43v-9.148h11.564ZM32 43.376v35.49H20.435v-35.49h11.564Zm20.662 10.09v25.4H41.105v-25.4h11.556Zm20.663 6.625v18.775H61.768V60.09h11.556Z"
+                      fill="#FFD9C0"></path>
+                    <path
+                      d="M10.197 15.771v70.305h88.265v10.197H5.102A5.106 5.106 0 0 1 0 91.17V15.772h10.197Zm22.892-1.302-.846 6.625a3.734 3.734 0 0 1-4.167 3.23 3.734 3.734 0 0 1-3.23-4.166l2.156-16.78A3.724 3.724 0 0 1 32.056.252l16.162 6.225a3.724 3.724 0 0 1 2.132 4.818 3.724 3.724 0 0 1-4.818 2.132l-5.517-2.124c6.046 8.203 13.289 15.055 21.11 20.394 11.263 7.69 23.681 12.207 35.408 13.053a3.73 3.73 0 0 1 3.459 3.988 3.73 3.73 0 0 1-3.988 3.458c-13.013-.92-26.733-5.884-39.087-14.323-8.886-6.063-17.081-13.94-23.828-23.405Z"
+                      fill="#FF7723"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="a">
+                      <path fill="#fff" d="M0 0h100v96.273H0z"></path>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+              <span
+                class="absolute left-28 top-1.5 text-5xl font-semibold text-[#F15412] font-poppins flex items-end"
+                ><span class="text-xl whitespace-nowrap pr-2">up to</span> 40%</span
+              >
+            </div>
+            <div class="text-center text-sm max-w-[200px] mx-auto">
+              Increase in productivity of Talent Teams
+            </div>
+          </div>
+          <div class="border border-gray-300 rounded-lg p-4 mb-8">
+            <div class="relative pt-20">
+              <span class="absolute -top-[50px] left-12">
+                <svg
+                  width="40"
+                  height="100"
+                  viewBox="0 0 40 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 50h14.815v50H0V50Z" fill="#C6DCE4"></path>
+                  <path d="M25.185 0H40v100H25.185V0Z" fill="#47B5FF"></path>
+                </svg>
+              </span>
+              <span
+                class="absolute left-28 top-1.5 text-5xl font-semibold text-[#47B5FF] font-poppins"
+                ><span class="text-xl">up to</span> 2x</span
+              >
+            </div>
+            <div class="text-center text-sm max-w-[200px] mx-auto">
+              Productivity of Hired Candidates
+            </div>
+          </div>
+        </div>
+        <div>
+          <iframe
+            class="w-full h-[360px] rounded-lg mt-8"
+            aria-label="CogniCue Address: Goa"
+            title="CogniCue Address: Goa"
+            src="https://maps.google.com/maps?q=Goa,%20India&t=&z=7&ie=UTF8&iwloc=&output=embed"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </main>
   <Footer />
+  <script is:raw src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script is:raw src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script is:inline>
+    var protocol = "https";
+  var baseAPI = "script.google.com";
+  var macros = "/macros/s/";
+  var baseID =
+    "AKfycbxHFZew6iti_FyKLZ8NUhyZCLPUBFc5UnTGy_D3M-gyJLa2cb9q2L_BALskFiIlXCy1UA";
+  var scriptURL = protocol + "://" + baseAPI + macros + baseID + "/exec";
+  var contactGSForm = $("#contactGSForm");
+  var describe = $("#describe");
+  var userName = $("#userName");
+  var companyName = $("#companyName");
+  var companySize = $("#companySize");
+  var userEmail = $("#userEmail");
+  var userPhone = $("#userPhone");
+  var likeDemo = $("#like-demo");
+  var likeDiscuss = $("#like-discuss");
+  var needSupport = $("#need-support");
+  var userMessage = $("#userMessage");
+  var policyAccepted = $("#policy-accepted");
+  var selectedOption = "Job Seeker / Candidate / Student";
+  function validEmail(value) {
+    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function validPhone(value) {
+    if (/^\d+$/.test(value)) return true;
+
+    return false;
+  }
+
+  $(".invalid-feedback").hide();
+  companyName.parent().hide();
+  companySize.parent().hide();
+
+  userName.on("keyup", function () {
+    var feedback = $(this).closest("div").find(".invalid-feedback");
+    if ($.trim($(this).val()) != "") {
+      feedback.hide();
+      $(this).removeClass("invalid-input");
+    } else {
+      feedback.show();
+      $(this).addClass("invalid-input");
+    }
+  });
+
+  companyName.on("keyup", function () {
+    var feedback = $(this).closest("div").find(".invalid-feedback");
+    if ($.trim($(this).val()) != "") {
+      feedback.hide();
+      $(this).removeClass("invalid-input");
+    } else {
+      feedback.show();
+      $(this).addClass("invalid-input");
+    }
+  });
+
+  userEmail.on("keyup", function () {
+    var feedback = $(this).closest("div").find(".invalid-feedback");
+    if (validEmail($(this).val())) {
+      feedback.hide();
+      $(this).removeClass("invalid-input");
+    } else {
+      feedback.show();
+      $(this).addClass("invalid-input");
+    }
+  });
+
+  userPhone.on("keyup", function () {
+    var feedback = $(this).closest("div").find(".invalid-feedback");
+    if (validPhone($(this).val())) {
+      feedback.hide();
+      $(this).removeClass("invalid-input");
+    } else {
+      feedback.show();
+      $(this).addClass("invalid-input");
+    }
+  });
+
+  userMessage.on("keyup", function () {
+    var feedback = $(this).closest("div").find(".invalid-feedback");
+    if ($.trim($(this).val()) != "") {
+      feedback.hide();
+      $(this).removeClass("invalid-input");
+    } else {
+      feedback.show();
+      $(this).addClass("invalid-input");
+    }
+  });
+
+  policyAccepted.on("change", function () {
+    var feedback = $(this).closest("div").find(".invalid-feedback");
+    if ($(this).is(":checked")) {
+      feedback.hide();
+    } else {
+      feedback.show();
+    }
+  });
+
+  describe.on("change", function () {
+    if ($(this).val() === selectedOption) {
+      $('.company-wrapper').addClass('d-none');
+      $('.company-size-wrapper').addClass('d-none');
+    } else {
+      $('.company-wrapper').removeClass('d-none');
+      $('.company-size-wrapper').removeClass('d-none');
+    }
+  });
+
+  contactGSForm.on("submit", function (e) {
+    e.preventDefault();
+    var formData = new FormData();
+
+    if (describe.val() != "") {
+      formData.append("describe", describe.val());
+    } else {
+      describe.closest("div").find(".invalid-feedback").show();
+      return false;
+    }
+
+    if ($.trim(userName.val()) != "") {
+      formData.append("userName", userName.val());
+    } else {
+      userName.closest("div").find(".invalid-feedback").show();
+      userName.addClass("invalid-input");
+      return false;
+    }
+
+    if (describe.val() === selectedOption) {
+      formData.append("companyName", 'NA');
+    } else {
+      if ($.trim(companyName.val()) != "") {
+        formData.append("companyName", companyName.val());
+      } else {
+        companyName.closest("div").find(".invalid-feedback").show();
+        companyName.addClass("invalid-input");
+        return false;
+      }
+    }
+
+    if (describe.val() === selectedOption) {
+      formData.append("companySize", 0);
+    } else {
+      if (companySize.val() != "") {
+        formData.append("companySize", companySize.val());
+      } else {
+        companySize.closest("div").find(".invalid-feedback").show();
+        return false;
+      }
+    }
+
+    if (validEmail(userEmail.val())) {
+      formData.append("userEmail", userEmail.val());
+    } else {
+      userEmail.closest("div").find(".invalid-feedback").show();
+      return false;
+    }
+
+    if (validPhone(userPhone.val())) {
+      formData.append("userPhone", userPhone.val());
+    } else {
+      userPhone.closest("div").find(".invalid-feedback").show();
+      return false;
+    }
+
+    if (likeDemo.is(":checked")) {
+      formData.append("like-demo", "Yes");
+    } else {
+      formData.append("like-demo", "No");
+    }
+
+    if (likeDiscuss.is(":checked")) {
+      formData.append("like-discuss", "Yes");
+    } else {
+      formData.append("like-discuss", "No");
+    }
+
+    if (needSupport.is(":checked")) {
+      formData.append("need-support", "Yes");
+    } else {
+      formData.append("need-support", "No");
+    }
+
+    if ($.trim(userMessage.val()) != "") {
+      formData.append("userMessage", userMessage.val());
+    } else {
+      userMessage.closest("div").find(".invalid-feedback").show();
+      userMessage.addClass("invalid-input");
+      return false;
+    }
+
+    if (!policyAccepted.is(":checked")) {
+      policyAccepted.closest("div").find(".invalid-feedback").show();
+      return false;
+    }
+
+    fetch(scriptURL, { method: "POST", body: formData })
+      .then(function () {
+        swal({
+          title: "Good job!",
+          text: "Thanks for Contacting us..! We Will Contact You Soon...",
+          icon: "success",
+        });
+        contactGSForm[0].reset();
+      })
+      .catch(function (error) {
+        swal({
+          title: "Oops Something wrong!",
+          text: error.message,
+          icon: "error",
+        });
+      });
+  });
+  </script>
 </Layout>

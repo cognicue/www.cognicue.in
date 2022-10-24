@@ -54,6 +54,16 @@ const { title, description, image, type = "" } = Astro.props;
       <link rel="stylesheet" href="/css/flaticon.css" />
       </>
     )}
+    {type === "contact" && (
+      <>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+        rel="stylesheet"
+      />
+      </>
+    )}
   </head>
   <body class="antialiased">
     <!-- Google Tag Manager (noscript) -->
