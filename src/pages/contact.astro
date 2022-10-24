@@ -355,223 +355,216 @@ import { Icon } from "astro-icon";
     </div>
   </main>
   <Footer />
-  <script is:raw src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-  <script is:raw src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script is:raw src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+  ></script>
   <script is:inline>
     var protocol = "https";
-  var baseAPI = "script.google.com";
-  var macros = "/macros/s/";
-  var baseID =
-    "AKfycbxHFZew6iti_FyKLZ8NUhyZCLPUBFc5UnTGy_D3M-gyJLa2cb9q2L_BALskFiIlXCy1UA";
-  var scriptURL = protocol + "://" + baseAPI + macros + baseID + "/exec";
-  var contactGSForm = $("#contactGSForm");
-  var describe = $("#describe");
-  var userName = $("#userName");
-  var companyName = $("#companyName");
-  var companySize = $("#companySize");
-  var userEmail = $("#userEmail");
-  var userPhone = $("#userPhone");
-  var likeDemo = $("#like-demo");
-  var likeDiscuss = $("#like-discuss");
-  var needSupport = $("#need-support");
-  var userMessage = $("#userMessage");
-  var policyAccepted = $("#policy-accepted");
-  var selectedOption = "Job Seeker / Candidate / Student";
-  function validEmail(value) {
-    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)) {
-      return true;
-    }
+    var baseAPI = "script.google.com";
+    var macros = "/macros/s/";
+    var baseID =
+      "AKfycbxHFZew6iti_FyKLZ8NUhyZCLPUBFc5UnTGy_D3M-gyJLa2cb9q2L_BALskFiIlXCy1UA";
+    var scriptURL = protocol + "://" + baseAPI + macros + baseID + "/exec";
+    var contactGSForm = document.querySelector("#contactGSForm");
+    var describe = document.querySelector("#describe");
+    var userName = document.querySelector("#userName");
+    var companyName = document.querySelector("#companyName");
+    var companySize = document.querySelector("#companySize");
+    var userEmail = document.querySelector("#userEmail");
+    var userPhone = document.querySelector("#userPhone");
+    var likeDemo = document.querySelector("#like-demo");
+    var likeDiscuss = document.querySelector("#like-discuss");
+    var needSupport = document.querySelector("#need-support");
+    var userMessage = document.querySelector("#userMessage");
+    var policyAccepted = document.querySelector("#policy-accepted");
+    var selectedOption = "Job Seeker / Candidate / Student";
+    function validEmail(value) {
+      if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)) {
+        return true;
+      }
 
-    return false;
-  }
-
-  function validPhone(value) {
-    if (/^\d+$/.test(value)) return true;
-
-    return false;
-  }
-
-  $(".invalid-feedback").hide();
-  companyName.parent().hide();
-  companySize.parent().hide();
-
-  userName.on("keyup", function () {
-    var feedback = $(this).closest("div").find(".invalid-feedback");
-    if ($.trim($(this).val()) != "") {
-      feedback.hide();
-      $(this).removeClass("invalid-input");
-    } else {
-      feedback.show();
-      $(this).addClass("invalid-input");
-    }
-  });
-
-  companyName.on("keyup", function () {
-    var feedback = $(this).closest("div").find(".invalid-feedback");
-    if ($.trim($(this).val()) != "") {
-      feedback.hide();
-      $(this).removeClass("invalid-input");
-    } else {
-      feedback.show();
-      $(this).addClass("invalid-input");
-    }
-  });
-
-  userEmail.on("keyup", function () {
-    var feedback = $(this).closest("div").find(".invalid-feedback");
-    if (validEmail($(this).val())) {
-      feedback.hide();
-      $(this).removeClass("invalid-input");
-    } else {
-      feedback.show();
-      $(this).addClass("invalid-input");
-    }
-  });
-
-  userPhone.on("keyup", function () {
-    var feedback = $(this).closest("div").find(".invalid-feedback");
-    if (validPhone($(this).val())) {
-      feedback.hide();
-      $(this).removeClass("invalid-input");
-    } else {
-      feedback.show();
-      $(this).addClass("invalid-input");
-    }
-  });
-
-  userMessage.on("keyup", function () {
-    var feedback = $(this).closest("div").find(".invalid-feedback");
-    if ($.trim($(this).val()) != "") {
-      feedback.hide();
-      $(this).removeClass("invalid-input");
-    } else {
-      feedback.show();
-      $(this).addClass("invalid-input");
-    }
-  });
-
-  policyAccepted.on("change", function () {
-    var feedback = $(this).closest("div").find(".invalid-feedback");
-    if ($(this).is(":checked")) {
-      feedback.hide();
-    } else {
-      feedback.show();
-    }
-  });
-
-  describe.on("change", function () {
-    if ($(this).val() === selectedOption) {
-      $('.company-wrapper').addClass('d-none');
-      $('.company-size-wrapper').addClass('d-none');
-    } else {
-      $('.company-wrapper').removeClass('d-none');
-      $('.company-size-wrapper').removeClass('d-none');
-    }
-  });
-
-  contactGSForm.on("submit", function (e) {
-    e.preventDefault();
-    var formData = new FormData();
-
-    if (describe.val() != "") {
-      formData.append("describe", describe.val());
-    } else {
-      describe.closest("div").find(".invalid-feedback").show();
       return false;
     }
 
-    if ($.trim(userName.val()) != "") {
-      formData.append("userName", userName.val());
-    } else {
-      userName.closest("div").find(".invalid-feedback").show();
-      userName.addClass("invalid-input");
+    function validPhone(value) {
+      if (/^\d+$/.test(value)) return true;
+
       return false;
     }
 
-    if (describe.val() === selectedOption) {
-      formData.append("companyName", 'NA');
-    } else {
-      if ($.trim(companyName.val()) != "") {
-        formData.append("companyName", companyName.val());
+    // hide on load
+    document.querySelectorAll(".invalid-feedback").forEach((element) => {
+      element.classList.add("hidden");
+    });
+    document.querySelector(".company-wrapper").classList.add("hidden");
+    document.querySelector(".company-size-wrapper").classList.add("hidden");
+
+    function invalidToggle(sourceFirst, sourceSecond, checked) {
+      if (checked) {
+        sourceFirst.classList.add("hidden");
+        sourceSecond.classList.remove("invalid-input");
       } else {
-        companyName.closest("div").find(".invalid-feedback").show();
-        companyName.addClass("invalid-input");
-        return false;
+        sourceFirst.classList.remove("hidden");
+        sourceSecond.classList.add("invalid-input");
       }
     }
 
-    if (describe.val() === selectedOption) {
-      formData.append("companySize", 0);
-    } else {
-      if (companySize.val() != "") {
-        formData.append("companySize", companySize.val());
+    describe.addEventListener("change", function () {
+      var companyWrapper = document.querySelector(".company-wrapper");
+      var companySizeWrapper = document.querySelector(".company-size-wrapper");
+      if (this.value === selectedOption) {
+        companyWrapper.classList.add("hidden");
+        companySizeWrapper.classList.add("hidden");
       } else {
-        companySize.closest("div").find(".invalid-feedback").show();
+        companyWrapper.classList.remove("hidden");
+        companySizeWrapper.classList.remove("hidden");
+      }
+    });
+
+    userName.addEventListener("keyup", function () {
+      var feedback = this.parentElement.querySelector(".invalid-feedback");
+      invalidToggle(feedback, this, this.value.trim() != "");
+    });
+
+    companyName.addEventListener("keyup", function () {
+      var feedback = this.parentElement.querySelector(".invalid-feedback");
+      invalidToggle(feedback, this, this.value.trim() != "");
+    });
+
+    userEmail.addEventListener("keyup", function () {
+      var feedback = this.parentElement.querySelector(".invalid-feedback");
+      invalidToggle(feedback, this, validEmail(this.value));
+    });
+
+    userPhone.addEventListener("keyup", function () {
+      var feedback = this.parentElement.querySelector(".invalid-feedback");
+      invalidToggle(feedback, this, validPhone(this.value));
+    });
+
+    userMessage.addEventListener("keyup", function () {
+      var feedback = this.parentElement.querySelector(".invalid-feedback");
+      invalidToggle(feedback, this, this.value.trim() != "");
+    });
+
+    policyAccepted.addEventListener("change", function () {
+      var feedback = this.parentElement.parentElement.querySelector(".invalid-feedback");
+      if (this.checked) {
+        feedback.classList.add("hidden");
+      } else {
+        feedback.classList.remove("hidden");
+      }
+    });
+
+    function invalidShow(element) {
+      element
+        .parentElement
+        .querySelector(".invalid-feedback")
+        .classList
+        .remove("hidden");
+    }
+
+    contactGSForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var formData = new FormData();
+
+      if (describe.value != "") {
+        formData.append("describe", describe.value);
+      } else {
+        invalidShow(describe);
         return false;
       }
-    }
 
-    if (validEmail(userEmail.val())) {
-      formData.append("userEmail", userEmail.val());
-    } else {
-      userEmail.closest("div").find(".invalid-feedback").show();
-      return false;
-    }
+      if (userName.value != "") {
+        formData.append("userName", userName.value);
+      } else {
+        invalidShow(userName);
+        userName.classList.add("invalid-input");
+        return false;
+      }
 
-    if (validPhone(userPhone.val())) {
-      formData.append("userPhone", userPhone.val());
-    } else {
-      userPhone.closest("div").find(".invalid-feedback").show();
-      return false;
-    }
+      if (describe.value === selectedOption) {
+        formData.append("companyName", "NA");
+      } else {
+        if (companyName.value.trim() != "") {
+          formData.append("companyName", companyName.value);
+        } else {
+          invalidShow(companyName)
+          companyName.classList.add("invalid-input");
+          return false;
+        }
+      }
 
-    if (likeDemo.is(":checked")) {
-      formData.append("like-demo", "Yes");
-    } else {
-      formData.append("like-demo", "No");
-    }
+      if (describe.value === selectedOption) {
+        formData.append("companySize", 0);
+      } else {
+        if (companySize.value != "") {
+          formData.append("companySize", companySize.value);
+        } else {
+          invalidShow(companySize);
+          return false;
+        }
+      }
 
-    if (likeDiscuss.is(":checked")) {
-      formData.append("like-discuss", "Yes");
-    } else {
-      formData.append("like-discuss", "No");
-    }
+      if (validEmail(userEmail.value)) {
+        formData.append("userEmail", userEmail.value);
+      } else {
+        invalidShow(userEmail);
+        return false;
+      }
 
-    if (needSupport.is(":checked")) {
-      formData.append("need-support", "Yes");
-    } else {
-      formData.append("need-support", "No");
-    }
+      if (validPhone(userPhone.value)) {
+        formData.append("userPhone", userPhone.value);
+      } else {
+        invalidShow(userPhone);
+        return false;
+      }
 
-    if ($.trim(userMessage.val()) != "") {
-      formData.append("userMessage", userMessage.val());
-    } else {
-      userMessage.closest("div").find(".invalid-feedback").show();
-      userMessage.addClass("invalid-input");
-      return false;
-    }
+      if (likeDemo.checked) {
+        formData.append("like-demo", "Yes");
+      } else {
+        formData.append("like-demo", "No");
+      }
 
-    if (!policyAccepted.is(":checked")) {
-      policyAccepted.closest("div").find(".invalid-feedback").show();
-      return false;
-    }
+      if (likeDiscuss.checked) {
+        formData.append("like-discuss", "Yes");
+      } else {
+        formData.append("like-discuss", "No");
+      }
 
-    fetch(scriptURL, { method: "POST", body: formData })
-      .then(function () {
-        swal({
-          title: "Good job!",
-          text: "Thanks for Contacting us..! We Will Contact You Soon...",
-          icon: "success",
+      if (needSupport.checked) {
+        formData.append("need-support", "Yes");
+      } else {
+        formData.append("need-support", "No");
+      }
+
+      if (userMessage.value.trim() != "") {
+        formData.append("userMessage", userMessage.value);
+      } else {
+        invalidShow(userMessage);
+        userMessage.classList.add("invalid-input");
+        return false;
+      }
+
+      if (!policyAccepted.checked) {
+        invalidShow(policyAccepted.parentElement);
+        return false;
+      }
+
+      fetch(scriptURL, { method: "POST", body: formData })
+        .then(function () {
+          swal({
+            title: "Good job!",
+            text: "Thanks for Contacting us..! We Will Contact You Soon...",
+            icon: "success",
+          });
+          contactGSForm[0].reset();
+        })
+        .catch(function (error) {
+          swal({
+            title: "Oops Something wrong!",
+            text: error.message,
+            icon: "error",
+          });
         });
-        contactGSForm[0].reset();
-      })
-      .catch(function (error) {
-        swal({
-          title: "Oops Something wrong!",
-          text: error.message,
-          icon: "error",
-        });
-      });
-  });
+    });
   </script>
 </Layout>
