@@ -1,0 +1,34 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import { page_title, portfolio } from "../../../data/solutions-mock-interview-analytics.json";
+---
+
+<Layout
+  title={`Solution - ${page_title}`}
+  description="Converting Emotions into Insights"
+  image="https://www.cognicue.in/assets/img/hero/differentfacess.jpg"
+>
+  <Navigation />
+  <main class="max-w-7xl mx-auto mb-10">
+    <h1 class="mt-8 text-3xl font-medium tracking-tight text-gray-900 text-center">
+      Interview Practice Platform (Mock Interview Analytics)
+    </h1>
+    <p class="mt-6 text-lg text-gray-600 text-center max-w-5xl mx-auto">
+      Online interview practice is an essential tool for anyone to use when preparing to conduct job interviews. The report then <span class="tooltiptext">continue</span>provides the candidate with an in-depth breakdown of their performance so they can improve going forward. It helps the students reduce their stress and anxiety about interview.
+    </p>
+    <p class="mt-4 text-lg text-gray-600 text-center max-w-5xl mx-auto">Interviews are a crucial part of the hiring process. A candidate's performance on an interview can make or break his/her chances at getting hired. It is also a very stressful situation for anyone to face, especially if it is their first time being interviewed. In this fast-paced world, where everyone wants to get ahead and stand out from the crowd, candidates want to practice their interviewing skills in order to perform better during actual interviews. However, there aren't many resources available that allow them to do so without having the stress of actually going through one themselves.</p>
+
+    <p class="mt-4 text-lg text-gray-600 text-center max-w-5xl mx-auto">CogniCue has developed an automated mock interview platform which allows students who have never been interviewed before as well as those who would like more practice with real-time feedback and analysis based on verbal and nonverbal cues displayed by the candidate during his/her response(s).</p>
+
+    <div class="flex flex-wrap mt-6">
+      {portfolio.map((port) => (
+        <div class="w-full md:w-1/2 p-2">
+          <img src={port.poster} alt="" class="w-full h-full object-cover" />
+        </div>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>

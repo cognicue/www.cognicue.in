@@ -1,0 +1,84 @@
+{
+  "site_headers": [
+    {
+      "text": "Home",
+      "link": "/"
+    },
+    {
+      "text": "About",
+      "link": "/about/"
+    },
+    {
+      "text": "Solutions",
+      "link": "/solutions",
+      "sub_header": [
+        {
+          "text": "Interview Practice",
+          "link": "/solutions/mock-interview-analytics/",
+          "sub_sub_header": [
+            {
+              "text": "Demo - Mock Interview",
+              "link": "https://services.cognicue.in/interview/cognicue/?ref=header",
+              "blank": true
+            }
+          ]
+        },
+        {
+          "text": "Smart Recruitment",
+          "link": "/solutions/recruitment-analytics/",
+          "sub_sub_header": [
+            {
+              "text": "Demo - Candidate Interview",
+              "link": "https://services.cognicue.in/interview/cognicue/?ref=header",
+              "blank": true
+            }
+          ]
+        },
+        {
+          "text": "Employee Wellbeing",
+          "link": "/solutions/employee-wellbeing-platform/",
+          "sub_sub_header": [
+            {
+              "text": "Demo - Emotion Detection",
+              "link": "/demo/facs/?type=watch",
+              "blank": true
+            }
+          ]
+        },
+        {
+          "text": "Consumer Experience",
+          "link": "/solutions/media-analytics/",
+          "sub_sub_header": [
+            {
+              "text": "Demo - Engagement Analysis",
+              "link": "/demo/facs/?type=share",
+              "blank": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Insights",
+      "link": "/insights/"
+    },
+    {
+      "text": "Demo",
+      "link": "#",
+      "sub_header": [
+        {
+          "text": "FACS",
+          "link": "/demo/facs/"
+        }
+      ]
+    },
+    {
+      "text": "Contact",
+      "link": "/contact/"
+    },
+    {
+      "text": "Pricing",
+      "link": "/pricing/"
+    }
+  ]
+}

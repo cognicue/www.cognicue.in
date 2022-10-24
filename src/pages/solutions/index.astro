@@ -1,0 +1,82 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import { Icon } from "astro-icon";
+---
+
+<Layout
+  title="Solution - Cognicue"
+  description="Converting Emotions into Insights"
+  image="https://www.cognicue.in/assets/img/hero/differentfacess.jpg"
+>
+  <Navigation />
+  <main class="my-10 max-w-xl mx-auto">
+    <h1 class="text-4xl font-medium  text-center tracking-tight text-gray-900 mb-6">
+      Every solution you need to win.<br/> Try it for yourself.
+    </h1>
+
+    <ul class="flex flex-wrap gap-4">
+      <li>
+        <a
+          class="p-8 block rounded-2xl transition-colors bg-gray-200/30 hover:bg-gray-300/30"
+          href="/solutions/mock-interview-analytics"
+        >
+          <h3 class="text-lg font-semibold text-black">
+            Interview Practice Platform (Mock Interview Analytics)
+          </h3>
+          <p class="mt-2 text-sm text-gray-700">
+            Online interview practice is an essential tool for anyone to use
+            when preparing to conduct job interviews. The report then...
+          </p>
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="p-8 block rounded-2xl transition-colors bg-gray-200/30 hover:bg-gray-300/30"
+          href="/solutions/recruitment-analytics"
+        >
+          <h3 class="text-lg font-semibold text-black">
+            Recruitment Analytics
+          </h3>
+          <p class="mt-2 text-sm text-gray-700">
+            It assists recruiters in saving time by automating many repetitive
+            operations such as candidate screening, scheduling cont...
+          </p>
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="p-8 block rounded-2xl transition-colors bg-gray-200/30 hover:bg-gray-300/30"
+          href="/solutions/employee-wellbeing-platform"
+        >
+          <h3 class="text-lg font-semibold text-black">
+            Employee Wellbeing Platform
+          </h3>
+          <p class="mt-2 text-sm text-gray-700">
+            It assists recruiters in saving time by automating many repetitive
+            operations such as candidate screening, scheduling cont...
+          </p>
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="p-8 block rounded-2xl transition-colors bg-gray-200/30 hover:bg-gray-300/30"
+          href="/solutions/media-analytics/"
+        >
+          <h3 class="text-lg font-semibold text-black">
+            Consumer Experience Platform (Media Analytics)
+          </h3>
+          <p class="mt-2 text-sm text-gray-700">
+            With our platform, brands can make better choices based on customer
+            instincts. The technology captures the behavioral filt...
+          </p>
+        </a>
+      </li>
+    </ul>
+  </main>
+  <Footer />
+</Layout>

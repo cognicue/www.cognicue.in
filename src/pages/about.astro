@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import { Icon } from "astro-icon";
+---
+
+<Layout
+  title="About - Cognicue"
+  description="Converting Emotions into Insights"
+  image="https://www.cognicue.in/assets/img/hero/differentfacess.jpg"
+>
+  <Navigation />
+  <main class="my-10 max-w-7xl mx-auto">
+    <h1 class="text-4xl font-cognicue cognicue-style text-center mb-8">
+      About Us
+    </h1>
+    <p class="text-center text-xl mb-8">
+      We, at CogniCue, translate your verbal, nonverbal signals and words into
+      meaningful data. We are committed to delivering the best products possible
+      by capturing a range of body movement and feeling cues such as facial
+      expressions, movements or other bodily changes that give insight into
+      what's going on inside someone's mind - for example how they're really
+      feeling . Our goal is not just an increase in trustworthiness between
+      partners; it also aims at helping improve everyday interactions within
+      communities while creating new ways businesses can work together more
+      effectively!
+    </p>
+
+    <p class="text-center text-xl text-slate-500 mb-16">
+      Founded in 2020 by Fasih & <a class="" href="https://www.linkedin.com/in/kanantandi/">Kanan<Icon name="eva:diagonal-arrow-right-up-outline" class="w-6 inline-block -translate-x-1 -translate-y-0.5" /></a>, CogniCue has its roots laid down in
+      2017, when the parent company Body Speaks Better was founded in 2015 as a
+      Non Verbal Communication reading and Decoding Training firm. Having a
+      vigorous software development background of <time>9 years</time> Fasih comes up as the
+      technical expert, whereas Kanan has been the coach and trainer for <time>9 years</time>
+      in the field of Non Verbal Communication. Together as a team, we have
+      created the platform for the businesses which would identify the real
+      emotions of the consumer in real time situations and identifying true
+      engagement with the product (tested by the company).
+    </p>
+
+    <h2 class="text-3xl font-cognicue cognicue-style text-center my-8">
+      Mission and Vision
+    </h2>
+
+    <p class="text-center text-xl mb-4 max-w-3xl mx-auto">
+      Our mission is to capturing and then converting the true feelings and
+      emotions into data which will ameliorate mutual trustworthiness.
+    </p>
+    <p class="text-center text-xl mb-16 max-w-3xl mx-auto">
+      Our vision is to make an ecosystem where no person would be partial for
+      other due to his/her own past experience because a machine can't have
+      personal bias.
+    </p>
+
+    <div class="mb-20 text-center gap-6 flex justify-center">
+      <a
+        href="https://www.linkedin.com/company/cognicue/"
+        rel="noopener noreferrer"
+        class="bg-primary hover:bg-primary-dark px-10 py-4 rounded-full font-semibold"
+        >Join our Team</a
+      >
+      <a
+        href="/contact"
+        class="border border-primary hover:bg-primary px-10 py-4 rounded-full font-semibold"
+        >Feedback</a
+      >
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,14 @@
+{
+  "site_header_cta": {
+    "text": "Try for free",
+    "link": "https://services.cognicue.in/interview/cognicue/?interview_mode__net=2&ref=www",
+    "popup": false,
+    "blank": true
+  },
+  "site": {
+    "logo": "https://media.cognicue.in/logos/logo-white.svg",
+    "name": "CogniCue Analytics Pvt. Ltd.",
+    "title": "CogniCue",
+    "url": "https://www.cognicue.in"
+  }
+}

@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import { page_title, portfolio } from "../../../data/solutions-recruitment-analytics.json";
+---
+
+<Layout
+  title={`Solution - ${page_title}`}
+  description="Converting Emotions into Insights"
+  image="https://www.cognicue.in/assets/img/hero/differentfacess.jpg"
+>
+  <Navigation />
+  <main class="max-w-7xl mx-auto mb-10">
+    <h1 class="mt-8 text-3xl font-medium tracking-tight text-gray-900 text-center">
+      Recruitment Analytics
+    </h1>
+    <p class="mt-6 text-lg text-gray-600 text-center max-w-5xl mx-auto">
+      It assists recruiters in saving time by automating many repetitive operations such as candidate screening, scheduling <span class="tooltiptext">continue</span>interviews, conducting interviews with the ability to obtain thorough interview feedback from candidates, and sorting them according to various parameters.
+    </p>
+    <p class="mt-4 text-lg text-gray-600 text-center max-w-5xl mx-auto">The Undercover Recruiter reports terrible recruits can cost $240,000 in costs. Those are separated into costs identified with recruiting, pay and maintenance. Entrepreneurs spend around 40% of their working hours on assignments that don't produce pay, for example, employing. CareerBuilder says 74 percent of organizations who made a poor recruit lost a normal of $14,900 per poor recruit. The higher the situation inside the association (and in this way higher the pay), the higher the expense of the awful recruit. What is more, we know, it's a ton of cash burned through as well as a huge chunk of time and energy. Our Recruitment Analytics instrument causes you to recognize the delicate aptitudes and the mentality of the applicant by asking the correct questions and catching the Non Verbal Communications like Facial movement( voluntary or involuntary), Emotions, Micro Expressions and different signals. The two essential focuses for any organization are aptitude and attitude. If that can be identified well, then it is a win-win situation for the company as well as the candidate.</p>
+
+    <div class="flex flex-wrap mt-6">
+      {portfolio.map((port) => (
+        <div class="w-full md:w-1/2 p-2">
+          <img src={port.poster} alt="" class="w-full h-full object-cover" />
+        </div>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>

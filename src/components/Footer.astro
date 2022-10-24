@@ -1,0 +1,116 @@
+---
+import { site } from "../../data/header.json";
+import { site_pages, site_contact, site_social, site_discord } from "../../data/global.json";
+import { Icon } from 'astro-icon'
+---
+
+<footer class="bg-slate-900 py-4 md:py-10">
+  <section class="text-center max-w-7xl mx-auto md:pt-6">
+    <h5 class="mb-4 text-4xl font-semibold text-white">Ready to level up your business?</h5>
+    <h6 class="mb-4 text-2xl font-normal text-gray-400">Want a quicker response from us?</h6>
+    <div class="mt-8 flex justify-center gap-5">
+      <a data-tippy-content="Connect with discord server" type="iframe" href={site_discord.welcome} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none inline-flex items-center"><Icon class="w-6 text-inherit mr-2" name="bi:discord" /> Live Chat</a>
+      <a href={`mailto:${site_contact.email};?subject=Inquiring%20about%20your%20services&body=Hi%20CogniCue%2C%0D%0A%0D%0A`} title="Email us" type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 inline-flex items-center"><Icon class="w-6 text-inherit mr-2" name="entypo:email" /> EMAIL US</a>
+    </div>
+  </section>
+  <section class="flex flex-wrap max-w-7xl mx-auto border-t border-gray-800 pt-16 mt-8">
+    <div class="w-1/5 md:pr-4">
+      <a href="/"><img class="w-40" src={site.logo} alt={site.name} /></a>
+      <p class="text-gray-300 text-sm mt-3 pl-1">We, at CogniCue, translate your verbal, nonverbal signals and words into meaningful data.</p>
+    </div>
+    <div class="w-1/5">
+      <h5 class="font-cognicue cognicue-style text-2xl text-primary mb-4">
+        Company
+      </h5>
+      <ul class="flex flex-col gap-2">
+        <li>
+          <a
+            class="text-gray-300 hover:text-primary hover:pl-1 transition-all"
+            href={site_pages.about.link}>{site_pages.about.text}</a>
+        </li>
+        <li>
+          <a
+            class="text-gray-300 hover:text-primary hover:pl-1 transition-all"
+            href={site_pages.contact.link}>{site_pages.contact.text}</a
+          >
+        </li>
+        <li>
+          <a
+            class="text-gray-300 hover:text-primary hover:pl-1 transition-all"
+            href={site_pages.pricing.link}>{site_pages.pricing.text}</a
+          >
+        </li>
+        <li>
+          <a
+            class="text-gray-300 hover:text-primary hover:pl-1 transition-all"
+            href={site_pages.refund.link}>{site_pages.refund.text}</a>
+        </li>
+        <li>
+          <a
+            class="text-gray-300 hover:text-primary hover:pl-1 transition-all"
+            href={site_pages.privacy.link}>{site_pages.privacy.text}</a
+          >
+        </li>
+        <li>
+          <a
+            class="text-gray-300 hover:text-primary hover:pl-1 transition-all"
+            href={site_pages.terms.link}>{site_pages.terms.text}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="w-1/5">
+      <h5 class="font-cognicue cognicue-style text-2xl text-primary mb-4">
+        {site_pages.platforms.text}
+      </h5>
+      <ul class="flex flex-col gap-2">
+        {
+          site_pages.platforms.sub.map((platform) => (
+            <li>
+              <a class="text-gray-300 hover:text-primary hover:pl-1 transition-all" href={platform.link}>
+                {platform.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="w-1/5">
+      <h5 class="font-cognicue cognicue-style text-2xl text-primary mb-4">
+        Solutions
+      </h5>
+      <ul class="flex flex-col gap-2">
+        {
+          site_pages.solutions.sub.map((solution) => (
+            <li>
+              <a class="text-gray-300 hover:text-primary hover:pl-1 transition-all" href={solution.link}>
+                {solution.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="w-1/5">
+      <h5 class="font-cognicue cognicue-style text-2xl text-primary mb-4"><span class="text-white">+91</span> <a href={`tel:${site_contact.mobile}`}>{site_contact.mobile}</a></h5>
+      <div class="mb-2">
+        <a class="text-gray-300 hover:text-primary hover:pl-1 transition-all" href={`mailto:${site_contact.email};?subject=Inquiring%20about%20your%20services&body=Hi%20CogniCue%2C%0D%0A%0D%0A`}>{site_contact.email}</a>
+      </div>
+      <address class="text-gray-300 hover:text-primary hover:pl-1 transition-all not-italic">
+        {site_contact.address}
+      </address>
+    </div>
+  </section>
+  <section class="flex flex-wrap justify-between max-w-7xl mx-auto border-t border-gray-800 pt-6 mt-16">
+    <p class="text-gray-400 text-sm">
+      Copyright &copy;<script is:inline>document.write(new Date().getFullYear());</script> All Rights Reserved | {site.name}
+    </p>
+    <div class="flex gap-2">
+      <a href={site_social.linkedin} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Linkedin</span><Icon class="w-6 text-inherit" name="dashicons:linkedin" /></a>
+      <a href={site_social.twitter} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Twitter</span><Icon class="w-6 text-inherit" name="dashicons:twitter" /></a>
+      <a href={site_social.facebook} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Facebook</span><Icon class="w-6 text-inherit" name="dashicons:facebook-alt" /></a>
+      <a href={site_social.instagram} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Instagram</span><Icon class="w-6 text-inherit" name="dashicons:instagram" /></a>
+      <a href={site_social.github} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Github</span><Icon class="w-6 text-inherit" name="ant-design:github-filled" /></a>
+      <a href={site_social.discord} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Discord</span><Icon class="w-6 text-inherit" name="bi:discord" /></a>
+    </div>
+  </section>
+</footer>

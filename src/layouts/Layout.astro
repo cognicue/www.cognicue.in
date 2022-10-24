@@ -1,0 +1,78 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  type?: string;
+}
+
+const { title, description, image, type = "" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="dns-prefetch" href="https://fonts.cognicue.in/" />
+    <link rel="dns-prefetch" href="https://media.cognicue.in/" />
+    <link rel="icon" type="image/svg+xml" href="https://media.cognicue.in/icons/icon.svg" />
+    <link rel="apple-touch-icon" sizes="16x16" href="https://media.cognicue.in/icons/icon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="32x32" href="https://media.cognicue.in/icons/icon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="https://media.cognicue.in/icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://media.cognicue.in/icons/icon-180x180.png" />
+    <title>{title}</title>
+    <meta name="theme-color" content="#000000"/>
+    <meta name="description" content={description}>
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta property="twitter:image:src" content={image}>
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:url" content="https://www.cognicue.in">
+    <meta property="og:title" content={title}>
+    <meta property="og:image" content={image}>
+    <meta property="og:description" content={description}>
+    <meta property="og:site_name" content="CogniCue">
+    <link rel="stylesheet" href="https://fonts.cognicue.in/cognicue.css?v=15.4.0">
+    <script is:raw>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PBR462L');</script>
+
+    {type === "home" && (
+      <>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+      />
+      <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+      <link rel="stylesheet" href="/css/flaticon.css" />
+      </>
+    )}
+  </head>
+  <body class="antialiased">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBR462L"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <slot />
+    <style is:global>
+      .cognicue-style {
+        font-weight: 700;
+        font-style: normal;
+        font-stretch: condensed;
+      }
+      :root {
+      }
+    </style>
+    <script is:inline src="https://unpkg.com/@popperjs/core@2"></script>
+    <script is:inline src="https://unpkg.com/tippy.js@6"></script>
+    <script is:inline>
+      tippy('[data-tippy-content]');
+    </script>
+  </body>
+</html>

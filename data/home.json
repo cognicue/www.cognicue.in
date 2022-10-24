@@ -1,0 +1,185 @@
+{
+  "hero_slider": {
+    "background": "/img/hero/heronew.jpg",
+    "slides": [
+      {
+        "title": "Converting Emotions into Insights",
+        "description": "The new technology will find use in a variety of real-world applications, including facial expressions and emotions with non verbal communication facilitation for various fields.",
+        "image": "/img/hero/differentfacess.jpg",
+        "link": "#"
+      },
+      {
+        "title": "Measuring Non Verbals and Decoding Authenticity",
+        "description": "Bringing emotions back to the experience and deciphering its meaning digitally. Even when people do not express their thoughts verbally, most people constantly throw off clues to what they are thinking and feeling, which is what we would be able to capture. The technology is backed by numerous scientific research and would continuously be updated with time.",
+        "image": "/img/hero/Faces.jpg",
+        "link": "#"
+      }
+    ]
+  },
+  "application_section": {
+    "title": "Our Emotion AI platform's present applications",
+    "applications": [
+      {
+        "title": "Mock Interview Practice",
+        "description": "Online interview practice is an essential tool for anyone to use when preparing to conduct job interviews. The report then provides...",
+        "image": "flaticon-tour",
+        "link": "/solutions/mock-interview-analytics/#continue"
+      },
+      {
+        "title": "Smart Recruitment Process",
+        "description": "It assists recruiters in saving time by automating many repetitive operations such as candidate screening, scheduling interviews...",
+        "image": "flaticon-experience",
+        "link": "/solutions/recruitment-analytics/#continue"
+      },
+      {
+        "title": "Consumer Behavior",
+        "description": "With our platform, brands can make better choices based on customer instincts. The technology captures the behavioral filters that come...",
+        "image": "flaticon-good",
+        "link": "/solutions/media-analytics/#continue"
+      },
+      {
+        "title": "Healthcare and Diagnosis",
+        "description": "It helps doctors and therapists increase emotional awareness for their patients, such as in expressing empathy or delivering diagnoses...",
+        "image": "flaticon-pay",
+        "link": "/solutions/others/#solution_1"
+      },
+      {
+        "title": "Video Surveys and Feedback",
+        "description": "With our platform, you can get a better idea about what people are thinking and feeling while answering the question. With facial...",
+        "image": "flaticon-good",
+        "link": "/solutions/others/#solution_2"
+      },
+      {
+        "title": "Dating & Matrimony",
+        "description": "With our platform glued to the app, people would be able to make a better decisions. Decoding facial expressions and emotions...",
+        "image": "flaticon-tour",
+        "link": "/solutions/others/#solution_3"
+      }
+    ]
+  },
+  "analyses_section": {
+    "title": "Various analyses conducted in order to generate the analytics report with higher accuracy",
+    "analyses": [
+      {
+        "title": "Verbal Analysis",
+        "description": "Verbal analysis gives a person's metrics related to their communication. It captures articulation rate, pauses and fillers which have an effect on what we say and how others perceive us.",
+        "image": "flaticon-tour",
+        "link": "#"
+      },
+      {
+        "title": "Sentiment Analysis",
+        "description": "This is used to measure the responses during interviews with candidates to be split into three categories: positive, neutral or negative from more than 150 different macro and micro feelings.",
+        "image": "flaticon-pay",
+        "link": "#"
+      },
+      {
+        "title": "Non Verbal Analysis",
+        "description": "Captured non verbal cues such as facial expressions, facial movements, emotions and other bodily movements will be decoded and converted into seven other important metrics.",
+        "image": "flaticon-good",
+        "link": "#"
+      }
+    ]
+  },
+  "client_slider": [
+    {
+      "title": null,
+      "image": "/img/clients/educrack.png"
+    },
+    {
+      "title": null,
+      "image": "/img/clients/greenhorn.png"
+    },
+    {
+      "title": null,
+      "image": "/img/clients/sovaskills.jpeg"
+    },
+    {
+      "title": null,
+      "image": "/img/clients/skillvalley.png"
+    },
+    {
+      "title": null,
+      "image": "/img/clients/jobplus.jpeg"
+    },
+    {
+      "title": null,
+      "image": "/img/clients/klsimer.jpeg"
+    }
+  ],
+  "recognition_slider": [
+    {
+      "title": "YC Startup School",
+      "image": "/img/recognitions/yc-startupschool.png"
+    },
+    {
+      "title": "Department for Promotion of Industry and Internal Trade",
+      "image": "/img/recognitions/dpiit.png"
+    },
+    {
+      "title": "Startup India",
+      "image": "/img/recognitions/startup-india.png",
+      "link": "https://www.startupindia.gov.in/content/sih/en/profile.Startup.60d97c3ce4b0c264518b8e54.html"
+    },
+    {
+      "title": "Startup Promotion Cell - Goa",
+      "image": "/img/recognitions/spc-goa.jpeg"
+    },
+    {
+      "title": "Confederation of Indian Industry",
+      "image": "/img/recognitions/cii.png"
+    },
+    {
+      "title": "Atal Incubation Centre - Goa Institute of Management",
+      "image": "/img/recognitions/aic-gim.png"
+    },
+    {
+      "title": "Forum for Innovation Incubation Research & Entrepreneurship",
+      "image": "/img/recognitions/fiire.png"
+    },
+    {
+      "title": "Expo 2020 Dubai UAE",
+      "image": "/img/recognitions/dubai-expo.png"
+    },
+    {
+      "title": "Chunauti 2.0",
+      "image": "/img/recognitions/chunauti-2.0.png"
+    },
+    {
+      "title": "Startup Technology Park of India",
+      "image": "/img/recognitions/stpi.png"
+    },
+    {
+      "title": "Next Generation Incubation Scheme",
+      "image": "/img/recognitions/ngis.png"
+    },
+    {
+      "title": "Pontaq VC",
+      "image": "/img/recognitions/pontaq.jpeg"
+    },
+    {
+      "title": "T-Hub 2.0 Hyderabad",
+      "image": "/img/recognitions/t-hub.png"
+    },
+    {
+      "title": "NASSCOM DeepTech",
+      "image": "/img/recognitions/dtc-logo.png",
+      "link": "https://nasscom.in/product-connect/deeptechclub/our-startup.php"
+    }
+  ],
+  "starups_details": {
+    "title": "A platform which uses multiple metrics to give you the best results",
+    "help_text": "Features That You Will Get",
+    "image": "/img/gallery/dashboardxx.jpg",
+    "starups_list": [
+      {
+        "text": "The dashboard will provide the ability to view all the results and sort them based on different parameters of verbal and non verbal communication."
+      },
+      {
+        "text": "The ability to detect and map individuals' unconscious biases, prejudices or other habits without them knowing."
+      },
+      {
+        "text": "Being able to engage with a larger number of individuals in a shorter amount of time."
+      }
+    ]
+  }
+}

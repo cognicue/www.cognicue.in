@@ -1,0 +1,99 @@
+{
+  "site_pages": {
+    "about": {
+      "text": "About",
+      "link": "/about/"
+    },
+    "technology": {
+      "text": "Technology",
+      "link": "/technology/"
+    },
+    "platforms": {
+      "text": "Platforms",
+      "link": "#",
+      "sub": [
+        {
+          "text": "API Services",
+          "link": "https://services.cognicue.in/api/"
+        },
+        {
+          "text": "Admin Services",
+          "link": "https://services.cognicue.in/admin/"
+        },
+        {
+          "text": "Analytics System",
+          "link": "https://analytics.cognicue.in"
+        },
+        {
+          "text": "Interview System",
+          "link": "https://interview.cognicue.in"
+        }
+      ]
+    },
+    "solutions": {
+      "text": "Solutions",
+      "link": "/solutions/",
+      "sub": [
+        {
+          "text": "Interview Practice",
+          "link": "/solutions/mock-interview-analytics/"
+        },
+        {
+          "text": "Smart Recruitment",
+          "link": "/solutions/recruitment-analytics/"
+        },
+        {
+          "text": "Employee Wellbeing",
+          "link": "/solutions/employee-wellbeing-platform/"
+        },
+        {
+          "text": "Consumer Experience",
+          "link": "/solutions/media-analytics/"
+        }
+      ]
+    },
+    "contact": {
+      "text": "Contact",
+      "link": "/contact/"
+    },
+    "privacy": {
+      "text": "Privacy Policy",
+      "link": "/privacy-policy/"
+    },
+    "terms": {
+      "text": "Terms & Conditions",
+      "link": "/terms-of-use/"
+    },
+    "insights": {
+      "text": "Insights",
+      "link": "/insights/"
+    },
+    "pricing": {
+      "text": "Pricing",
+      "link": "/pricing/"
+    },
+    "refund": {
+      "text": "Refund Policy",
+      "link": "/refund-policy/"
+    }
+  },
+  "site_contact": {
+    "email": "info@cognicue.in",
+    "mobile": 9769598282,
+    "address": "Goa, India 403501",
+    "city": "Goa",
+    "country_pin": "India, 403501"
+  },
+  "site_social": {
+    "linkedin": "https://in.linkedin.com/company/cognicue",
+    "github": "https://github.com/cognicue",
+    "discord": "https://meet.cognicue.in",
+    "facebook": "https://www.facebook.com/CogniCue",
+    "instagram": "https://www.instagram.com/cognicue",
+    "twitter": "https://twitter.com/CogniCue",
+    "whatsapp": "https://wa.me/919769598282"
+  },
+  "site_discord": {
+    "welcome": "https://e.widgetbot.io/channels/719576217946161262/719660079837741187"
+  }
+}

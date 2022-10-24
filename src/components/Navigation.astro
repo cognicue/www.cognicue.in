@@ -1,0 +1,91 @@
+---
+import { site_headers } from "../../data/navigation.json";
+import { site, site_header_cta } from "../../data/header.json";
+import { site_social, site_contact, site_discord } from "../../data/global.json";
+import { Icon } from 'astro-icon'
+---
+
+<nav class="bg-black flex items-center justify-between px-4 sticky top-0 z-50">
+  <a href="/"><img class="w-40" src={site.logo} alt={site.name} /></a>
+  <ul class="flex gap-10">
+    {
+      site_headers.map((nav) => (
+        <li class="group relative">
+          <a
+            role="link"
+            href={nav.link}
+            class="flex items-center justify-center font-semibold text-sm text-white h-16 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full group-hover:after:w-full"
+          >
+            {nav.text}{" "}
+            {nav.sub_header && (
+              <img
+                class="rotate-90 ml-2.5"
+                src="https://github-p-dex-921037-dex365.web.app/assets/icons/chevron-right.svg"
+                alt=""
+              />
+            )}
+          </a>
+          {nav.sub_header && (
+            <div class="absolute hidden min-w-[210px] -left-[50%] bg-black border border-gray-700 group-hover:block">
+              <ul>
+                {nav.sub_header.map((sub_header) => (
+                  <li class="block px-5 hover:bg-gray-800 relative group/item">
+                    <a
+                      href={sub_header.link}
+                      class="text-white whitespace-nowrap flex items-center justify-between py-2"
+                    >
+                      {sub_header.text}{" "}
+                      {sub_header.sub_sub_header && (
+                        <img
+                          class=""
+                          src="https://github-p-dex-921037-dex365.web.app/assets/icons/chevron-right.svg"
+                          alt=""
+                        />
+                      )}
+                    </a>
+                    {sub_header.sub_sub_header && (
+                      <div class="absolute hidden min-w-[210px] left-[100%] top-0 border border-gray-700 bg-black group-hover/item:block">
+                        <ul>
+                          {sub_header.sub_sub_header.map((sub_sub_header) => (
+                            <li class="block px-5 hover:bg-gray-800">
+                              <a
+                                href={sub_sub_header.link}
+                                class="text-white whitespace-nowrap flex items-center justify-between py-2"
+                                target={sub_sub_header.blank ? "_blank" : null}
+                              >
+                                {sub_sub_header.text}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+  <div class="flex gap-2">
+    <a href={`mailto:${site_contact.email};?subject=Inquiring%20about%20your%20services&body=Hi%20CogniCue%2C%0D%0A%0D%0A`} class="flex px-2 group">
+      <span class="sr-only">Email us</span>
+      <Icon class="w-6 text-gray-600 group-hover:text-gray-300" name="dashicons:email-alt" />
+    </a>
+    <a href={site_discord.welcome} class="flex px-2 group">
+      <span class="sr-only">Contect with Discord</span>
+      <Icon class="w-6 text-gray-600 group-hover:text-gray-300" name="bi:discord" />
+    </a>
+    <a href={site_social.whatsapp} class="flex px-2 group">
+      <span class="sr-only">Contect with Whatsapp</span>
+      <Icon class="w-6 text-gray-600 group-hover:text-gray-300" name="fontisto:whatsapp" />
+    </a>
+    <a
+      class="text-white border border-primary bg-primary px-6 py-2 rounded-full hover:bg-primary-dark"
+      href={site_header_cta.link}
+      target={site_header_cta.blank ? "_blank" : null}>{site_header_cta.text}</a
+    >
+  </div>
+</nav>

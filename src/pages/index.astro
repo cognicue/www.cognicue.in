@@ -1,0 +1,324 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import {
+  hero_slider,
+  application_section,
+  analyses_section,
+  client_slider,
+  recognition_slider,
+  starups_details,
+} from "../../data/home.json";
+import { Icon } from "astro-icon";
+---
+
+<Layout
+  title="Welcome to CogniCue"
+  description="Converting Emotions into Insights"
+  image="https://www.cognicue.in/assets/img/hero/differentfacess.jpg"
+  type="home"
+>
+  <Navigation />
+  <main class="">
+    <div class="my-slider bg-black py-32">
+      {
+        hero_slider.slides.map((slide) => (
+          <div class="group">
+            <div class="flex items-center px-4">
+              <div class="w-1/2 overflow-hidden h-96">
+                <img
+                  data-src={slide.image}
+                  alt=""
+                  class="h-96 tns-lazy-img scale-95 group-[.tns-slide-active]:scale-100"
+                />
+              </div>
+              <div class="w-1/2 pl-4 overflow-hidden">
+                <p class="cognicue-style font-cognicue text-5xl max-w-xl text-gray-100 mb-3 transition-all duration-700 -translate-x-[100%] group-[.tns-slide-active]:translate-x-0">
+                  {slide.title}
+                </p>
+                <p class="text-base max-w-xl text-gray-300 transition-all duration-700 delay-75 -translate-x-[100%] group-[.tns-slide-active]:translate-x-0">
+                  {slide.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <section class="py-20 bg-slate-50">
+      <h2 class="text-center text-4xl">{application_section.title}</h2>
+      <div class="flex flex-wrap max-w-7xl mx-auto mt-10">
+        {
+          application_section.applications.map((application) => (
+            <a href={application.link} class="w-1/3 p-4">
+              <figure class="bg-white border border-gray-300 rounded-xl p-4 group hover:shadow">
+                <figcaption class="text-center">
+                  <div class="my-4">
+                    <span
+                      class={`${application.image} text-6xl text-sky-800 group-hover:text-sky-600`}
+                    />
+                  </div>
+                  <div class="mb-2">
+                    <h4 class="font-semibold text-xl text-slate-900 mb-2 cognicue-style font-cognicue">
+                      {application.title}
+                    </h4>
+                    <p class="text-base text-slate-700">
+                      {application.description}
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <h2 class="text-center text-4xl text-slate-700 max-w-3xl mx-auto">
+        {analyses_section.title}
+      </h2>
+      <div class="max-w-7xl mx-auto mt-10 relative md:h-96 md:mb-20">
+        <figure
+          class="bg-yellow-200 border flex items-center justify-center border-yellow-400 rounded-full py-2 px-10 w-96 h-96 absolute left-1/2 -translate-x-1/2 z-10 transition-all group hover:shadow hover:translate-y-14"
+        >
+          <figcaption class="text-center rounded-full">
+            <div class="mb-4">
+              <span
+                class={`${analyses_section.analyses[0].image} text-6xl text-yellow-800 group-hover:text-yellow-600`}
+              ></span>
+            </div>
+            <div class="mb-2">
+              <h4
+                class="font-semibold text-xl text-yellow-900 mb-2 cognicue-style font-cognicue"
+              >
+                {analyses_section.analyses[0].title}
+              </h4>
+              <p class="text-base text-yellow-800">
+                {analyses_section.analyses[0].description}
+              </p>
+            </div>
+          </figcaption>
+        </figure>
+        <figure
+          class="bg-sky-200 border flex items-center justify-center border-sky-400 rounded-full py-2 px-10 w-96 h-96 absolute left-1/2 translate-y-1/3 -translate-x-[125%] transition-all group hover:shadow hover:-translate-x-[135%]"
+        >
+          <figcaption class="text-center rounded-full">
+            <div class="mb-4">
+              <span
+                class={`${analyses_section.analyses[1].image} text-6xl text-sky-800 group-hover:text-sky-600`}
+              ></span>
+            </div>
+            <div class="mb-2">
+              <h4
+                class="font-semibold text-xl text-sky-900 mb-2 cognicue-style font-cognicue"
+              >
+                {analyses_section.analyses[1].title}
+              </h4>
+              <p class="text-base text-sky-800">
+                {analyses_section.analyses[1].description}
+              </p>
+            </div>
+          </figcaption>
+        </figure>
+        <figure
+          class="bg-purple-200 border flex items-center justify-center border-purple-400 rounded-full py-2 px-10 w-96 h-96 absolute left-1/2 translate-y-1/3 translate-x-[25%] group transition-all hover:shadow hover:translate-x-[35%]"
+        >
+          <figcaption class="text-center rounded-full">
+            <div class="mb-4">
+              <span
+                class={`${analyses_section.analyses[2].image} text-6xl text-purple-800 group-hover:text-purple-600`}
+              ></span>
+            </div>
+            <div class="mb-2">
+              <h4
+                class="font-semibold text-xl text-purple-900 mb-2 cognicue-style font-cognicue"
+              >
+                {analyses_section.analyses[2].title}
+              </h4>
+              <p class="text-base text-purple-800">
+                {analyses_section.analyses[2].description}
+              </p>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="pt-20 pb-10 bg-gray-50">
+      <h3
+        class="text-center text-4xl text-slate-700 max-w-3xl mx-auto mb-5 cognicue-style font-cognicue"
+      >
+        Clients
+      </h3>
+      <div class="tiny-slider">
+        {
+          client_slider.map((slide) => (
+            <div class="h-full w-52 !align-middle">
+              <img
+                data-src={slide.image}
+                class="tns-lazy-img mx-auto w-auto"
+                alt=""
+              />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="py-10">
+      <h3 class="text-center text-4xl text-slate-700 max-w-3xl mx-auto">
+        {starups_details.title}
+      </h3>
+      <div class="max-w-7xl mx-auto flex pt-14">
+        <div class="w-1/2">
+          <img
+            src={starups_details.image}
+            class="rounded-xl"
+            loading="lazy"
+            decoding="async"
+            alt={starups_details.help_text}
+          />
+        </div>
+        <div class="w-1/2 md:px-8 flex flex-col gap-8 justify-center">
+          <div
+            class="bg-green-200 text-green-800 px-6 py-8 rounded-3xl text-lg flex items-start"
+          >
+            <Icon
+              class="w-[120px] text-green-400 mr-4"
+              name="raphael:checked"
+            />
+            {starups_details.starups_list[0].text}
+          </div>
+          <div
+            class="bg-blue-200 text-blue-800 px-6 py-8 rounded-3xl text-lg flex items-start"
+          >
+            <Icon class="w-[95px] text-blue-400 mr-4" name="raphael:checked" />
+            {starups_details.starups_list[1].text}
+          </div>
+          <div
+            class="bg-purple-200 text-purple-800 px-6 py-8 rounded-3xl text-lg flex items-start"
+          >
+            <Icon
+              class="w-[75px] text-purple-400 mr-4"
+              name="raphael:checked"
+            />
+            {starups_details.starups_list[2].text}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10 bg-slate-50">
+      <h3
+        class="text-center text-4xl text-slate-700 max-w-3xl mx-auto mb-5 cognicue-style font-cognicue"
+      >
+        Recognitions
+      </h3>
+      <div class="recognitions-slider">
+        {
+          recognition_slider.map((slide) => (
+            <div class="h-full w-52 !align-middle">
+              {slide.link ? (
+                <a href={slide.link}>
+                  <img
+                    data-src={slide.image}
+                    class="tns-lazy-img mx-auto w-auto"
+                    alt=""
+                  />
+                </a>
+              ) : (
+                <div>
+                  <img
+                    data-src={slide.image}
+                    class="tns-lazy-img mx-auto w-auto"
+                    alt=""
+                  />
+                </div>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style is:inline>
+  .tiny-slider,
+  .recognitions-slider {
+    transition-timing-function: linear;
+  }
+</style>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"
+  is:inline
+></script>
+<script is:inline>
+  var slider = tns({
+    container: ".my-slider",
+    items: 1,
+    slideBy: "page",
+    autoplay: true,
+    controls: false,
+    autoplayButtonOutput: false,
+    nav: false,
+    lazyload: true,
+  });
+
+  var slider2 = tns({
+    container: ".tiny-slider",
+    items: 2,
+    loop: true,
+    autoplay: true,
+    autoplayHoverPause: true,
+    autoplayButtonOutput: false,
+    controls: false,
+    nav: false,
+    speed: 3000,
+    autoplayTimeout: 0,
+    preventActionWhenRunning: true,
+    mouseDrag: true,
+    gutter: 30,
+    autoHeight: false,
+    lazyload: true,
+    responsive: {
+      600: {
+        items: 3,
+      },
+      900: {
+        items: 5,
+      },
+    },
+  });
+
+  var recognitionsSlider = tns({
+    container: ".recognitions-slider",
+    items: 2,
+    loop: true,
+    autoplay: true,
+    autoplayHoverPause: true,
+    autoplayButtonOutput: false,
+    controls: false,
+    nav: false,
+    speed: 3000,
+    autoplayTimeout: 0,
+    preventActionWhenRunning: true,
+    mouseDrag: true,
+    gutter: 30,
+    autoHeight: false,
+    lazyload: true,
+    responsive: {
+      600: {
+        items: 3,
+      },
+      900: {
+        items: 5,
+      },
+    },
+  });
+</script>

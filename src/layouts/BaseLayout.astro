@@ -1,0 +1,462 @@
+---
+import type { MDXLayoutProps } from "astro";
+import { Icon } from "astro-icon";
+
+type AuthorProps = {
+  image: string;
+  name: string;
+  desc: string;
+};
+
+type Props = MDXLayoutProps<{
+  // Define frontmatter props here
+  title: string;
+  summary: string;
+  image: string;
+  author: AuthorProps;
+  publishDate: string;
+}>;
+
+const { frontmatter } = Astro.props;
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import { site_social } from "../../data/global.json";
+
+const canonicalURL = Astro.url;
+const publishDate = new Date(frontmatter.publishDate);
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const hours = publishDate.getUTCHours();
+const publishDateFormat = `${
+  monthNames[publishDate.getMonth()]
+}. ${publishDate.getDate()}, ${publishDate.getFullYear()}, ${hours}:${(
+  "0" + publishDate.getUTCMinutes()
+).slice(-2)} ${hours >= 12 ? "p.m." : "a.m."} UTC`;
+const posts = await Astro.glob("../pages/blog/*.mdx");
+console.log(posts[0].frontmatter.title);
+const notCurrent = posts.filter(
+  (post) => post.frontmatter.title !== frontmatter.title
+);
+const app_id = "";
+---
+
+<html>
+  <head>
+    <link rel="canonical" href={canonicalURL} />
+    <title>{frontmatter.title}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="dns-prefetch" href="https://fonts.cognicue.in/" />
+    <link rel="dns-prefetch" href="https://media.cognicue.in/" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://media.cognicue.in/icons/icon.svg"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="16x16"
+      href="https://media.cognicue.in/icons/icon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="32x32"
+      href="https://media.cognicue.in/icons/icon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="https://media.cognicue.in/icons/icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://media.cognicue.in/icons/icon-180x180.png"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.cognicue.in/cognicue.css?v=15.4.0"
+    />
+    <meta name="theme-color" content="#000000"/>
+    <meta name="description" content={frontmatter.summary}>
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={frontmatter.title}>
+    <meta name="twitter:description" content={frontmatter.summary}>
+    <meta property="twitter:image:src" content={frontmatter.image}>
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:url" content="https://www.cognicue.in">
+    <meta property="og:title" content={frontmatter.title}>
+    <meta property="og:image" content={frontmatter.image}>
+    <meta property="og:description" content={frontmatter.summary}>
+    <meta property="og:site_name" content="CogniCue">
+    <style is:global>
+      .cognicue-style {
+        font-weight: 700;
+        font-style: normal;
+        font-stretch: condensed;
+      }
+      .blog blockquote {
+        @apply border-l-4 border-gray-700 p-5 mt-8 italic text-slate-500 bg-gray-100;
+      }
+    </style>
+    <script is:raw>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PBR462L');</script>
+  </head>
+  <body class="antialiased">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBR462L"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <Navigation />
+    <!-- {site} -->
+    <main class="w-full max-w-7xl mx-auto pt-8 px-4 flex gap-5">
+      <section class="w-full md:w-3/4">
+        <h1 class="text-4xl mb-4 font-cognicue cognicue-style mt-8">
+          {frontmatter.title}
+        </h1>
+        <p class="text-2xl text-slate-600">{frontmatter.summary}</p>
+        <div class="flex flex-wrap my-3 gap-4 items-center">
+          <span>Share on</span>
+          <button class="copyLink group">
+            <span class="flex group-[.active]:hidden">
+              <Icon name="akar-icons:link-chain" class="w-6" />
+              <span class="sr-only">Copy Link</span>
+            </span>
+            <span
+              class="hidden group-[.active]:flex text-green-600 font-semibold items-center"
+            >
+              Link Copied
+              <Icon name="akar-icons:circle-check-fill" class="w-4 ml-2" />
+            </span>
+          </button>
+          <a
+            href={`mailto:?subject=${encodeURIComponent(
+              frontmatter.title
+            )}&body=${encodeURIComponent(
+              frontmatter.title + " " + canonicalURL + "?smid=email-share"
+            )}`}
+            target="_blank"
+            aria-label="Email this article"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-8 text-gray-600 group-hover:text-gray-300"
+              name="dashicons:email-alt"
+            />
+            <span class="sr-only">Email</span>
+          </a>
+          <a
+            href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+              frontmatter.title + " " + canonicalURL + "?smid=whatsapp-share"
+            )}`}
+            target="_blank"
+            aria-label="Share on Whatsapp"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-6 text-gray-600 group-hover:text-gray-300"
+              name="fontisto:whatsapp"
+            />
+            <span class="sr-only">Whatsapp</span>
+          </a>
+          <a
+            href={`https://www.facebook.com/dialog/feed?app_id=${app_id}&link=${encodeURIComponent(
+              canonicalURL + "?smid=fb-share"
+            )}&name=${encodeURIComponent(frontmatter.title)}`}
+            target="_blank"
+            aria-label="Share on Facebook"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-5 px-1 text-gray-600 group-hover:text-gray-300"
+              name="brandico:facebook"
+            />
+            <span class="sr-only">Facebook</span>
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+              canonicalURL + "?smid=tw-share"
+            )}&text=${encodeURIComponent(frontmatter.title)}`}
+            target="_blank"
+            aria-label="Share on Twitter"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-8 text-gray-600 group-hover:text-gray-300"
+              name="ant-design:twitter-outlined"
+            />
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a
+            href={`https://t.me/share/url?url=${encodeURIComponent(
+              canonicalURL + "?smid=tel-share"
+            )}&text=${encodeURIComponent(
+              frontmatter.title + " via @cognicue"
+            )}`}
+            target="_blank"
+            aria-label="Share on Telegram"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-7 text-gray-600 group-hover:text-gray-300"
+              name="cib:telegram"
+            />
+            <span class="sr-only">Telegram</span>
+          </a>
+          <a
+            href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+              canonicalURL + "?smid=li-share"
+            )}&title=${encodeURIComponent(frontmatter.title)}`}
+            target="_blank"
+            aria-label="Share on LinkedIn"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-7 text-gray-600 group-hover:text-gray-300"
+              name="brandico:linkedin"
+            />
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a
+            href={`http://www.reddit.com/submit?url=${encodeURIComponent(
+              canonicalURL + "?smid=re-share"
+            )}&title=${encodeURIComponent(frontmatter.title)}`}
+            target="_blank"
+            aria-label="Share on Reddit"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-8 text-gray-600 group-hover:text-gray-300"
+              name="ant-design:reddit-outlined"
+            />
+            <span class="sr-only">Reddit</span>
+          </a>
+        </div>
+        <img class="max-w-xl mt-5" src={frontmatter.image} />
+        <figure class="flex items-center gap-2 mt-4">
+          <img
+            src={frontmatter.author.image}
+            alt={frontmatter.author.name}
+            class="w-10 h-10 object-cover rounded-full"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <p class="text-lg font-semibold">By {frontmatter.author.name}</p>
+          </figcaption>
+        </figure>
+        <time
+          class="mt-3 text-sm block"
+          datetime={new Date(frontmatter.publishDate).toISOString()}
+          >{publishDateFormat}</time
+        >
+        <article
+          class="text-xl mt-4 blog [&>p]:mb-4 [&>h2]:mb-3 [&>h2]:font-semibold [&>p>img]:max-w-xl"
+        >
+          <slot />
+        </article>
+        <div class="flex flex-wrap mt-6 mb-3 gap-4 items-center">
+          <span>Share on</span>
+          <button class="copyLink group">
+            <span class="flex group-[.active]:hidden">
+              <Icon name="akar-icons:link-chain" class="w-6" />
+              <span class="sr-only">Copy Link</span>
+            </span>
+            <span
+              class="hidden group-[.active]:flex text-green-600 font-semibold items-center"
+            >
+              Link Copied
+              <Icon name="akar-icons:circle-check-fill" class="w-4 ml-2" />
+            </span>
+          </button>
+          <a
+            href={`mailto:?subject=${encodeURIComponent(
+              frontmatter.title
+            )}&body=${encodeURIComponent(
+              frontmatter.title + " " + canonicalURL + "?smid=email-share"
+            )}`}
+            target="_blank"
+            aria-label="Email this article"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-8 text-gray-600 group-hover:text-gray-300"
+              name="dashicons:email-alt"
+            />
+            <span class="sr-only">Email</span>
+          </a>
+          <a
+            href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+              frontmatter.title + " " + canonicalURL + "?smid=whatsapp-share"
+            )}`}
+            target="_blank"
+            aria-label="Share on Whatsapp"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-6 text-gray-600 group-hover:text-gray-300"
+              name="fontisto:whatsapp"
+            />
+            <span class="sr-only">Whatsapp</span>
+          </a>
+          <a
+            href={`https://www.facebook.com/dialog/feed?app_id=${app_id}&link=${encodeURIComponent(
+              canonicalURL + "?smid=fb-share"
+            )}&name=${encodeURIComponent(frontmatter.title)}`}
+            target="_blank"
+            aria-label="Share on Facebook"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-5 px-1 text-gray-600 group-hover:text-gray-300"
+              name="brandico:facebook"
+            />
+            <span class="sr-only">Facebook</span>
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+              canonicalURL + "?smid=tw-share"
+            )}&text=${encodeURIComponent(frontmatter.title)}`}
+            target="_blank"
+            aria-label="Share on Twitter"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-8 text-gray-600 group-hover:text-gray-300"
+              name="ant-design:twitter-outlined"
+            />
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a
+            href={`https://t.me/share/url?url=${encodeURIComponent(
+              canonicalURL + "?smid=tel-share"
+            )}&text=${encodeURIComponent(
+              frontmatter.title + " via @cognicue"
+            )}`}
+            target="_blank"
+            aria-label="Share on Telegram"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-7 text-gray-600 group-hover:text-gray-300"
+              name="cib:telegram"
+            />
+            <span class="sr-only">Telegram</span>
+          </a>
+          <a
+            href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+              canonicalURL + "?smid=li-share"
+            )}&title=${encodeURIComponent(frontmatter.title)}`}
+            target="_blank"
+            aria-label="Share on LinkedIn"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-7 text-gray-600 group-hover:text-gray-300"
+              name="brandico:linkedin"
+            />
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a
+            href={`http://www.reddit.com/submit?url=${encodeURIComponent(
+              canonicalURL + "?smid=re-share"
+            )}&title=${encodeURIComponent(frontmatter.title)}`}
+            target="_blank"
+            aria-label="Share on Reddit"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              class="w-8 text-gray-600 group-hover:text-gray-300"
+              name="ant-design:reddit-outlined"
+            />
+            <span class="sr-only">Reddit</span>
+          </a>
+        </div>
+      </section>
+      <aside class="w-full md:w-3/12 sticky top-10">
+        <a
+          class="twitter-timeline"
+          href={`${site_social.twitter}?ref_src=twsrc%5Etfw`}
+          data-tweet-limit="3">Tweets by CogniCue</a
+        >
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script>
+      </aside>
+    </main>
+    <section class="w-full max-w-7xl mx-auto mt-8 px-4 mb-16">
+      <div class="border-t border-gray-700 py-1"></div>
+      <h5 class="font-semibold text-base mb-2">More in Posts</h5>
+      <div class="flex flex-wrap">
+        {
+          notCurrent.slice(0, 3).map((post) => (
+            <a
+              href={`/blog/${post.frontmatter.slug}`}
+              class="w-full mb-8"
+            >
+              <figure class="flex">
+                <img
+                  class="w-full md:w-1/2 max-w-[300px] h-44 object-cover block"
+                  src={post.frontmatter.image}
+                  alt={post.frontmatter.title}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="px-3 pb-2">
+                  <p class="font-semibold text-base mb-2">
+                    {post.frontmatter.title}
+                  </p>
+                  <p class="text-sm text-gray-500">{post.frontmatter.summary}</p>
+                  <time
+                    class="mt-2 text-xs font-semibold text-gray-500 block"
+                    datetime={new Date(post.frontmatter.publishDate).toISOString()}
+                    >{new Date(post.frontmatter.publishDate).toLocaleDateString("en-US", { month: "short" })} {new Date(post.frontmatter.publishDate).getDate()}</time
+                  >
+                </figcaption>
+              </figure>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+    <Footer />
+    <script is:inline define:vars={{ canonicalURL }}>
+      var copy = document.querySelectorAll(".copyLink");
+      copy.forEach(function(element){
+        element.addEventListener("click", async function () {
+        if (!navigator.clipboard) { return; }
+        try {
+          await navigator.clipboard.writeText(canonicalURL + '?smid=url-share');
+          element.classList.add("active");
+        } catch (err) {
+          console.error("Failed to copy!", err);
+        }
+
+        setTimeout(() => {
+          element.classList.remove("active");
+        }, 5000);
+      });
+      })
+    </script>
+  </body>
+</html>
