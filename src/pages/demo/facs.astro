@@ -1,0 +1,297 @@
+---
+import Layout from "../../layouts/FacsLayout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import PrivacyNotice from "../../components/PrivacyNotice.astro";
+import {
+  page_title,
+  left_card1,
+  left_card2,
+  right_card1,
+  right_card2,
+  right_card3,
+  demo_metrics,
+} from "../../../data/facs.json";
+import Loading from "../../components/Loading.astro";
+import SelectDemo from "../../components/SelectDemo.astro";
+---
+
+<Layout
+  title={`${page_title} - Cognicue`}
+  description="Converting Emotions into Insights"
+  image="https://www.cognicue.in/assets/img/hero/differentfacess.jpg"
+>
+  <Navigation />
+  <main class="p-4 md:p-8 min-h-[500px]">
+    <h1 class="mb-4 text-3xl font-extrabold text-center md:text-5xl lg:text-6xl">{page_title}</h1>
+    <div
+      class="modal fade"
+      id="alert"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="text-box"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <PrivacyNotice />
+    <Loading />
+    <SelectDemo />
+
+    <div class="row" id="demo-container" style="display: none;">
+      <div class="col-md-3 mt-4 text-center d-none d-sm-block">
+        <!-- Stable Menu -->
+
+        <div
+          class="card rounded bg-transparent"
+          style="border: 1px solid white;"
+        >
+          <div class="card-header small">{left_card1.header}</div>
+          <div class="card-body bg-transparent pt-1 pb-2">
+            <p class="small">{left_card1.body}</p>
+            <select id="emotion-buttons" name="states[]" multiple="multiple"
+            ></select>
+          </div>
+        </div>
+
+        <div
+          class="card rounded bg-transparent mt-2"
+          style="border: 1px solid white;"
+        >
+          <div class="card-body bg-transparent pt-1 pb-2">
+            <div
+              style="height: 10px; width: 10px; background-color: #6ef784; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"
+            >
+            </div>
+            <div><small>{left_card2.para1}</small></div>
+            <div style="clear: both; margin-bottom: 5px;"></div>
+            <div
+              style="height: 10px; width: 10px; background-color: #404040; display: inline-block; float: left; margin-right: 7px; margin-top: 7px; margin-bottom: 20px;"
+            >
+            </div>
+            <div><small>{left_card2.para2}</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xs-12">
+        <br />
+        <!-- Video -->
+        <div class="row my-0">
+          <div class="col text-center">
+            <div id="video-wrapper">
+              <video
+                poster=""
+                id="media-stimulus"
+                class="my-1 img-fluid"
+                oncontextmenu="return false;"></video>
+              <video
+                poster=""
+                id="media-object"
+                class="my-1 img-fluid"
+                style="display: none;"
+                oncontextmenu="return false;"></video>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="svg-container">
+          <!-- Graph -->
+          <div id="svg-wrapper" class="col my-0 text-center">
+            <svg id="svg-curve"></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mt-4 text-center d-none d-sm-block">
+        <!-- Transition Menu -->
+
+        <div
+          id="showSubject"
+          class="card rounded bg-transparent"
+          style="display: none;border: 1px solid white;"
+        >
+          <div id="rhsCardHeader" class="card-header small">
+            {right_card1.header}
+          </div>
+          <div
+            class="card-body bg-transparent pt-1 pb-2"
+            id="checkMediaRecorder"
+          >
+            <video
+              poster=""
+              id="media-subject"
+              class="my-1 img-fluid"
+              style="display: none;"
+              oncontextmenu="return false;"></video>
+          </div>
+        </div>
+
+        <div
+          id="showControl"
+          class="card rounded bg-transparent mt-2"
+          style="display:none;border: 1px solid white;"
+        >
+          <div class="card-header small">{right_card2.header}</div>
+          <div class="card-body bg-transparent pt-1 pb-2">
+            <p class="small">{right_card2.para1}</p>
+            <div class="text-center mt-2">
+              <button id="stopFACS" class="btnC btn btn-info btn-sm"
+                >Stop</button
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="showSummary"
+          class="card bg-transparent mt-2"
+          style="display:none;border: 1px solid white;"
+        >
+          <div class="card-body pt-2">
+            <p class="small">{right_card3.para1}</p>
+            <div><hr class="bg-white" /></div>
+            <p class="small mb-2">{right_card3.para2}</p>
+            <div class="text-center">
+              <button id="summaryButton" class="btnC btn btn-success btn-sm"
+                >Summary</button
+              >
+            </div>
+            <div><hr class="bg-white" /></div>
+            <p class="small mb-2">{right_card3.para3}</p>
+            <div class="text-center">
+              <a id="choose_another" class="btnC btn btn-info btn-sm" href="."
+                >Demo</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="summary-container" style="display:none;">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-8 offset-lg-2 col-sm-9">
+            <br />
+            <div class="card">
+              <div class="card-body">
+                <div class="tab-content" id="summaryTabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="table"
+                    role="tabpanel"
+                    aria-labelledby="table-tab"
+                  >
+                    <table class="table table-bordered table-striped">
+                      <thead>
+                        <tr class="summary-heading">
+                          <th scope="col" colspan="2" class="boldtext"
+                            >Summary</th
+                          >
+                          <!--<th class="text-right" scope="col">Ad Average</th>-->
+                        </tr>
+                      </thead>
+                      <thead>
+                        <tr class="summary-metric">
+                          <th scope="col" class="text-center">Metric</th>
+                          <th scope="col" class="text-right">Point</th>
+                          <!--<th class="text-right" scope="col">Ad Average</th>-->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {
+                          Object.values(demo_metrics).map((metric) => (
+                            <tr
+                              class={`col-8 ${
+                                metric.type == "Expressions"
+                                  ? "summary-expression"
+                                  : "summary-emotion"
+                              }`}
+                            >
+                              <td scope="col" class="text-center">
+                                {metric.mr_name}
+                              </td>
+                              <td
+                                scope="col"
+                                class="text-right col-4"
+                                id={`userMean${metric.sdk_name}`}
+                              >
+                                -
+                              </td>
+                            </tr>
+                          ))
+                        }
+                      </tbody>
+                    </table>
+                    <table>
+                      <thead>
+                        <tr class="summary-video">
+                          <th scope="col" class="text-center">Video Length</th>
+                          <th scope="col" class="text-right" id="summaryObject"
+                          ></th>
+                          <!--<th class="text-right" scope="col">Ad Average</th>-->
+                        </tr>
+                      </thead><thead>
+                        <tr class="summary-video">
+                          <th scope="col" class="text-center">Viewed Time</th>
+                          <th scope="col" class="text-right" id="summarySubject"
+                          ></th>
+                          <!--<th class="text-right" scope="col">Ad Average</th>-->
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="visual"
+                    role="tabpanel"
+                    aria-labelledby="visual-tab"
+                  >
+                    <!-- TODO: Fill with visuzlization of results -->
+                    <!-- <svg id="summaryGraph" width="960" height="500"></svg> -->
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="explain"
+                    role="tabpanel"
+                    aria-labelledby="explain-tab"
+                  >
+                    <!-- TODO: Fill with explanation of results -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-2 col-sm-3">
+            <br />
+            <div class="row">
+              <!-- Transition Menu -->
+              <div id="toDemo" class="col text-center">
+                <a href="#" id="demoButton" class="btnC btn btn-success">Back</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="portrait-container text-center w-5 h-5" hidden>
+      <div id="video-wrapper">
+        <img
+          src="/facs/img/rotate.png"
+          class="m-auto animate-spin"
+        />
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
