@@ -263,6 +263,7 @@ function Demo(pageAlert, metric, defaults) {
                 y.initButtons(),
 
                 $("#startVideo").one("click", ()=>{
+                    document.querySelector("#select-parent").classList.add("hidden");
                     $("#showControl").fadeIn(100),
                     demo_type = "play",
                     g("play", null, (e,o)=>{
@@ -278,12 +279,14 @@ function Demo(pageAlert, metric, defaults) {
                     startCapturing();
                 }),
                 $("#startShare").one("click", ()=>{
+                  document.querySelector("#select-parent").classList.add("hidden");
                     $("#showControl").fadeIn(100),
                     y.clearPlot(DEMO_TYPE.presentTimeout),
                     demo_type = "present",
                     startPresenting();
                 }),
                 $("#startMirror").one("click", ()=>{
+                  document.querySelector("#select-parent").classList.add("hidden");
                     $("#showControl").fadeIn(100),
                     y.clearPlot(60),
                     demo_type = "watch",
