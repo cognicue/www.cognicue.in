@@ -2,10 +2,11 @@
 import { site } from "../../data/header.json";
 import { site_pages, site_contact, site_social, site_discord } from "../../data/global.json";
 import { Icon } from 'astro-icon'
+const year = new Date().getFullYear();
 ---
 
 <footer class="bg-slate-900 py-4 md:py-10">
-  <section class="text-center max-w-7xl mx-auto md:pt-6">
+  <section class="text-center max-w-7xl mx-auto md:pt-6 px-4">
     <h5 class="mb-4 text-4xl font-semibold text-white">Ready to level up your business?</h5>
     <h6 class="mb-4 text-2xl font-normal text-gray-400">Want a quicker response from us?</h6>
     <div class="mt-8 flex justify-center gap-5">
@@ -13,12 +14,12 @@ import { Icon } from 'astro-icon'
       <a href={`mailto:${site_contact.email};?subject=Inquiring%20about%20your%20services&body=Hi%20CogniCue%2C%0D%0A%0D%0A`} title="Email us" type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 inline-flex items-center"><Icon class="w-6 text-inherit mr-2" name="entypo:email" /> EMAIL US</a>
     </div>
   </section>
-  <section class="flex flex-wrap max-w-7xl mx-auto border-t border-gray-800 pt-16 mt-8">
-    <div class="w-1/5 md:pr-4">
+  <section class="flex flex-wrap max-w-7xl mx-auto border-t border-gray-800 pt-16 mt-8 px-4 md:px-6">
+    <div class="w-full lg:w-1/5 md:pr-4 pb-8 lg:pb-0">
       <a href="/"><img class="w-40" src={site.logo} alt={site.name} /></a>
       <p class="text-gray-300 text-sm mt-3 pl-1">We, at CogniCue, translate your verbal, nonverbal signals and words into meaningful data.</p>
     </div>
-    <div class="w-1/5">
+    <div class="w-full md:w-1/4 lg:w-1/5 mb-4 md:mb-0">
       <h5 class="font-cognicue cognicue-style text-2xl text-primary mb-4">
         Company
       </h5>
@@ -58,7 +59,7 @@ import { Icon } from 'astro-icon'
         </li>
       </ul>
     </div>
-    <div class="w-1/5">
+    <div class="w-full md:w-1/4 lg:w-1/5 mb-4 md:mb-0">
       <h5 class="font-cognicue cognicue-style text-2xl text-primary mb-4">
         {site_pages.platforms.text}
       </h5>
@@ -74,7 +75,7 @@ import { Icon } from 'astro-icon'
         }
       </ul>
     </div>
-    <div class="w-1/5">
+    <div class="w-full md:w-1/4 lg:w-1/5 mb-4 md:mb-0">
       <h5 class="font-cognicue cognicue-style text-2xl text-primary mb-4">
         Solutions
       </h5>
@@ -90,7 +91,7 @@ import { Icon } from 'astro-icon'
         }
       </ul>
     </div>
-    <div class="w-1/5">
+    <div class="w-full md:w-1/4 lg:w-1/5">
       <h5 class="font-cognicue cognicue-style text-2xl text-primary mb-4"><span class="text-white">+91</span> <a href={`tel:${site_contact.mobile}`}>{site_contact.mobile}</a></h5>
       <div class="mb-2">
         <a class="text-gray-300 hover:text-primary hover:pl-1 transition-all" href={`mailto:${site_contact.email};?subject=Inquiring%20about%20your%20services&body=Hi%20CogniCue%2C%0D%0A%0D%0A`}>{site_contact.email}</a>
@@ -100,11 +101,11 @@ import { Icon } from 'astro-icon'
       </address>
     </div>
   </section>
-  <section class="flex flex-wrap justify-between max-w-7xl mx-auto border-t border-gray-800 pt-6 mt-16">
-    <p class="text-gray-400 text-sm">
-      Copyright &copy;<script is:inline>document.write(new Date().getFullYear());</script> All Rights Reserved | {site.name}
+  <section class="flex flex-wrap justify-between max-w-7xl mx-auto border-t border-gray-800 pt-6 mt-16 px-4">
+    <p class="text-gray-400 text-sm w-full md:w-1/2 mb-4 md:mb-0 text-center md:text-left">
+      Copyright &copy; {year} All Rights Reserved | {site.name}
     </p>
-    <div class="flex gap-2">
+    <div class="flex gap-2 w-full md:w-1/2 justify-center md:justify-end">
       <a href={site_social.linkedin} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Linkedin</span><Icon class="w-6 text-inherit" name="dashicons:linkedin" /></a>
       <a href={site_social.twitter} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Twitter</span><Icon class="w-6 text-inherit" name="dashicons:twitter" /></a>
       <a href={site_social.facebook} target="_blank" class="px-2 py-1 hover:bg-primary rounded text-gray-400 hover:text-black"><span class="sr-only">Facebook</span><Icon class="w-6 text-inherit" name="dashicons:facebook-alt" /></a>
